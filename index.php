@@ -3,24 +3,15 @@
  * Main Index Template
  * @package SimpleCharm Portfolio
  */
+$portfolio = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Portfolio::get_instance();
+$portfolio_saved_value = $portfolio->display_saved_value();
 ?>
 <?php get_header();?>
 <!-- hero section -->
 <section class="hero min-h-screen bg-base-200 min-h-lvh my-2">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" class="max-w-sm rounded-lg shadow-2xl" />
-    <div>
-      <h1 class="text-5xl font-bold">Hi, I'm Foysal 👋</h1>
-      <p class="py-6">Hello, I'm Kazi Mohammad Foysal, a skilled web developer and seasoned WordPress engineer with over three years of hands-on experience. I specialize in creating captivating online experiences, seamlessly blending design and functionality. My passion lies in delivering high-quality websites and exceeding client expectations through expert coding and dedication to my craft.</p>
-      <br>
-      <p><span><i class="fa-solid fa-location-dot"></i></span> Anowara, Chattogram</p>
-      <p><span><i class="badge badge-primary badge-xs"></i></span> Available for New Projects</p>
-      <br>
-      <a href="#"><i class="fa-brands fa-github"></i></a>
-      <a href="#"><i class="fa-brands fa-twitter"></i></a>
-      <a href="#"><i class="fa-brands fa-figma"></i></a>
-    </div>
-  </div>
+  <?php
+  get_template_part("template-parts/frontpage/basic-info","",$portfolio_saved_value);
+  ?>
 </section>
 <!-- about me section -->
 <section class="about-me min-h-screen bg-base-200 min-h-max my-2 flex">
@@ -328,7 +319,7 @@
 
 	</div>
 </section>
-<section class="home-footer w-full bg-gray-400 text-white py-3 text-center">
+<section class="home-footer w-full bg-gray-400 text-white py-3 text-center shadow-2xl my-2">
 	<div class="footer-inner flex flex-col justify-center gap-3">
 			<div class="badge badge-neutral p-2 self-center">Get in Touch</div>
 			<div class="footer-text">

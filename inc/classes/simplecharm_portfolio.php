@@ -13,6 +13,7 @@ class Simplecharm_Portfolio{
 		$this->setup_hook();
         Assets::get_instance();
         Menus::get_instance();
+        Portfolio::get_instance();
 	}
 	public function setup_hook(){
 		//all action and hook registration here

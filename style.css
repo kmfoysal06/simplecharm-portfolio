@@ -15,7 +15,9 @@
 /* css colors variables*/
 :root {
    --primary-color: #111827;
+   --primary-color-dark: #F9FAFB;
    --secondary-color: #4B5563;
+   --secondary-color-dark: #D1D5DB;
    --font: 'Inter', sans-serif;
 }
 * {
@@ -25,10 +27,10 @@
 	font-family: var(--font);
 }
 p,span,cite{
-	color: var(--secondary-color);
+	color: var(--secondary-color-dark);
 }
 h1,h2,h3,h4,h5,h6{
-	color: var(--primary-color);
+	color: var(--primary-color-dark);
 }
 section{
 	min-height: 100vh;
