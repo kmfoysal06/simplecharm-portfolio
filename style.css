@@ -11,3 +11,33 @@
  * Text Domain: simplecharm-portfolio
  * Domain Path: /languages
  */
+
+/* css colors variables*/
+:root {
+   --primary-color: #111827;
+   --secondary-color: #4B5563;
+   --font: 'Inter', sans-serif;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--font);
+}
+p,span,cite{
+	color: var(--secondary-color);
+}
+h1,h2,h3,h4,h5,h6{
+	color: var(--primary-color);
+}
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}
+foorer{
+	h1,h2,h3,h4,h5,h6{
+		color: #F9FAFB;
+	}
+}
