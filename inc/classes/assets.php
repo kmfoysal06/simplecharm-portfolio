@@ -22,20 +22,15 @@ class Assets
         // enqueue styles
         add_action("wp_enqueue_scripts", [$this, 'enqueue_styles']);
         add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_styles']);
+        add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
     }
     public function enqueue_scripts()
     {
         // register scripts
         wp_register_script("SIMPLECHARM_PORTFOLIO_main", SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/js/main.js', [], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/js/main.js'), true);
-        wp_register_script("SIMPLECHARM_PORTFOLIO_admin",SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/js/admin.js',[],filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/js/admin.js'),true);
 
         // enqueue scripts
         wp_enqueue_script('SIMPLECHARM_PORTFOLIO_main');
-
-        //admin only scripts
-        if(is_admin()){
-        	wp_enqueue_script("SIMPLECHARM_PORTFOLIO_admin");
-        }
     }
     public function enqueue_styles()
     {
@@ -56,6 +51,13 @@ class Assets
         if(is_admin()){
             wp_enqueue_style("SIMPLECHARM_PORTFOLIO_admin");
         }
+    }
+    public function admin_enqueue_scripts(){
+        wp_register_script("SIMPLECHARM_PORTFOLIO_admin",SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/js/admin.js',[],filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/js/admin.js'),true);
+            //admin only scripts
+            if(is_admin()){
+                wp_enqueue_script("SIMPLECHARM_PORTFOLIO_admin");
+            }   
     }
 
 }

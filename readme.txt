@@ -20,6 +20,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
 simplecharm-header-image.jpg - https://wordpress.org/photos/photo/1566540902/
 
+License: https://pixabay.com/illustrations/portrait-man-office-worker-8694041/
+simplecharm-default-avater.jpg - https://pixabay.com/illustrations/portrait-man-office-worker-8694041/
+
 == Design == 
 Front Page Design 
 License: 
