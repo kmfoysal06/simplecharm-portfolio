@@ -65,11 +65,10 @@
         let newInputs = row.find('input');
         queue++;
         newInputs.each(function () {
+          $(this).data('queue', queue);
           let name = $(this).attr('name');
           let inputType = $(this)[0].className;
           $(this).attr('name', `simplecharm_portfolio[social_link][${queue}][${inputType}][]`);
-          $(this).data('queue', queue);
-          // console.log(queue);
         });
         row.removeClass(hiddenFields.join(" "));
         row.insertBefore(insertBefore);

@@ -63,13 +63,21 @@ class Portfolio
     {
         $option = get_option("simplecharm_portfolio_data");
         echo '<pre>';
-        // foreach ($option['social_link'] as $social) {
-        //     echo var_dump($social['name'][0]);
-        //     echo '<hr>';
-        //     echo var_dump($social['url'][0]);
-        // }
+        foreach ($option['social_link'] as $social) {
+            // echo var_dump($social['name']);
+            foreach($social['name'] as $name){
+            foreach($social['url'] as $surl){
+                $url = $surl;
+            }
+            echo '<a href="'.$surl.'">'.$name.'</a>';
+
+            }
+            echo '<hr>';
+            //     echo '<hr>';
+            //     echo var_dump($social['url'][0]);
+        }
         // echo var_dump($option['social_link']);
-        echo var_dump($option);
+        // echo var_dump($option);
         echo '<hr>';
     }
     public function portfolio_html()
@@ -111,26 +119,24 @@ class Portfolio
 if (is_array($field) && array_key_exists("social_link", $field)):
             foreach ($field['social_link'] as $social):
             ?>
-                <tr class="flex">
-                  <td>
-                    <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][name][]" value="<?php echo $social['name'][0]; ?>" /></td>
-                  <td>
-                    <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][url][]" value="<?php echo $social['url'][0]; ?>" />
-                    <input type="hidden" class="serial" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][serial][]" value="0" />
-                  </td>
-                  <td><a class="button simplecharm_social_link_remove" href="#1">Remove</a></td>
-                </tr>
-                <?php
+                        <tr class="flex">
+                          <td>
+                            <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][name][]" value="<?php echo $social['name'][0]; ?>" /></td>
+                          <td>
+                            <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][url][]" value="<?php echo $social['url'][0]; ?>" />
+                          </td>
+                          <td><a class="button simplecharm_social_link_remove" href="#1">Remove</a></td>
+                        </tr>
+                        <?php
 endforeach;
-         endif;?>
+        endif;?>
 
     <!-- empty hidden one for jQuery -->
     <tr class="simplecharm_portfolio_empty-row__social_link screen-reader-text flex">
            <td>
             <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][name][]" value="" /></td>
           <td>
-            <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][url][]" value="<?php echo $social['url'][0]; ?>" />
-            <input type="hidden" class="serial" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][serial][]" value="0" />
+            <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][url][]" value="" />
           </td>
           <td><a class="button simplecharm_social_link_remove" href="#">Remove</a></td>
         </tr>
@@ -166,20 +172,20 @@ endforeach;
                 return;
             }
 
-            $social_link__old   = get_option('simplecharm_portfolio_data');
-            $social_link__new   = array();
-            $social_link__name  = isset($_POST['simplecharm_portfolio[social_link]']) ? $_POST['[social_link][name]'] : $_POST;
-            $social_link__url   = isset($_POST['simplecharm_portfolio[social_link]']) ? $_POST['[social_link][url]'] : $_POST;
-            $social_link__count = count($social_link__name);
-            for ($i = 0; $i < $social_link__count; $i++) {
-                // if ($social_link__name[$i] != ''):
-                //     $social_link__new[$i]['name'] = stripslashes(strip_tags($social_link__name[$i]));
-                //     $social_link__new[$i]['url']  = stripslashes($social_link__url[$i]);
-                // endif;
-            }
+            // $social_link__old   = get_option('simplecharm_portfolio_data');
+            // $social_link__new   = array();
+            // $social_link__name  = isset($_POST['simplecharm_portfolio[social_link]']) ? $_POST['[social_link][name]'] : $_POST;
+            // $social_link__url   = isset($_POST['simplecharm_portfolio[social_link]']) ? $_POST['[social_link][url]'] : $_POST;
+            // $social_link__count = count($social_link__name);
+            // for ($i = 0; $i < $social_link__count; $i++) {
+            // if ($social_link__name[$i] != ''):
+            //     $social_link__new[$i]['name'] = stripslashes(strip_tags($social_link__name[$i]));
+            //     $social_link__new[$i]['url']  = stripslashes($social_link__url[$i]);
+            // endif;
+            // }
             // $modified_data['social_link'] = $social_link__new;
-            $sanitized_data = $this->sanitize_array($modified_data);
-            if (update_option('simplecharm_portfolio_data', $sanitized_data)) {
+            // $sanitized_data = $this->sanitize_array($modified_data);
+            if (update_option('simplecharm_portfolio_data', $modified_data)) {
                 // Display success message
                 add_action('admin_notices', function () {
                     echo '<div class="notice notice-success is-dismissible"><p>Data saved successfully!</p></div>';
@@ -219,7 +225,8 @@ endforeach;
             'short_description' => "Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
             'address'           => "Earth",
             'description'       => "Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
-            'available'         => ""];
+            'available'         => "",
+            'social_links'      => []];
         if (is_array($option_value)) {
             $name              = array_key_exists("name", $option_value) ? $option_value["name"] : "";
             $image             = (array_key_exists("image", $option_value) && !empty($option_value['image'])) ? $option_value["image"] : SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg";
@@ -230,6 +237,7 @@ endforeach;
             $description       = array_key_exists("description", $option_value) ? $option_value["description"] : "";
             $address           = array_key_exists("address", $option_value) ? $option_value["address"] : "";
             $available         = (array_key_exists("available", $option_value) && $option_value['available'] === 'on') ? 'True' : "False";
+            $social_links      = array_key_exists("social_link", $option_value) ? $option_value["social_link"] : [];
             $saved_values      = [
                 'name'              => $name,
                 'user_image'        => $image,
@@ -240,6 +248,7 @@ endforeach;
                 'description'       => $description,
                 'address'           => $address,
                 'available'         => $available,
+                'social_links'      => $social_links,
             ];
         }
 
