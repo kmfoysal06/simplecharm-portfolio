@@ -44,6 +44,48 @@
 
 /***/ }),
 
+/***/ "./src/js/components/repeater.js":
+/*!***************************************!*\
+  !*** ./src/js/components/repeater.js ***!
+  \***************************************/
+/***/ (function() {
+
+(function ($) {
+  class Repeater {
+    constructor() {
+      this.init();
+    }
+    init() {
+      this.handleRepeater("simplecharm_social_link_add", ['simplecharm_portfolio_empty-row__social_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr:last-child', 'simplecharm_social_link_remove');
+    }
+    handleRepeater(addBtn, hiddenFields, insertBefore, removeBtn) {
+      let queue = $(`${insertBefore} input[type=text]`).data("queue");
+      $(`#${addBtn}`).on('click', function () {
+        let row = $(`.${hiddenFields.join(".")}`).clone(true);
+        let newInputs = row.find('input');
+        queue++;
+        newInputs.each(function () {
+          let name = $(this).attr('name');
+          let inputType = $(this)[0].className;
+          $(this).attr('name', `simplecharm_portfolio[social_link][${queue}][${inputType}][]`);
+          $(this).data('queue', queue);
+          // console.log(queue);
+        });
+        row.removeClass(hiddenFields.join(" "));
+        row.insertBefore(insertBefore);
+        return false;
+      });
+      $(`.${removeBtn}`).on('click', function () {
+        $(this).parents('tr').remove();
+        return false;
+      });
+    }
+  }
+  new Repeater();
+})(jQuery);
+
+/***/ }),
+
 /***/ "./src/sass/admin/admin.scss":
 /*!***********************************!*\
   !*** ./src/sass/admin/admin.scss ***!
@@ -136,6 +178,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_admin_admin_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/admin/admin.scss */ "./src/sass/admin/admin.scss");
 /* harmony import */ var _components_media_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/media.js */ "./src/js/components/media.js");
 /* harmony import */ var _components_media_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_media_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_repeater_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/repeater.js */ "./src/js/components/repeater.js");
+/* harmony import */ var _components_repeater_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_repeater_js__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 }();

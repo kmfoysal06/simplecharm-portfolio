@@ -1,27 +1,31 @@
 /**
  * Admin Styles
  */
+
 .portfolio-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 10px 20px;
     gap: 10px;
     width: 80%;
-    border: 1px solid #ddd;
-
-    // Additional styles for all elements with class 'portfolio-section'
+    border: 1px solid #ddd; // Additional styles for all elements with class 'portfolio-section'
 }
-
 .portfolio-intro {
     // Additional styles specific to elements with class 'portfolio-intro'
 }
-
 .portfolio-aboutme {
     // Additional styles specific to elements with class 'portfolio-aboutme'
 }
-
+//Utilities
+.flex{
+    display: flex!important;
+}
+.button-disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+}
 // Define styles for other elements and classes as needed
-
 @media screen and (max-width: 500px) {
     .admin-portfolio-modify .portfolio-intro {
         grid-template-columns: 1fr!important;

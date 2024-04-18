@@ -18,6 +18,7 @@ class Portfolio
     {
         add_action("admin_menu", [$this, "add_menu"]);
         add_action("admin_menu", [$this, "add_submenu"]);
+        add_action("admin_menu", [$this, "add_debug_submenu"]);
         add_action("admin_init", [$this, "save_data"]);
         add_action('admin_enqueue_scripts', [$this, "load_media"]);
     }
@@ -43,9 +44,34 @@ class Portfolio
             [$this, "portfolio_submenu_html"]
         );
     }
+
+    public function add_debug_submenu()
+    {
+        add_submenu_page(
+            "simplecharm_portfolio_page",
+            "Debug Portfolio",
+            "Debug Portfolio",
+            "manage_options",
+            "simplecharm_debug_menu",
+            [$this, "portfolio_debug_submenu_html"]
+        );
+    }
     /**
      * Main Option Page For Portfolio Page
      */
+    public function portfolio_debug_submenu_html()
+    {
+        $option = get_option("simplecharm_portfolio_data");
+        echo '<pre>';
+        // foreach ($option['social_link'] as $social) {
+        //     echo var_dump($social['name'][0]);
+        //     echo '<hr>';
+        //     echo var_dump($social['url'][0]);
+        // }
+        // echo var_dump($option['social_link']);
+        echo var_dump($option);
+        echo '<hr>';
+    }
     public function portfolio_html()
     {
         $saved_values = $this->display_saved_value();
@@ -63,6 +89,7 @@ class Portfolio
     public function portfolio_submenu_html()
     {
         $portfolio_saved_data = $this->display_saved_value();
+        $field                = get_option('simplecharm_portfolio_data');
         ?>
         <div class="admin-portfolio-modify__container">
             <div class="admin-portfolio-modify">
@@ -74,24 +101,85 @@ class Portfolio
                         <?php get_template_part("template-parts/portfolio/portfolio", "basic", $portfolio_saved_data);?>
                         <!-- About Me  -->
                         <?php get_template_part("template-parts/portfolio/portfolio", "aboutme", $portfolio_saved_data);?>
+                        <!-- Contact Options -->
+                        <?php get_template_part("template-parts/portfolio/portfolio", "contact", $portfolio_saved_data);?>
+    <!-- social links -->
+
+  <table id="repeatable-fieldset-one" width="100%">
+  <tbody>
+  <?php
+if (is_array($field) && array_key_exists("social_link", $field)):
+            foreach ($field['social_link'] as $social):
+            ?>
+                <tr class="flex">
+                  <td>
+                    <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][name][]" value="<?php echo $social['name'][0]; ?>" /></td>
+                  <td>
+                    <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][url][]" value="<?php echo $social['url'][0]; ?>" />
+                    <input type="hidden" class="serial" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][serial][]" value="0" />
+                  </td>
+                  <td><a class="button simplecharm_social_link_remove" href="#1">Remove</a></td>
+                </tr>
+                <?php
+endforeach;
+         endif;?>
+
+    <!-- empty hidden one for jQuery -->
+    <tr class="simplecharm_portfolio_empty-row__social_link screen-reader-text flex">
+           <td>
+            <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][name][]" value="" /></td>
+          <td>
+            <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][url][]" value="<?php echo $social['url'][0]; ?>" />
+            <input type="hidden" class="serial" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][serial][]" value="0" />
+          </td>
+          <td><a class="button simplecharm_social_link_remove" href="#">Remove</a></td>
+        </tr>
+  </tbody>
+</table>
+<p><a id="simplecharm_social_link_add" class="button" href="#">Add another</a></p>
                         <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_page__nonce") ?>">
                         <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
+
                 </form>
             </div>
         </div>
         <?php
 }
+
     /**
      * Updating Informations About Portfolio
      */
     public function save_data()
     {
+        echo var_dump($_POST);
+        // die();
         if (isset($_POST['update_portfolio_data'])) {
+            $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_page__nonce')) {
                 return;
             }
-            $modified_data = $_POST['simplecharm_portfolio'];
-            if (update_option('simplecharm_portfolio_data', $this->sanitize_array($modified_data))) {
+            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+                return;
+            }
+
+            if (!current_user_can('manage_options')) {
+                return;
+            }
+
+            $social_link__old   = get_option('simplecharm_portfolio_data');
+            $social_link__new   = array();
+            $social_link__name  = isset($_POST['simplecharm_portfolio[social_link]']) ? $_POST['[social_link][name]'] : $_POST;
+            $social_link__url   = isset($_POST['simplecharm_portfolio[social_link]']) ? $_POST['[social_link][url]'] : $_POST;
+            $social_link__count = count($social_link__name);
+            for ($i = 0; $i < $social_link__count; $i++) {
+                // if ($social_link__name[$i] != ''):
+                //     $social_link__new[$i]['name'] = stripslashes(strip_tags($social_link__name[$i]));
+                //     $social_link__new[$i]['url']  = stripslashes($social_link__url[$i]);
+                // endif;
+            }
+            // $modified_data['social_link'] = $social_link__new;
+            $sanitized_data = $this->sanitize_array($modified_data);
+            if (update_option('simplecharm_portfolio_data', $sanitized_data)) {
                 // Display success message
                 add_action('admin_notices', function () {
                     echo '<div class="notice notice-success is-dismissible"><p>Data saved successfully!</p></div>';
@@ -126,6 +214,8 @@ class Portfolio
             'name'              => 'Charm',
             'user_image'        => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg",
             'user_image2'       => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg",
+            'email'             => 'abc@gmail.com',
+            'phone'             => '1234567890',
             'short_description' => "Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
             'address'           => "Earth",
             'description'       => "Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
@@ -134,6 +224,8 @@ class Portfolio
             $name              = array_key_exists("name", $option_value) ? $option_value["name"] : "";
             $image             = (array_key_exists("image", $option_value) && !empty($option_value['image'])) ? $option_value["image"] : SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg";
             $image2            = (array_key_exists("image_2", $option_value) && !empty($option_value['image_2'])) ? $option_value["image_2"] : SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg";
+            $email             = array_key_exists("email", $option_value) ? $option_value["email"] : "abc@gmail.com";
+            $phone             = array_key_exists("phone", $option_value) ? $option_value["phone"] : "1234567890";
             $short_description = array_key_exists("short_description", $option_value) ? $option_value["short_description"] : "";
             $description       = array_key_exists("description", $option_value) ? $option_value["description"] : "";
             $address           = array_key_exists("address", $option_value) ? $option_value["address"] : "";
@@ -142,6 +234,8 @@ class Portfolio
                 'name'              => $name,
                 'user_image'        => $image,
                 'user_image2'       => $image2,
+                'email'             => $email,
+                'phone'             => $phone,
                 'short_description' => $short_description,
                 'description'       => $description,
                 'address'           => $address,

@@ -13,6 +13,16 @@
   border: 1px solid #ddd;
 }
 
+.flex {
+  display: flex !important;
+}
+
+.button-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 500px) {
   .admin-portfolio-modify .portfolio-intro {
     grid-template-columns: 1fr !important;
