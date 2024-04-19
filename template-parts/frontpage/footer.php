@@ -23,9 +23,7 @@
 			<div class="footer-social-links">
 				<p>You may also find me on these platforms!</p>
 				<div class="social-link flex gap-3 my-2 justify-center">
-				    <a href="#"><i class="fa-brands fa-github"></i></a>
-      				<a href="#"><i class="fa-brands fa-twitter"></i></a>
-      				<a href="#"><i class="fa-brands fa-figma"></i></a>
+				    <?php simplecharm_portfolio_link_social_frontend($args['social_links']); ?>
 				</div>
 			</div>
 		</div>

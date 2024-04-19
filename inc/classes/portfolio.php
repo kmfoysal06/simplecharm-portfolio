@@ -59,22 +59,26 @@ class Portfolio
     /**
      * Main Option Page For Portfolio Page
      */
-    public function portfolio_debug_submenu_html()
-    {
-        $social_links = get_option("simplecharm_portfolio_data")['social_link'];
-        echo '<pre>';
-                $social_links_arr = simplecharm_portfolio_load_social(get_option("simplecharm_portfolio_data")['social_link']);
-                $social_links_arr = array_merge($social_links_arr);
-            echo var_dump($social_links_arr);
-        echo '<hr>';
+  public function portfolio_debug_submenu_html()
+{
+
+    if ( wp_script_is( 'dashicons', 'enqueued' ) ) {
+        // Dashicons is enqueued, you can use Dashicons classes
+        echo '<span class="dashicons dashicons-admin-home"></span>'; // Example usage of Dashicons
+    } else {
+        // Dashicons is not enqueued
+        echo 'Dashicons is not available.';
     }
+
+}
+
     public function portfolio_html()
     {
         $saved_values = $this->display_saved_value();
         ?>
         <div class="admin-portfolio-page__container">
             <div class="admin-portfolio-page">
-                <?php get_template_part("template-parts/portfolio/portfolio", "basic-preview", $saved_values);?>
+                <?php get_template_part("template-parts/portfolio/portfolio", "preview", $saved_values);?>
             </div>
         </div>
         <?php

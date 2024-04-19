@@ -12,15 +12,9 @@
 		<p>Description:- <?php echo esc_html($args['description']); ?></p>
 		<p>Address:- <?php echo esc_html($args['address']); ?></p>
 		<p>Availabel:- <?php echo esc_html($args['available']); ?></p>
-		<p>Social Links:- <?php echo wp_kses(
-		    simplecharm_portfolio_load_social($args['social_links']),
-		    array(
-		        'a' => array(
-		            'href'   => array(),
-		            'target' => array(),
-		        ),
-		    )
-		);
+		<p>Social Links:-  <?php 
+$social_links = simplecharm_portfolio_link_social($args['social_links']);
+echo $social_links;
 ?></p>
 	</div>
 </div>

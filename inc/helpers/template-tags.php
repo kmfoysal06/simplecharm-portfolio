@@ -35,9 +35,71 @@ function simplecharm_portfolio_load_social($social_links)
                 }
 
             }
-            // echo var_dump($link);
         }
     }
 
-    return $social_links_array;
+    return simplecharm_portfolio_iterate_social($social_links_array);
+}
+
+function simplecharm_portfolio_iterate_social($social_links_arr){
+    foreach ($social_links_arr as &$value) {
+        foreach ($value as &$single) {
+            if (is_array($single)) {
+                $single = implode('', $single);
+            }
+        }
+    }
+    return $social_links_arr;
+}
+function simplecharm_portfolio_link_social($social_links){
+    foreach($social_links as $social_link){
+        echo '<a href="'.esc_attr($social_link['url']).'">'.esc_html($social_link['name']).'</a> ';
+    }
+}
+function simplecharm_portfolio_link_social_frontend($social_links){
+    $allowed_icons = array(
+    'twitter',
+    'facebook',
+    'instagram',
+    'youtube',
+    'linkedin',
+    'pinterest',
+    'google',
+    'tumblr',
+    'vimeo',
+    'flickr',
+    'reddit',
+    'wordpress',
+    'blogger',
+    'delicious',
+    'digg',
+    'lastfm',
+    'stumbleupon',
+    'twitter',
+    'rss',
+    'vkontakte',
+    'odnoklassniki',
+    'pocket',
+    'skype',
+    'telegram',
+    'wechat',
+    'whatsapp',
+    'xing',
+    'yelp',
+    'vk',
+    'wikipedia',
+    'twitch',
+    'github',
+);
+    $social_links = simplecharm_portfolio_iterate_social($social_links);
+    foreach($social_links as $social_link){
+        $icon = strtolower($social_link['name']);
+        if(in_array($icon, $allowed_icons)){
+            // dashicons
+            echo '<a href="'.esc_attr($social_link['url']).'"><span class="dashicons dashicons-'.$icon.'"></span></a> ';
+        }else{
+            //show link icon from dashicon
+            echo '<a href="'.esc_attr($social_link['url']).'"><span class="dashicons dashicons-admin-links"></span></a> ';
+        }
+    }
 }
