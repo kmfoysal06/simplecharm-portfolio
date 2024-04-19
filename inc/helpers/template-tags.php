@@ -9,22 +9,35 @@
 function simplecharm_portfolio_load_social($social_links)
 {
     if (isset($social_links) && is_array($social_links) && !empty($social_links)) {
-        foreach ($social_links as $single_link) {
-            $urls  = $single_link['url'];
-            $names = $single_link['name'];
-            foreach ($names as $name) {
-                foreach ($urls as $url) {
-                    $single_url = $url;
-                }
-                if (!empty($single_url) && !empty($name)) {
-                    if (filter_var($single_url, FILTER_VALIDATE_URL)) {
-                        return '<a href="' . esc_url($single_url) . '" target="_blank">' . esc_html($name) . '</a>';
-                    } else {
-                        echo var_dump($single_url);
+        $social_links_array = [];
+        foreach ($social_links as $link) {
+            // If the current element of $social_links is an array with "name" and "url" keys
+            if (isset($link['name']) && isset($link['url'])) {
+                $name = $link['name'];
+                $url  = $link['url'];
+                // Now you can use $name and $url as needed
+                array_push($social_links_array,[  'name' => $name
+                                                , 'url' => $url ]);
+            } else {
+                foreach ($link as $l) {
+                    if (is_array($l) && array_key_exists('name', $l)) {
+                        $name = $l['name'];
+                        // Now you can use $name and $url as needed
+                    } elseif (array_key_exists('url', $l)) {
+                        $url = $l['url'];
                     }
-                }
-            }
+                    if (empty($url) || empty($name)) {
+                        continue;
+                    }
 
+                array_push($social_links_array,[  'name' => $name
+                                                , 'url' => $url ]);
+                }
+
+            }
+            // echo var_dump($link);
         }
     }
+
+    return $social_links_array;
 }

@@ -61,23 +61,11 @@ class Portfolio
      */
     public function portfolio_debug_submenu_html()
     {
-        $option = get_option("simplecharm_portfolio_data");
+        $social_links = get_option("simplecharm_portfolio_data")['social_link'];
         echo '<pre>';
-        foreach ($option['social_link'] as $social) {
-            // echo var_dump($social['name']);
-            foreach($social['name'] as $name){
-            foreach($social['url'] as $surl){
-                $url = $surl;
-            }
-            echo '<a href="'.$surl.'">'.$name.'</a>';
-
-            }
-            echo '<hr>';
-            //     echo '<hr>';
-            //     echo var_dump($social['url'][0]);
-        }
-        // echo var_dump($option['social_link']);
-        // echo var_dump($option);
+                $social_links_arr = simplecharm_portfolio_load_social(get_option("simplecharm_portfolio_data")['social_link']);
+                $social_links_arr = array_merge($social_links_arr);
+            echo var_dump($social_links_arr);
         echo '<hr>';
     }
     public function portfolio_html()
@@ -111,37 +99,10 @@ class Portfolio
                         <?php get_template_part("template-parts/portfolio/portfolio", "aboutme", $portfolio_saved_data);?>
                         <!-- Contact Options -->
                         <?php get_template_part("template-parts/portfolio/portfolio", "contact", $portfolio_saved_data);?>
-    <!-- social links -->
+                        <!-- social links -->
+                        <?php get_template_part("template-parts/portfolio/portfolio", "social-links", $portfolio_saved_data);?>
 
-  <table id="repeatable-fieldset-one" width="100%">
-  <tbody>
-  <?php
-if (is_array($field) && array_key_exists("social_link", $field)):
-            foreach ($field['social_link'] as $social):
-            ?>
-                        <tr class="flex">
-                          <td>
-                            <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][name][]" value="<?php echo $social['name'][0]; ?>" /></td>
-                          <td>
-                            <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][url][]" value="<?php echo $social['url'][0]; ?>" />
-                          </td>
-                          <td><a class="button simplecharm_social_link_remove" href="#1">Remove</a></td>
-                        </tr>
-                        <?php
-endforeach;
-        endif;?>
-
-    <!-- empty hidden one for jQuery -->
-    <tr class="simplecharm_portfolio_empty-row__social_link screen-reader-text flex">
-           <td>
-            <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][name][]" value="" /></td>
-          <td>
-            <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][url][]" value="" />
-          </td>
-          <td><a class="button simplecharm_social_link_remove" href="#">Remove</a></td>
-        </tr>
-  </tbody>
-</table>
+  
 <p><a id="simplecharm_social_link_add" class="button" href="#">Add another</a></p>
                         <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_page__nonce") ?>">
                         <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
@@ -157,8 +118,6 @@ endforeach;
      */
     public function save_data()
     {
-        echo var_dump($_POST);
-        // die();
         if (isset($_POST['update_portfolio_data'])) {
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_page__nonce')) {
@@ -237,7 +196,7 @@ endforeach;
             $description       = array_key_exists("description", $option_value) ? $option_value["description"] : "";
             $address           = array_key_exists("address", $option_value) ? $option_value["address"] : "";
             $available         = (array_key_exists("available", $option_value) && $option_value['available'] === 'on') ? 'True' : "False";
-            $social_links      = array_key_exists("social_link", $option_value) ? $option_value["social_link"] : [];
+            $social_links      = array_key_exists("social_link", $option_value) ? simplecharm_portfolio_load_social($option_value['social_link']) : [];
             $saved_values      = [
                 'name'              => $name,
                 'user_image'        => $image,
