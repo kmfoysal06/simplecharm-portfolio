@@ -8,9 +8,10 @@
             this.mediaUploader('simplecharm-portfolio-user-image2',"simplecharm_portfolio_user_image2");
         }
         mediaUploader(picked_image,hidden_field) {
+            //doing the same things if there any multiple field with the class name
             $(`.${picked_image}`).click(function(e) {
                 e.preventDefault();
-                var image = wp.media({
+                let image = wp.media({
                     title: 'Upload Image',
                     // mutiple: true if you want to upload multiple files at once
                     multiple: false,
@@ -20,9 +21,9 @@
                     },
                 }).open().on('select', function(e) {
                     // This will return the selected image from the Media Uploader, the result is an object
-                    var uploaded_image = image.state().get('selection').first();
+                    let uploaded_image = image.state().get('selection').first();
                     // We convert uploaded_image to a JSON object to make accessing it easier
-                    var image_url = uploaded_image.toJSON().url;
+                    let image_url = uploaded_image.toJSON().url;
                     // Let's assign the url value to the input field
                     $(`.${picked_image}`).attr("src", image_url);
                     $(`.${hidden_field}`).val(image_url);

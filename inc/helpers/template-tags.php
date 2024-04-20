@@ -103,3 +103,22 @@ function simplecharm_portfolio_link_social_frontend($social_links){
         }
     }
 }
+
+function simplecharm_portfolio_load_skills($skills){
+    $outputArray = array_merge(
+    ...array_map(
+        function ($items) {
+            return array_map(
+                function ($item) {
+                    return ['name' => strtolower($item['name'][0])];
+                },
+                array_filter($items, function ($item) {
+                    return !empty($item['name'][0]);
+                })
+            );
+        },
+        $skills
+    )
+);
+
+}

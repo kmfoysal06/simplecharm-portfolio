@@ -19,7 +19,9 @@ class Portfolio
         add_action("admin_menu", [$this, "add_menu"]);
         add_action("admin_menu", [$this, "add_submenu"]);
         add_action("admin_menu", [$this, "add_debug_submenu"]);
+        add_action("admin_menu", [$this, "add_additional_submenu"]);
         add_action("admin_init", [$this, "save_data"]);
+        add_action("admin_init", [$this, "save_additional_data"]);
         add_action('admin_enqueue_scripts', [$this, "load_media"]);
     }
     public function add_menu()
@@ -56,21 +58,28 @@ class Portfolio
             [$this, "portfolio_debug_submenu_html"]
         );
     }
+
+    public function add_additional_submenu()
+    {
+        add_submenu_page(
+            "simplecharm_portfolio_page",
+            "Additional Info",
+            "Additional Info",
+            "manage_options",
+            "simplecharm_additional_menu",
+            [$this, "portfolio_additional_submenu_html"]
+        );
+    }
     /**
      * Main Option Page For Portfolio Page
      */
-  public function portfolio_debug_submenu_html()
-{
+    public function portfolio_debug_submenu_html()
+    {
 
-    if ( wp_script_is( 'dashicons', 'enqueued' ) ) {
-        // Dashicons is enqueued, you can use Dashicons classes
-        echo '<span class="dashicons dashicons-admin-home"></span>'; // Example usage of Dashicons
-    } else {
-        // Dashicons is not enqueued
-        echo 'Dashicons is not available.';
+        echo '<pre>';
+        $opt = get_option('simplecharm_portfolio_additional_data');
+        echo var_dump($opt);
     }
-
-}
 
     public function portfolio_html()
     {
@@ -94,7 +103,7 @@ class Portfolio
         <div class="admin-portfolio-modify__container">
             <div class="admin-portfolio-modify">
                 <div class="page-title">
-                    <h3>Your Informations Here:-</h3>
+                    <h1>Your Informations Here:-</h1>
                 </div>
                 <form class="page-contents" method="POST">
                         <!-- basic settings -->
@@ -106,9 +115,58 @@ class Portfolio
                         <!-- social links -->
                         <?php get_template_part("template-parts/portfolio/portfolio", "social-links", $portfolio_saved_data);?>
 
-  
-<p><a id="simplecharm_social_link_add" class="button" href="#">Add another</a></p>
                         <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_page__nonce") ?>">
+                        <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
+
+                </form>
+            </div>
+        </div>
+        <?php
+}
+    /**
+     * Additional Informations. Eg: Skills, Experience, Projects etc.
+     */
+    public function portfolio_additional_submenu_html()
+    {
+        ?>
+        <div class="admin-portfolio-additionals__container">
+            <div class="admin-portfolio-additionals">
+                <div class="page-title">
+                    <h1>Customize Your Additional Informations Here:</h1>
+                </div>
+                <form class="page-contents" method="POST">
+                        <!-- basic settings -->
+                        <label for="show_skills">Show Skills Section</label>
+                        <input type="checkbox" name="simplecharm_portfolio[show_skills]" id="show_skills">
+                        <div class="simplecharm-portfolio-skills">
+                            <table id="repeatable-fieldset-one" width="100%">
+                              <tbody>
+                                <?php
+// if (is_array($args) && array_key_exists("social_links", $args)):
+        // foreach ($args['social_links'] as $social):
+        ?>
+                                    <tr class="flex">
+                                      <td>
+                                        <input type="text" class="name" data-queue="0" placeholder="Skill Name" name="simplecharm_portfolio[skills][0][][name]" value="" /></td>
+                                      <td><a class="button simplecharm_skills_remove" href="#1">Remove</a></td>
+                                    </tr>
+                                    <?php
+// endforeach;
+        // endif;
+        ?>
+
+    <!-- empty hidden one for jQuery -->
+    <tr class="simplecharm_portfolio_empty-row__skills_link screen-reader-text flex">
+          <td>
+            <input type="text" class="name" data-queue="0" placeholder="Skill Name" name="simplecharm_portfolio[skills][0][][name]" value="" /></td>
+          <td><a class="button simplecharm_skill_remove" href="#1">Remove</a></td>
+        </tr>
+  </tbody>
+</table>
+<p><a id="simplecharm_skill_link_add" class="button" href="#">Add another</a></p>
+                        </div>
+
+                        <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_additionals__nonce") ?>">
                         <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
 
                 </form>
@@ -158,6 +216,35 @@ class Portfolio
 
     }
     /**
+     * Updating Additionl Informations About Portfolio
+     */
+    public function save_additional_data()
+    {
+        if (isset($_POST['update_portfolio_data'])) {
+            // echo var_dump($_POST);
+            // die();
+            $modified_data = $_POST['simplecharm_portfolio'];
+            if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {
+                return;
+            }
+            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+                return;
+            }
+
+            if (!current_user_can('manage_options')) {
+                return;
+            }
+            if (update_option('simplecharm_portfolio_additional_data', $modified_data)) {
+                // Display success message
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-success is-dismissible"><p>Data saved successfully!</p></div>';
+                });
+            }
+        }
+
+    }
+
+    /**
      * Return The Saved Value as Array
      * @param string $type default text
      * @param string $data_key default empty string
@@ -189,7 +276,9 @@ class Portfolio
             'address'           => "Earth",
             'description'       => "Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
             'available'         => "",
-            'social_links'      => []];
+            'social_links'      => [],
+            'skills'            => [],
+        ];
         if (is_array($option_value)) {
             $name              = array_key_exists("name", $option_value) ? $option_value["name"] : "";
             $image             = (array_key_exists("image", $option_value) && !empty($option_value['image'])) ? $option_value["image"] : SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg";
@@ -201,6 +290,7 @@ class Portfolio
             $address           = array_key_exists("address", $option_value) ? $option_value["address"] : "";
             $available         = (array_key_exists("available", $option_value) && $option_value['available'] === 'on') ? 'True' : "False";
             $social_links      = array_key_exists("social_link", $option_value) ? simplecharm_portfolio_load_social($option_value['social_link']) : [];
+            $skills            = array_key_exists("skills", $option_value) ? $option_value["skills"] : [];
             $saved_values      = [
                 'name'              => $name,
                 'user_image'        => $image,

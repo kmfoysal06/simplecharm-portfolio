@@ -34,3 +34,4 @@ if (is_array($args) && array_key_exists("social_links", $args)):
         </tr>
   </tbody>
 </table>
+<p><a id="simplecharm_social_link_add" class="button" href="#">Add another</a></p>
