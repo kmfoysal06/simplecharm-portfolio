@@ -4,8 +4,9 @@
  * @package SimpleCharm Portfolio
  */
 ?>
-<h3>Basic Informations</h3>
-<div class="portfolio-section portfolio-intro">
+<div class="portfolio-section-wrapper">
+	<h3 class="portfolio-section-toggle">Basic Informations</h3>
+<div class="portfolio-section portfolio-intro portfolio-section-content">
 	<label for="name">Name:</label>
 	<input type="text" id="name" class="user-name" name="simplecharm_portfolio[name]" value="<?php echo esc_html($args["name"])  ?>">
 	<label for="image">Image:</label>
@@ -19,4 +20,5 @@
 	<input type="text" id="address" class="user-address" name="simplecharm_portfolio[address]" value="<?php echo esc_html($args["address"])  ?>">
 	<label for="available">Available:</label>
 	<input type="checkbox" id="available" class="user-available" name="simplecharm_portfolio[available]" <?php echo esc_html(checked($args["available"], 'True'));  ?>>
+</div>
 </div>

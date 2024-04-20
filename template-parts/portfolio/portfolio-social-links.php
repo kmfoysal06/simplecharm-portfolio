@@ -4,6 +4,9 @@
  * @package SimpleCharm Portfolio
  */
 ?>
+<div class="portfolio-section-wrapper">
+    <h3 class="portfolio-section-toggle">Social Links</h3>
+<div class="portfolio-section-content">
 <table id="repeatable-fieldset-one" width="100%">
   <tbody>
   <?php
@@ -35,3 +38,5 @@ if (is_array($args) && array_key_exists("social_links", $args)):
   </tbody>
 </table>
 <p><a id="simplecharm_social_link_add" class="button" href="#">Add another</a></p>
+</div>
+</div>

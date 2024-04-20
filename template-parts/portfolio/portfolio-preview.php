@@ -1,7 +1,7 @@
 <div class="page-title">
-	<h3>Your Informations Here:-</h3>
+	<h3 class="portfolio-section-toggle">Your Informations Here:-</h3>
 </div>
-<div class="page-contents">
+<div class="page-contents portfolio-section-content">
 	<div class="portfolio-intro">
 		<p>Name:- <?php echo esc_html($args['name']); ?></p>
 		<p>Image:- <img src="<?php echo esc_url($args['user_image']); ?>" width="100px"></p>

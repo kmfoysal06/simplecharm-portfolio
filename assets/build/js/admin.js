@@ -15,7 +15,6 @@
     init() {
       this.mediaUploader('simplecharm-portfolio-user-image', "simplecharm_portfolio_user_image");
       this.mediaUploader('simplecharm-portfolio-user-image2', "simplecharm_portfolio_user_image2");
-      this.mediaUploader('simplecharm-portfolio-skill-image', "simplecharm_portfolio_skill_image");
     }
     mediaUploader(picked_image, hidden_field) {
       //doing the same things if there any multiple field with the class name
@@ -83,6 +82,20 @@
     }
   }
   new Repeater();
+})(jQuery);
+
+/***/ }),
+
+/***/ "./src/js/components/toggler.js":
+/*!**************************************!*\
+  !*** ./src/js/components/toggler.js ***!
+  \**************************************/
+/***/ (function() {
+
+(function ($) {
+  $('.portfolio-section-toggle').click(function () {
+    $(this).siblings('.portfolio-section-content').slideToggle('slow');
+  });
 })(jQuery);
 
 /***/ }),
@@ -181,6 +194,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_media_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_media_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_repeater_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/repeater.js */ "./src/js/components/repeater.js");
 /* harmony import */ var _components_repeater_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_repeater_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_toggler_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/toggler.js */ "./src/js/components/toggler.js");
+/* harmony import */ var _components_toggler_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_toggler_js__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
