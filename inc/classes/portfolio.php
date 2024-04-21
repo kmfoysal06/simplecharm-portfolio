@@ -136,6 +136,7 @@ class Portfolio
             <form class="page-contents" method="POST">
 
                 <?php get_template_part("template-parts/portfolio/portfolio",'skills',$this->display_saved_value()); ?>
+                <?php get_template_part("template-parts/portfolio/portfolio",'experience',$this->display_saved_value()); ?>
 
                 <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_additionals__nonce") ?>">
                 <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">

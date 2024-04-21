@@ -5,9 +5,9 @@
  */
 ?>
 <!-- skills setting -->
-<label for="show_skills">Show Skills Section</label>
-<input type="checkbox" name="simplecharm_portfolio[show_skills]" id="show_skills">
-<div class="simplecharm-portfolio-skills">
+<div class="portfolio-section-wrapper">
+	<h3 class="portfolio-section-toggle">Skills Customization</h3>
+<div class="portfolio-section-content simplecharm-portfolio-skills">
     <table id="repeatable-fieldset-one" width="100%">
       <tbody>
 	<?php
@@ -34,4 +34,5 @@ endforeach;
   </tbody>
 </table>
 <p><a id="simplecharm_skill_link_add" class="button" href="#">Add another</a></p>
+</div>
 </div>

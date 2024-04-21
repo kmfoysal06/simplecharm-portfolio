@@ -1716,23 +1716,17 @@ html {
 .min-h-screen {
   min-height: 100vh;
 }
-.min-h-40 {
-  min-height: 10rem;
-}
 .w-24 {
   width: 6rem;
+}
+.w-40 {
+  width: 10rem;
 }
 .w-96 {
   width: 24rem;
 }
 .w-full {
   width: 100%;
-}
-.w-40 {
-  width: 10rem;
-}
-.min-w-40 {
-  min-width: 10rem;
 }
 .max-w-sm {
   max-width: 24rem;
@@ -1764,6 +1758,9 @@ html {
 .justify-center {
   justify-content: center;
 }
+.justify-between {
+  justify-content: space-between;
+}
 .gap-3 {
   gap: 0.75rem;
 }
@@ -1783,14 +1780,6 @@ html {
 }
 .self-center {
   align-self: center;
-}
-.overflow-y-scroll {
-  overflow-y: scroll;
-}
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .rounded-full {
   border-radius: 9999px;
@@ -1857,12 +1846,12 @@ html {
   font-size: 3rem;
   line-height: 1;
 }
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
 .text-lg {
   font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 .font-bold {
