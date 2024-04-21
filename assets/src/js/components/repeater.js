@@ -4,9 +4,10 @@
             this.init();
         }
         init() {
-            this.handleRepeater("simplecharm_social_link_add", ['simplecharm_portfolio_empty-row__social_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr:last-child', 'simplecharm_social_link_remove');
+            this.handleRepeater("simplecharm_social_link_add", ['simplecharm_portfolio_empty-row__social_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr:last-child', 'simplecharm_social_link_remove','social_link');
+            this.handleRepeater("simplecharm_skill_link_add", ['simplecharm_portfolio_empty-row__skills_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr:last-child', 'simplecharm_skills_remove','skills');
         }
-        handleRepeater(addBtn, hiddenFields, insertBefore, removeBtn) {
+        handleRepeater(addBtn, hiddenFields, insertBefore, removeBtn, dataName) {
             let queue = $(`${ insertBefore } input[type=text]`).data("queue");
             $(`#${addBtn}`).on('click', function() {
                 let row = $(`.${hiddenFields.join(".")}`).clone(true);
@@ -16,7 +17,7 @@
                     $(this).data('queue', queue);
                     let name = $(this).attr('name');
                     let inputType = $(this)[0].className;
-                    $(this).attr('name', `simplecharm_portfolio[social_link][${queue}][${inputType}][]`);
+                    $(this).attr('name', `simplecharm_portfolio[${dataName}][${queue}][${inputType}][]`);
                 });
                 row.removeClass(hiddenFields.join(" "));
                 row.insertBefore(insertBefore);

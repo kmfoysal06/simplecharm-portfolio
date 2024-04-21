@@ -76,9 +76,8 @@ class Portfolio
     public function portfolio_debug_submenu_html()
     {
 
-        echo '<pre>';
-        $opt = get_option('simplecharm_portfolio_additional_data');
-        echo var_dump($opt);
+        // echo '<pre>';
+        // echo var_dump(simplecharm_portfolio_load_skills($this->display_saved_value()['skills']));
     }
 
     public function portfolio_html()
@@ -129,49 +128,21 @@ class Portfolio
     public function portfolio_additional_submenu_html()
     {
         ?>
-        <div class="admin-portfolio-additionals__container">
-            <div class="admin-portfolio-additionals">
-                <div class="page-title">
-                    <h1>Customize Your Additional Informations Here:</h1>
-                </div>
-                <form class="page-contents" method="POST">
-                        <!-- basic settings -->
-                        <label for="show_skills">Show Skills Section</label>
-                        <input type="checkbox" name="simplecharm_portfolio[show_skills]" id="show_skills">
-                        <div class="simplecharm-portfolio-skills">
-                            <table id="repeatable-fieldset-one" width="100%">
-                              <tbody>
-                                <?php
-// if (is_array($args) && array_key_exists("social_links", $args)):
-        // foreach ($args['social_links'] as $social):
-        ?>
-                                    <tr class="flex">
-                                      <td>
-                                        <input type="text" class="name" data-queue="0" placeholder="Skill Name" name="simplecharm_portfolio[skills][0][][name]" value="" /></td>
-                                      <td><a class="button simplecharm_skills_remove" href="#1">Remove</a></td>
-                                    </tr>
-                                    <?php
-// endforeach;
-        // endif;
-        ?>
-
-    <!-- empty hidden one for jQuery -->
-    <tr class="simplecharm_portfolio_empty-row__skills_link screen-reader-text flex">
-          <td>
-            <input type="text" class="name" data-queue="0" placeholder="Skill Name" name="simplecharm_portfolio[skills][0][][name]" value="" /></td>
-          <td><a class="button simplecharm_skill_remove" href="#1">Remove</a></td>
-        </tr>
-  </tbody>
-</table>
-<p><a id="simplecharm_skill_link_add" class="button" href="#">Add another</a></p>
-                        </div>
-
-                        <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_additionals__nonce") ?>">
-                        <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
-
-                </form>
+    <div class="admin-portfolio-additionals__container">
+        <div class="admin-portfolio-additionals">
+            <div class="page-title">
+                <h1>Customize Your Additional Informations Here:</h1>
             </div>
+            <form class="page-contents" method="POST">
+
+                <?php get_template_part("template-parts/portfolio/portfolio",'skills',$this->display_saved_value()); ?>
+
+                <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_additionals__nonce") ?>">
+                <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
+
+            </form>
         </div>
+    </div>
         <?php
 }
 
@@ -266,6 +237,7 @@ class Portfolio
     public function display_saved_value()
     {
         $option_value = get_option("simplecharm_portfolio_data");
+        $additional_option_value = get_option("simplecharm_portfolio_additional_data");
         $saved_values = [
             'name'              => 'Charm',
             'user_image'        => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg",
@@ -290,7 +262,6 @@ class Portfolio
             $address           = array_key_exists("address", $option_value) ? $option_value["address"] : "";
             $available         = (array_key_exists("available", $option_value) && $option_value['available'] === 'on') ? 'True' : "False";
             $social_links      = array_key_exists("social_link", $option_value) ? simplecharm_portfolio_load_social($option_value['social_link']) : [];
-            $skills            = array_key_exists("skills", $option_value) ? $option_value["skills"] : [];
             $saved_values      = [
                 'name'              => $name,
                 'user_image'        => $image,
@@ -302,8 +273,16 @@ class Portfolio
                 'address'           => $address,
                 'available'         => $available,
                 'social_links'      => $social_links,
+                'skills'            => []
             ];
         }
+
+        if(is_array($additional_option_value)){
+            $skills = array_key_exists("skills", $additional_option_value) ? simplecharm_portfolio_load_skills($additional_option_value["skills"]) : [];
+        }else{
+            $skills = [];
+        }
+        $saved_values['skills'] = $skills;
 
         return $saved_values;
     }

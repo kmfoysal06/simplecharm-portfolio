@@ -13,6 +13,22 @@
   border: 1px solid #ddd;
 }
 
+.portfolio-section-toggle {
+  cursor: pointer;
+}
+
+.portfolio-section-toggle::before {
+  content: "";
+  height: 5px;
+  width: 5px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  display: inline-block;
+  transform: rotate(45deg);
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+
 .flex {
   display: flex !important;
 }
