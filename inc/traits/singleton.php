@@ -1,6 +1,6 @@
 <?php
 /**
- * Trait SingletonTemplate
+ * Trait Singleton Template
  * @package Simplecharm Portfolio
  */
 

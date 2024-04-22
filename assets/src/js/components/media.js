@@ -1,3 +1,7 @@
+/**
+ * Media Uploader
+ */
+
 (function($) {
     class SimpleCharm_portfolio_Media {
         constructor() {

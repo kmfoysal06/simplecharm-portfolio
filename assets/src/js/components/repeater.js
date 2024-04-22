@@ -1,3 +1,6 @@
+/**
+ * Repeater Controll
+ */
 (function($) {
     class Repeater {
         constructor() {
