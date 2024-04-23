@@ -75,9 +75,9 @@ class Portfolio
      */
     public function portfolio_debug_submenu_html()
     {
-
-        // echo '<pre>';
-        // echo var_dump(simplecharm_portfolio_load_skills($this->display_saved_value()['skills']));
+        echo '<pre>';
+        $social_links = get_option('simplecharm_portfolio_data')['social_link'];
+        echo var_dump(simplecharm_portfolio_load_social($social_links));
     }
 
     public function portfolio_html()
@@ -193,7 +193,8 @@ class Portfolio
     public function save_additional_data()
     {
         if (isset($_POST['update_portfolio_data'])) {
-            // echo var_dump($_POST);
+            // echo '<pre>';
+            // echo var_dump($_POST['simplecharm_portfolio']['social_link']);
             // die();
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {

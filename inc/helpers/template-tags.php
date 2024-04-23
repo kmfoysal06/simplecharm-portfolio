@@ -8,7 +8,7 @@
 
 function simplecharm_portfolio_load_social($social_links)
 {
-    if (isset($social_links) && is_array($social_links) && !empty($social_links)) {
+        if (isset($social_links) && is_array($social_links) && !empty($social_links)) {
         $social_links_array = [];
         foreach ($social_links as $link) {
             // If the current element of $social_links is an array with "name" and "url" keys
@@ -19,43 +19,40 @@ function simplecharm_portfolio_load_social($social_links)
                 array_push($social_links_array, ['name' => $name
                     , 'url' => $url]);
             } else {
-                foreach ($link as $l) {
-                    if (is_array($l) && array_key_exists('name', $l)) {
-                        $name = $l['name'];
-                        // Now you can use $name and $url as needed
-                    } elseif (array_key_exists('url', $l)) {
-                        $url = $l['url'];
-                    }
-                    if (empty($url) || empty($name)) {
-                        continue;
-                    }
+                 $currentPair = [];
 
-                    array_push($social_links_array, ['name' => $name
-                        , 'url' => $url]);
+                foreach ($link as $item) {
+                    if (!empty($item["name"])) {
+                        $currentPair["name"] = $item["name"];
+                    } elseif (!empty($item["url"])) {
+                        $currentPair["url"] = $item["url"];
+                    }
+                    
+                    if (count($currentPair) === 2) {
+                        $social_links_array[] = $currentPair;
+                        $currentPair = [];
+                    }
                 }
+            }
 
             }
         }
-    }
-
-    return simplecharm_portfolio_iterate_social($social_links_array);
+    return $social_links_array;
 }
 
-function simplecharm_portfolio_iterate_social($social_links_arr)
-{
-    foreach ($social_links_arr as &$value) {
-        foreach ($value as &$single) {
-            if (is_array($single)) {
-                $single = implode('', $single);
-            }
-        }
-    }
-    return $social_links_arr;
-}
+// function simplecharm_portfolio_iterate_social($social_links_arr)
+// {
+//     $html = '';
+//     foreach($social_links_arr as $data){
+//         $html .= '<a href="' . esc_attr($data['url']) . '">' . esc_html($data['name']) . '</a> ';
+//     }
+//     // return $social_links_arr;
+//     return $html;
+// }
 function simplecharm_portfolio_link_social($social_links)
 {
     foreach ($social_links as $social_link) {
-        echo '<a href="' . esc_attr($social_link['url']) . '">' . esc_html($social_link['name']) . '</a> ';
+        echo '<a href="' . esc_attr(implode('', $social_link['url'])) . '">' . esc_attr(implode('', $social_link['name'])) . '</a> ';
     }
 }
 function simplecharm_portfolio_link_social_frontend($social_links)
@@ -94,15 +91,14 @@ function simplecharm_portfolio_link_social_frontend($social_links)
         'twitch',
         'github',
     );
-    $social_links = simplecharm_portfolio_iterate_social($social_links);
     foreach ($social_links as $social_link) {
-        $icon = strtolower($social_link['name']);
+        $icon = strtolower(implode('',$social_link['name']));
         if (in_array($icon, $allowed_icons)) {
             // dashicons
-            echo '<a href="' . esc_attr($social_link['url']) . '"><span class="dashicons dashicons-' . $icon . '"></span></a> ';
+            echo '<a href="' . esc_attr(implode('',$social_link['url'])) . '"><span class="dashicons dashicons-' . $icon . '"></span></a> ';
         } else {
             //show link icon from dashicon
-            echo '<a href="' . esc_attr($social_link['url']) . '"><span class="dashicons dashicons-admin-links"></span></a> ';
+            echo '<a href="' . esc_attr(implode('',$social_link['url'])) . '"><span class="dashicons dashicons-admin-links"></span></a> ';
         }
     }
 }

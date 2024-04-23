@@ -13,6 +13,9 @@
       <p><span><i class="fa-solid fa-location-dot"></i></span> <?php echo $args['address']; ?></p>
       <p><span><i class="badge <?php echo esc_attr($args['available'] == 'True' ? 'badge-primary' : 'badge-error') ; ?> badge-xs"></i></span> <?php echo esc_html($args['available'] == 'True' ? '' : 'Currently Not ') ; ?>Available for New Projects</p>
       <br>
-      <?php simplecharm_portfolio_link_social_frontend($args['social_links']); ?>
+      <?php 
+        $social_links = simplecharm_portfolio_link_social_frontend($args['social_links']);
+        $social_links;
+       ?>
     </div>
   </div>

@@ -18,8 +18,8 @@
 			<p>Address:- <?php echo esc_html($args['address']); ?></p>
 			<p>Availabel:- <?php echo esc_html($args['available']); ?></p>
 			<p>Social Links:-  <?php 
-	$social_links = simplecharm_portfolio_link_social($args['social_links']);
-	echo $social_links;
+			$social_links = simplecharm_portfolio_link_social($args['social_links']);
+			$social_links;
 	?></p>
 			<p>Skills:- <?php echo implode(', ', $args['skills']) ?></p>
 		</div>
