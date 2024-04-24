@@ -137,7 +137,6 @@ class Portfolio
 
                 <?php get_template_part("template-parts/portfolio/portfolio",'skills',$this->display_saved_value()); ?>
                 <?php get_template_part("template-parts/portfolio/portfolio",'experience',$this->display_saved_value()); ?>
-
                 <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_additionals__nonce") ?>">
                 <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
 
@@ -164,20 +163,6 @@ class Portfolio
             if (!current_user_can('manage_options')) {
                 return;
             }
-
-            // $social_link__old   = get_option('simplecharm_portfolio_data');
-            // $social_link__new   = array();
-            // $social_link__name  = isset($_POST['simplecharm_portfolio[social_link]']) ? $_POST['[social_link][name]'] : $_POST;
-            // $social_link__url   = isset($_POST['simplecharm_portfolio[social_link]']) ? $_POST['[social_link][url]'] : $_POST;
-            // $social_link__count = count($social_link__name);
-            // for ($i = 0; $i < $social_link__count; $i++) {
-            // if ($social_link__name[$i] != ''):
-            //     $social_link__new[$i]['name'] = stripslashes(strip_tags($social_link__name[$i]));
-            //     $social_link__new[$i]['url']  = stripslashes($social_link__url[$i]);
-            // endif;
-            // }
-            // $modified_data['social_link'] = $social_link__new;
-            // $sanitized_data = $this->sanitize_array($modified_data);
             if (update_option('simplecharm_portfolio_data', $modified_data)) {
                 // Display success message
                 add_action('admin_notices', function () {
@@ -214,7 +199,6 @@ class Portfolio
                 });
             }
         }
-
     }
 
     /**
