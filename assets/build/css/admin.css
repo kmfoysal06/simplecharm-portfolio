@@ -29,8 +29,16 @@
   margin-bottom: 2px;
 }
 
+.portfolio-section-content .responsibility {
+  margin-left: 15px;
+}
+
 .flex {
   display: flex !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
 }
 
 .button-disabled {

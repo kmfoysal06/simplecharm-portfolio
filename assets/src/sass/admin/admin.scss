@@ -32,9 +32,17 @@
 .portfolio-aboutme {
     // Additional styles specific to elements with class 'portfolio-aboutme'
 }
+.portfolio-section-content{
+    .responsibility{
+        margin-left: 15px;
+    }
+}
 //Utilities
 .flex{
     display: flex!important;
+}
+.flex-col{
+    flex-direction: column!important;
 }
 .button-disabled {
     cursor: not-allowed;

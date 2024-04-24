@@ -10,6 +10,7 @@
             this.handleRepeater("simplecharm_social_link_add", ['simplecharm_portfolio_empty-row__social_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr:last-child', 'simplecharm_social_link_remove','social_link');
             this.handleRepeater("simplecharm_skill_link_add", ['simplecharm_portfolio_empty-row__skills_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr:last-child', 'simplecharm_skills_remove','skills');
             this.handleRepeater("simplecharm_experience_link_add", ['simplecharm_portfolio_empty-row__experience_link', 'screen-reader-text'], '#repeatable-fieldset-two tbody>tr:last-child', 'simplecharm_experience_remove','experiences');
+            this.handleRepeater("simplecharm_experience_responsibility_add", ['simplecharm_portfolio_empty-row__responsibilities', 'screen-reader-text'], '#repeatable-fieldset-three div div', 'simplecharm_experience_responsibility_remove','responsibilities');
         }
         handleRepeater(addBtn, hiddenFields, insertBefore, removeBtn, dataName) {
             let queue = $(`${ insertBefore } input[type=text]`).data("queue");

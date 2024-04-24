@@ -12,11 +12,11 @@
       <tbody>
 	<?php
 if (is_array($args) && array_key_exists("skills", $args)):
-        foreach ($args['skills'] as $skill):
+        foreach ($args['skills'] as $key => $skill):
         ?>
         <tr class="flex">
           <td>
-            <input type="text" class="name" data-queue="0" placeholder="Skill Name" name="simplecharm_portfolio[skills][0][][name]" value="<?php echo $skill; ?>" /></td>
+            <input type="text" class="name" data-queue="<?php echo $key; ?>" placeholder="Skill Name" name="simplecharm_portfolio[skills][<?php echo $key; ?>][][name]" value="<?php echo $skill; ?>" /></td>
           <td><a class="button simplecharm_skills_remove" href="#1">Remove</a></td>
         </tr>
     <?php
