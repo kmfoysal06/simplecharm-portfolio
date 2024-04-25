@@ -14,51 +14,62 @@
 if (is_array($args) && array_key_exists("experience", $args)):
     foreach ($args['experience'] as $experience):
     ?>
-          <tr class="flex">
-            <td>
-              <input type="text" class="title" data-queue="0" placeholder="Experience Title" name="simplecharm_portfolio[experience][0][][title]" value="<?php// echo $experience; ?>" /></td>
-              <td>
-                <input type="text" class="responsibility" data-queue="0" placeholder="simplecharm_portfolio[experience][0][][responsibility]">
-              </td>
-              <td>
-                <input type="text" class="start-date" data-queue="0" placeholder="simplecharm_portfolio[experience][0][][start_date]">
-                <input type="text" class="end-date" data-queue="0" placeholder="simplecharm_portfolio[experience][0][][end_date]">
-              </td>
-            <td><a class="button simplecharm_experience_remove" href="#1">Remove</a></td>
-          </tr>
+ <tr class="flex">
+    <td>
+        <label for="experience-institution">Institution</label>
+        <input type="text" class="institution" placeholder="Experience Institution" name="simplecharm_portfolio[experiences][0][institution]" value="" id="experience-institution">
+    </td>
+    <td class="responsibilities" id="repeatable-fieldset-three">
+        <label for="responsibilities">Responsibilities</label>
+        <textarea name="simplecharm_portfolio[experiences][0][responsibilities]" id="responsibilities" cols="50" rows="5"></textarea>
+    </td>
+    <td>
+        <label for="start-date">Start Date</label>
+        <input type="date" class="start-date" name="simplecharm_portfolio[experiences][0][start_date]" placeholder="Start Date" id="start-date">
+        <label for="end-date">End Date</label>
+        <input type="date" class="end-date" name="simplecharm_portfolio[experiences][0][end_date]" placeholder="End Date" id="end-date">
+    </td>
+    <td>
+        <!-- Hidden input for "Still Working?" -->
+        <input type="hidden" name="simplecharm_portfolio[experiences][0][working]" value="off">
+        <label for="working-now">Still Working?</label>
+        <input type="checkbox" class="working-now" id="working-now" name="simplecharm_portfolio[experiences][0][working]">
+    </td>
+    <td>
+        <a class="button simplecharm_experience_remove" href="#1">Remove</a>
+    </td>
+</tr>
+
       <?php
 endforeach;
 endif;
 ?>
 
     <!-- empty hidden one for jQuery -->
-    <tr class="simplecharm_portfolio_empty-row__experience_link screen-reader-text flex flex-col">
-      <td>
-              <input type="text" class="title" data-queue="0" placeholder="Experience Title" name="simplecharm_portfolio[experience][0][][title]" value="" /></td>
-              <td class="responsibilities" id="repeatable-fieldset-three">
-                <div class="inputs">
-                  <div>
-                    <input type="text" class="responsibility" data-queue="0" name="simplecharm_portfolio[experience][0][][responsibility]" placeholder="Responsibilities">
-                  <a class="button simplecharm_experience_responsibility_remove" href="#1">Remove</a>
-                  </div>
-                </div>
-                <p><a id="simplecharm_experience_responsibility_add" class="button" href="#">Add</a></p>
-
-                <!-- Hidden Fileds For Jquery -->
-                <div class="simplecharm_portfolio_empty-row__responsibilities screen-reader-text">
-                  <input type="text" class="responsibility" data-queue="0" name="simplecharm_portfolio[experience][0][][responsibility]" placeholder="Responsibilities">
-                  <a class="button simplecharm_responsibility_remove" href="#1">Remove</a>
-                </div>
-              </td>
-              <td>
-                <input type="date" class="start-date" data-queue="0" name="simplecharm_portfolio[experience][0][][start_date]" placeholder="Start Date">
-                <input type="date" class="end-date" data-queue="0" name="simplecharm_portfolio[experience][0][][end_date]" placeholder="End Date">
-              </td>
-              <td>
-                <label for="working-now">Still Working?</label>
-                <input type="checkbox" class="working-now" id="working-now" name="simplecharm_portfolio[experience][0][][working]">
-              </td>
-            <td><a class="button simplecharm_experience_remove" href="#1">Remove</a></td>
+    <tr class="simplecharm_portfolio_empty-row__experience_link screen-reader-text flex flex-col simplecharm-basic-border simplecharm-basic-padding">
+    <td>
+        <label for="experience-institution">Institution</label>
+        <input type="text" class="institution" placeholder="Experience Institution" name="simplecharm_portfolio[experiences][0][institution]" value="" id="experience-institution">
+    </td>
+    <td class="responsibilities" id="repeatable-fieldset-three">
+        <label for="responsibilities">Responsibilities</label>
+        <textarea name="simplecharm_portfolio[experiences][0][responsibilities]" id="responsibilities" cols="50" rows="5"></textarea>
+    </td>
+    <td>
+        <label for="start-date">Start Date</label>
+        <input type="date" class="start-date" name="simplecharm_portfolio[experiences][0][start_date]" placeholder="Start Date" id="start-date">
+        <label for="end-date">End Date</label>
+        <input type="date" class="end-date" name="simplecharm_portfolio[experiences][0][end_date]" placeholder="End Date" id="end-date">
+    </td>
+    <td>
+        <!-- Hidden input for "Still Working?" -->
+        <input type="hidden" name="simplecharm_portfolio[experiences][0][working]" value="off">
+        <label for="working-now">Still Working?</label>
+        <input type="checkbox" class="working-now" id="working-now" name="simplecharm_portfolio[experiences][0][working]">
+    </td>
+    <td>
+        <a class="button simplecharm_experience_remove" href="#1">Remove</a>
+    </td>
     </tr>
   </tbody>
 </table>

@@ -178,9 +178,9 @@ class Portfolio
     public function save_additional_data()
     {
         if (isset($_POST['update_portfolio_data'])) {
-            // echo '<pre>';
-            // echo var_dump($_POST['simplecharm_portfolio']['social_link']);
-            // die();
+            echo '<pre>';
+            echo var_dump($_POST['simplecharm_portfolio']);
+            die();
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {
                 return;
