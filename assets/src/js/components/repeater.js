@@ -7,24 +7,25 @@
             this.init();
         }
         init() {
-            this.handleRepeater("simplecharm_social_link_add", ['simplecharm_portfolio_empty-row__social_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr:last-child', 'simplecharm_social_link_remove','social_link');
-            this.handleRepeater("simplecharm_skill_link_add", ['simplecharm_portfolio_empty-row__skills_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr:last-child', 'simplecharm_skills_remove','skills');
-            this.handleRepeater("simplecharm_experience_link_add", ['simplecharm_portfolio_empty-row__experience_link', 'screen-reader-text'], '#repeatable-fieldset-two tbody>tr:last-child', 'simplecharm_experience_remove','experiences');
+            this.handleRepeater("simplecharm_social_link_add", ['simplecharm_portfolio_empty-row__social_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr', 'simplecharm_social_link_remove','social_link');
+            this.handleRepeater("simplecharm_skill_link_add", ['simplecharm_portfolio_empty-row__skills_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr', 'simplecharm_skills_remove','skills');
+            this.handleRepeater("simplecharm_experience_link_add", ['simplecharm_portfolio_empty-row__experience_link', 'screen-reader-text'], '#repeatable-fieldset-two tbody>tr', 'simplecharm_experience_remove','experiences');
         }
         handleRepeater(addBtn, hiddenFields, insertBefore, removeBtn, dataName) {
-            let queue = $(`${ insertBefore } input`).data("queue");
+            let queue = $(`${ insertBefore }:nth-last-child(2) input`).data("queue");
             $(`#${addBtn}`).on('click', function() {
+                queue++;
+                queue = isNaN(queue) ? 0 : queue ;
                 let row = $(`.${hiddenFields.join(".")}`).clone(true);
-                let newInputs = row.find('input');
+                let newInputs = row.find('input, textarea');
                 newInputs.each(function() {
-                    $(this).data('queue', queue);
+                    $(this).attr('data-queue', queue);
                     let name = $(this).attr('name');
                     let inputType = $(this)[0].className;
-                    $(this).attr('name', `simplecharm_portfolio[${dataName}][${queue}][${inputType}][]`);
+                    $(this).attr('name', `simplecharm_portfolio[${dataName}][${queue}][][${inputType}]`);
                 });
-                queue++;
                 row.removeClass(hiddenFields.join(" "));
-                row.insertBefore(insertBefore);
+                row.insertBefore(`${insertBefore}:last-child`);
                 return false;
             });
             $(`.${removeBtn}`).on('click', function() {

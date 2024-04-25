@@ -119,3 +119,20 @@ function simplecharm_portfolio_load_skills($all_skills)
     }
     return $skillsArray;
 }
+
+function simplecharm_portfolio_load_experience($experiences){
+    $sanitized_experiences = [];
+    foreach ($experiences as $experience) {
+        $temp_experience = [];
+        foreach($experience as $experience_data){
+            if(is_array($experience_data)){
+                $temp_experience[] = $experience_data;
+            }
+        }
+        $sanitized_experiences[] = $temp_experience;
+    }
+    return $sanitized_experiences;
+}
+function simplecharm_portfolio_flatter_array($arr){
+    return array_merge(...$arr);
+}

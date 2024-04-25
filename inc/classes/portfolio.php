@@ -76,8 +76,11 @@ class Portfolio
     public function portfolio_debug_submenu_html()
     {
         echo '<pre>';
-        $social_links = get_option('simplecharm_portfolio_data')['social_link'];
-        echo var_dump(simplecharm_portfolio_load_social($social_links));
+        $experiences = get_option('simplecharm_portfolio_additional_data')['experiences'];
+        $sanitized = simplecharm_portfolio_load_experience($experiences);
+        echo var_dump(array_merge(...$sanitized[0]));
+
+        // echo var_dump($experiences);
     }
 
     public function portfolio_html()
@@ -178,9 +181,20 @@ class Portfolio
     public function save_additional_data()
     {
         if (isset($_POST['update_portfolio_data'])) {
-            echo '<pre>';
-            echo var_dump($_POST['simplecharm_portfolio']);
-            die();
+            // echo '<pre>';
+            // $data = $_POST['simplecharm_portfolio']['experiences'];
+            // $new_arr = [];
+            // foreach ($data as $single_data) {
+            //     foreach($single_data as $arr){
+            //         echo "<hr>";
+            //         if(is_array($arr)){
+            //             $new_arr[] = $arr;
+            //         }
+            //     }
+
+            // }
+            // echo var_dump(array_merge(...$new_arr));
+            // die();
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {
                 return;
@@ -259,16 +273,20 @@ class Portfolio
                 'address'           => $address,
                 'available'         => $available,
                 'social_links'      => $social_links,
-                'skills'            => []
+                'skills'            => [],
+                'experiences'       => [],
             ];
         }
 
         if(is_array($additional_option_value)){
             $skills = array_key_exists("skills", $additional_option_value) ? simplecharm_portfolio_load_skills($additional_option_value["skills"]) : [];
+            $experiences = array_key_exists("experiences", $additional_option_value) ? simplecharm_portfolio_load_experience($additional_option_value["experiences"]) : [];
         }else{
             $skills = [];
+            $experiences = [];
         }
         $saved_values['skills'] = $skills;
+        $saved_values['experiences'] = $experiences;
 
         return $saved_values;
     }
