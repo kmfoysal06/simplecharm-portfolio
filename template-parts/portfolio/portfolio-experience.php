@@ -15,6 +15,7 @@ if (is_array($args) && array_key_exists("experiences", $args)):
     foreach ($args['experiences'] as $experience):
       $flatter_experience = simplecharm_portfolio_flatter_array($experience);
         if(!is_array($flatter_experience) || empty($flatter_experience)) continue;
+        $working_now = (array_key_exists('working-now',$flatter_experience)) ? $flatter_experience['working-now'] : 'off';
     ?>
  <tr class="flex flex-col simplecharm-basic-border simplecharm-basic-padding">
     <td>
@@ -29,11 +30,11 @@ if (is_array($args) && array_key_exists("experiences", $args)):
         <label for="start-date">Start Date</label>
         <input type="date" class="start_date" name="simplecharm_portfolio[experiences][0][start_date]" placeholder="Start Date" id="start-date" data-queue="0" value="<?php echo (array_key_exists("start_date",$flatter_experience)) ? $flatter_experience['start_date'] : '' ;?>">
         <label for="end-date">End Date</label>
-        <input type="date" class="end_date" name="simplecharm_portfolio[experiences][0][end_date]" placeholder="End Date" id="end-date" data-queue="0" value="<?php echo (array_key_exists("end_date",$flatter_experience)) ? $flatter_experience['end_date'] : '' ;?>">
+        <input type="date" class="end_date" name="simplecharm_portfolio[experiences][0][end_date]" placeholder="End Date" id="end-date" data-queue="0" value="<?php echo (array_key_exists("end_date",$flatter_experience)) ? $flatter_experience['end_date'] : '' ;?>" <?php disabled($working_now,'on');?>>
     </td>
     <td>
         <label for="working-now">Still Working?</label>
-        <input type="checkbox" class="working-now" id="working-now" name="simplecharm_portfolio[experiences][0][working]" class="working" data-queue="0" <?php checked((array_key_exists("working",$flatter_experience) ? $flatter_experience['working'] : 'off'),'on') ?>>
+        <input type="checkbox" class="working-now" id="working-now" name="simplecharm_portfolio[experiences][0][working]" class="working" data-queue="0" <?php checked($working_now,'on'); ?>>
     </td>
     <td>
         <a class="button simplecharm_experience_remove" href="#1">Remove</a>

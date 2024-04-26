@@ -78,7 +78,7 @@ class Portfolio
         echo '<pre>';
         $experiences = get_option('simplecharm_portfolio_additional_data')['experiences'];
         $sanitized = simplecharm_portfolio_load_experience($experiences);
-        echo var_dump(array_merge(...$sanitized[0]));
+        echo var_dump(array_merge(...$sanitized[1]));
 
         // echo var_dump($experiences);
     }
