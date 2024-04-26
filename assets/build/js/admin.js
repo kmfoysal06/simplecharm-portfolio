@@ -18,7 +18,7 @@
     handleWorking() {
       const experience_section = $(".simplecharm-portfolio-experience"),
         end_date = experience_section.find('.end_date'),
-        still_working = experience_section.find('.working-now');
+        still_working = experience_section.find('.working');
       still_working.each(function (index, element) {
         $(element).on("change", function (e) {
           $(this).parents("tr").find('.end_date').prop('disabled', e.target.checked);
@@ -102,7 +102,7 @@
       let queue = $(`${insertBefore}:nth-last-child(2) input`).data("queue");
       $(`#${addBtn}`).on('click', function () {
         queue++;
-        queue = isNaN(queue) ? 0 : queue;
+        queue = isNaN(queue) ? 1 : queue;
         let row = $(`.${hiddenFields.join(".")}`).clone(true);
         let newInputs = row.find('input, textarea');
         newInputs.each(function () {
@@ -110,6 +110,11 @@
           let name = $(this).attr('name');
           let inputType = $(this)[0].className;
           $(this).attr('name', `simplecharm_portfolio[${dataName}][${queue}][][${inputType}]`);
+          let inputId = $(this).attr("id");
+          let LabelFor = $(this).siblings('label').attr('for');
+          console.log(queue);
+          $(this).attr("id", `${inputId}-${queue}`);
+          $(this).siblings('label').attr("for", `${LabelFor}-${queue}`);
         });
         row.removeClass(hiddenFields.join(" "));
         row.insertBefore(`${insertBefore}:last-child`);

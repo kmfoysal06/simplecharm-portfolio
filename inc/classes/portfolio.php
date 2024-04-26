@@ -182,7 +182,7 @@ class Portfolio
     public function save_additional_data()
     {
         if (isset($_POST['update_portfolio_data'])) {
-            echo '<pre>';
+            // echo '<pre>';
             $data = $_POST['simplecharm_portfolio']['experiences'];
             // $new_arr = [];
             // foreach ($data as $single_data) {
@@ -195,8 +195,8 @@ class Portfolio
 
             // }
             // echo var_dump(array_merge(...$new_arr));
-            echo var_dump($data);
-            die();
+            // echo var_dump($data);
+            // die();
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {
                 return;

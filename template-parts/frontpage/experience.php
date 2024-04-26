@@ -14,19 +14,17 @@
 		$experiences = $args['experiences'];
 		foreach($experiences as $single_experience):
 		$flattern_experience = simplecharm_portfolio_flatter_array($single_experience);
+		if(empty($flattern_experience)) continue;
 		?>
 		<div class="grid grid-cols-3 p-2 my-2 shadow-2xl">
 			<div class="experience-name flex justify-center items-center">
-				<h2 class="text-5xl">Fiverr</h2>
+				<h2 class="text-5xl"><?php echo esc_html($flattern_experience['institution']); ?></h2>
 			</div>
-			<div class="experience-info experience-name flex flex-col justify-center">
-				<h3 class="text-2xl">Sr. Frotend Developer</h3>
-				<ul class="list-disc">
-					<li>Lorem ipsum dolor sit, amet, consectetur adipisicing elit.</li>
-					<li>fuga recusandae vel qui, aperiam nisi nostrum nobis eos modi ducimus magni ea facilis dolores.</li>
-					<li>Laborum, beatae sapiente. Eaque facilis eum, corrupti neque minima placeat, qui nihil.</li>
-					<li>Lorem ipsum dolor sit, amet, consectetur adipisicing elit.</li>
-				</ul>
+			<div class="experience-info experience-name flex flex-col justify-center p-2 gap-4">
+				<h3 class="text-2xl"><?php echo esc_html($flattern_experience['post-title']); ?></h3>
+				<?php
+				echo simplecharm_portfolio_experience_responsibility_list($flattern_experience['responsibility']);
+				?>
 			</div>
 			<div class="experience-date experience-name flex justify-center items-center">
 				<h4>Jan 2020 - Present</h4>

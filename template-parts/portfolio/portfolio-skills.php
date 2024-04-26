@@ -16,7 +16,8 @@ if (is_array($args) && array_key_exists("skills", $args)):
         ?>
         <tr class="flex">
           <td>
-            <input type="text" class="name" data-queue="<?php echo $key; ?>" placeholder="Skill Name" name="simplecharm_portfolio[skills][<?php echo $key; ?>][][name]" value="<?php echo $skill; ?>" /></td>
+            <label for="skill-name-<?php echo $key; ?>"></label>
+            <input type="text" class="name" data-queue="<?php echo $key; ?>" placeholder="Skill Name" name="simplecharm_portfolio[skills][<?php echo $key; ?>][][name]" value="<?php echo $skill; ?>" id="skill-name-<?php echo $key; ?>" /></td>
           <td><a class="button simplecharm_skills_remove" href="#1">Remove</a></td>
         </tr>
     <?php
@@ -27,7 +28,8 @@ endforeach;
     <!-- empty hidden one for jQuery -->
     <tr class="simplecharm_portfolio_empty-row__skills_link screen-reader-text flex">
 	    <td>
-	    <input type="text" class="name" data-queue="0" placeholder="Skill Name" name="simplecharm_portfolio[skills][0][][name]" value="" />
+        <label for="skill-name"></label>
+	    <input type="text" class="name" data-queue="0" placeholder="Skill Name" name="simplecharm_portfolio[skills][0][][name]" value="" id="skill-name" />
 	    </td>
 	    <td><a class="button simplecharm_skills_remove" href="#1">Remove</a></td>
     </tr>

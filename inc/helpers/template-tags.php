@@ -147,3 +147,18 @@ function simplecharm_portfolio_experience_admin($experiences){
     }
     return $experience_institutions;
 }
+function simplecharm_portfolio_experience_responsibility_list($responsibilities){
+    if(!strpos($responsibilities, '---')){
+        $html = $responsibilities;
+    }else{
+                $responsibility_array = explode('---', $responsibilities);
+                $html = '';
+                $html .= '<ul class="list-disc">';
+                foreach($responsibility_array as $responsibility){
+                    if(empty($responsibility)) continue;
+                    $html .= '<li>'.$responsibility.'</li>';
+                }
+                $html .= '</ul>';
+    }
+    return $html;
+}
