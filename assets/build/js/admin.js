@@ -1,6 +1,25 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/components/admin-experience.js":
+/*!***********************************************!*\
+  !*** ./src/js/components/admin-experience.js ***!
+  \***********************************************/
+/***/ (function() {
+
+(function ($) {
+  const experience_section = $(".simplecharm-portfolio-experience"),
+    end_date = experience_section.find('.end_date');
+  still_working = experience_section.find('.working-now');
+  still_working.each(function (index, element) {
+    $(element).on("change", function (e) {
+      end_date.prop('disabled', e.target.checked);
+    });
+  });
+})(jQuery);
+
+/***/ }),
+
 /***/ "./src/js/components/media.js":
 /*!************************************!*\
   !*** ./src/js/components/media.js ***!
@@ -209,6 +228,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_repeater_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_repeater_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_toggler_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/toggler.js */ "./src/js/components/toggler.js");
 /* harmony import */ var _components_toggler_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_toggler_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_admin_experience_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/admin-experience.js */ "./src/js/components/admin-experience.js");
+/* harmony import */ var _components_admin_experience_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_admin_experience_js__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
