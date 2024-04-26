@@ -78,7 +78,8 @@ class Portfolio
         echo '<pre>';
         $experiences = get_option('simplecharm_portfolio_additional_data')['experiences'];
         $sanitized = simplecharm_portfolio_load_experience($experiences);
-        echo var_dump(array_merge(...$sanitized[1]));
+        // echo var_dump(array_merge(...$sanitized[1]));
+        echo var_dump($experiences);
 
         // echo var_dump($experiences);
     }
@@ -181,8 +182,8 @@ class Portfolio
     public function save_additional_data()
     {
         if (isset($_POST['update_portfolio_data'])) {
-            // echo '<pre>';
-            // $data = $_POST['simplecharm_portfolio']['experiences'];
+            echo '<pre>';
+            $data = $_POST['simplecharm_portfolio']['experiences'];
             // $new_arr = [];
             // foreach ($data as $single_data) {
             //     foreach($single_data as $arr){
@@ -194,7 +195,8 @@ class Portfolio
 
             // }
             // echo var_dump(array_merge(...$new_arr));
-            // die();
+            echo var_dump($data);
+            die();
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {
                 return;

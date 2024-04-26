@@ -22,6 +22,7 @@
 			$social_links;
 	?></p>
 			<p>Skills:- <?php echo implode(', ', $args['skills']) ?></p>
+			<p>Experience:- <?php echo implode(', ', simplecharm_portfolio_experience_admin($args['experiences']))?></p>
 		</div>
 	</div>
 </div>

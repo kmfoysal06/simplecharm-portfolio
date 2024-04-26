@@ -52,7 +52,7 @@ function simplecharm_portfolio_load_social($social_links)
 function simplecharm_portfolio_link_social($social_links)
 {
     foreach ($social_links as $social_link) {
-        echo '<a href="' . esc_attr(implode('', $social_link['url'])) . '">' . esc_attr(implode('', $social_link['name'])) . '</a> ';
+        echo '<a href="' . esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '">' .  esc_attr(is_array($social_link['name']) ? implode('', $social_link['name']) : $social_link['name']) . '</a> ';
     }
 }
 function simplecharm_portfolio_link_social_frontend($social_links)
@@ -92,13 +92,13 @@ function simplecharm_portfolio_link_social_frontend($social_links)
         'github',
     );
     foreach ($social_links as $social_link) {
-        $icon = strtolower(implode('',$social_link['name']));
+        $icon = strtolower(is_array($social_link['name']) ? implode('', $social_link['name']) : $social_link['name']);
         if (in_array($icon, $allowed_icons)) {
             // dashicons
-            echo '<a href="' . esc_attr(implode('',$social_link['url'])) . '"><span class="dashicons dashicons-' . $icon . '"></span></a> ';
+            echo '<a href="' .  esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '"><span class="dashicons dashicons-' . $icon . '"></span></a> ';
         } else {
             //show link icon from dashicon
-            echo '<a href="' . esc_attr(implode('',$social_link['url'])) . '"><span class="dashicons dashicons-admin-links"></span></a> ';
+            echo '<a href="' .  esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '"><span class="dashicons dashicons-admin-links"></span></a> ';
         }
     }
 }
@@ -135,4 +135,15 @@ function simplecharm_portfolio_load_experience($experiences){
 }
 function simplecharm_portfolio_flatter_array($arr){
     return array_merge(...$arr);
+}
+
+function simplecharm_portfolio_experience_admin($experiences){
+    $experience_institutions = [];
+    foreach($experiences as $experience){
+        $flatter_experience = simplecharm_portfolio_flatter_array($experience);
+        if(!is_array($flatter_experience) || empty($flatter_experience)) continue;
+        if(!array_key_exists('institution', $flatter_experience)) continue;
+        $experience_institutions[] = $flatter_experience['institution'];
+    }
+    return $experience_institutions;
 }
