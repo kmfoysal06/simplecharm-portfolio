@@ -183,20 +183,6 @@ class Portfolio
     {
         if (isset($_POST['update_portfolio_data'])) {
             // echo '<pre>';
-            $data = $_POST['simplecharm_portfolio']['experiences'];
-            // $new_arr = [];
-            // foreach ($data as $single_data) {
-            //     foreach($single_data as $arr){
-            //         echo "<hr>";
-            //         if(is_array($arr)){
-            //             $new_arr[] = $arr;
-            //         }
-            //     }
-
-            // }
-            // echo var_dump(array_merge(...$new_arr));
-            // echo var_dump($data);
-            // die();
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {
                 return;
