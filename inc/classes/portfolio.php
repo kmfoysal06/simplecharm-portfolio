@@ -76,12 +76,8 @@ class Portfolio
     public function portfolio_debug_submenu_html()
     {
         echo '<pre>';
-        $experiences = get_option('simplecharm_portfolio_additional_data')['experiences'];
-        $sanitized = simplecharm_portfolio_load_experience($experiences);
-        // echo var_dump(array_merge(...$sanitized[1]));
-        echo var_dump($experiences);
-
-        // echo var_dump($experiences);
+        $works = get_option('simplecharm_portfolio_additional_data')['works'];
+        simplecharm_portfolio_load_works($works);
     }
 
     public function portfolio_html()
@@ -141,6 +137,7 @@ class Portfolio
 
                 <?php get_template_part("template-parts/portfolio/portfolio",'skills',$this->display_saved_value()); ?>
                 <?php get_template_part("template-parts/portfolio/portfolio",'experience',$this->display_saved_value()); ?>
+                <?php get_template_part("template-parts/portfolio/portfolio",'works',$this->display_saved_value()); ?>
                 <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_additionals__nonce") ?>">
                 <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
 
@@ -263,18 +260,22 @@ class Portfolio
                 'social_links'      => $social_links,
                 'skills'            => [],
                 'experiences'       => [],
+                'works'             => [],
             ];
         }
 
         if(is_array($additional_option_value)){
             $skills = array_key_exists("skills", $additional_option_value) ? simplecharm_portfolio_load_skills($additional_option_value["skills"]) : [];
             $experiences = array_key_exists("experiences", $additional_option_value) ? simplecharm_portfolio_load_experience($additional_option_value["experiences"]) : [];
+            $works = array_key_exists("works", $additional_option_value) ? $additional_option_value["experiences"] : [];
         }else{
             $skills = [];
             $experiences = [];
+            $works = [];
         }
         $saved_values['skills'] = $skills;
         $saved_values['experiences'] = $experiences;
+        $saved_values['works'] = $works;
 
         return $saved_values;
     }

@@ -6,6 +6,7 @@
 // $date = strtotime('12-03-2006');
 // $output = date('M o',$date);
 // echo var_dump($output);
+if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['experiences']) && !empty(array_merge(...$args['experiences']))):
 ?>
 <div class="experience-title my-3 flex flex-col items-center">
 		<div class="badge badge-neutral">Experience</div>
@@ -13,7 +14,7 @@
 	</div>
 	<div class="experience-content">
 		<?php
-		if (is_array($args) && array_key_exists("experiences", $args)):
+		
 		$experiences = $args['experiences'];
 		foreach($experiences as $single_experience):
 		$flattern_experience = simplecharm_portfolio_flatter_array($single_experience);
@@ -27,7 +28,7 @@
 			<div class="experience-name flex justify-center items-center">
 				<h2 class="text-5xl"><?php echo esc_html($flattern_experience['institution']); ?></h2>
 			</div>
-			<div class="experience-info experience-name flex flex-col justify-center p-2 gap-4">
+			<div class="experience-info experience-name flex flex-col justify-center p-4 gap-4">
 				<h3 class="text-2xl"><?php echo esc_html($flattern_experience['post-title']); ?></h3>
 				<?php
 				echo simplecharm_portfolio_experience_responsibility_list($flattern_experience['responsibility']);

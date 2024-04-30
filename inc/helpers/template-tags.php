@@ -133,17 +133,17 @@ function simplecharm_portfolio_load_experience($experiences){
     }
     return $sanitized_experiences;
 }
-function simplecharm_portfolio_flatter_array($arr){
+function simplecharm_portfolio_flattern_array($arr){
     return array_merge(...$arr);
 }
 
 function simplecharm_portfolio_experience_admin($experiences){
     $experience_institutions = [];
     foreach($experiences as $experience){
-        $flatter_experience = simplecharm_portfolio_flatter_array($experience);
-        if(!is_array($flatter_experience) || empty($flatter_experience)) continue;
-        if(!array_key_exists('institution', $flatter_experience)) continue;
-        $experience_institutions[] = $flatter_experience['institution'];
+        $flattern_experience = simplecharm_portfolio_flattern_array($experience);
+        if(!is_array($flattern_experience) || empty($flattern_experience)) continue;
+        if(!array_key_exists('institution', $flattern_experience)) continue;
+        $experience_institutions[] = $flattern_experience['institution'];
     }
     return $experience_institutions;
 }
@@ -157,4 +157,15 @@ function simplecharm_portfolio_experience_responsibility_list($responsibilities)
             }
             $html .= '</ul>';
     return $html;
+}
+function simplecharm_portfolio_load_works($works){
+    $sanitized_works = [];
+        foreach($works as $work){
+        if(is_array($work) && array_key_exists('title',$work) && empty($work['title'])) continue;
+        $flattern_work = array_merge(...$work);
+        if(!is_array($flattern_work) || empty($flattern_work)) continue;
+        if(!array_key_exists('title', $flattern_work)) continue;
+        $sanitized_works[] = $flattern_work;
+        }
+        echo var_dump($sanitized_works);
 }
