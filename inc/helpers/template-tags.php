@@ -40,15 +40,6 @@ function simplecharm_portfolio_load_social($social_links)
     return $social_links_array;
 }
 
-// function simplecharm_portfolio_iterate_social($social_links_arr)
-// {
-//     $html = '';
-//     foreach($social_links_arr as $data){
-//         $html .= '<a href="' . esc_attr($data['url']) . '">' . esc_html($data['name']) . '</a> ';
-//     }
-//     // return $social_links_arr;
-//     return $html;
-// }
 function simplecharm_portfolio_link_social($social_links)
 {
     foreach ($social_links as $social_link) {
@@ -158,14 +149,27 @@ function simplecharm_portfolio_experience_responsibility_list($responsibilities)
             $html .= '</ul>';
     return $html;
 }
+function simplecharm_portfolio_split_tags($tags){
+    $html = '';
+            $tags_array = (!empty($tags) && strpos(", ", $tags)) ? explode(', ', $tags) : [] ;
+            $html .= '<div class="work-tags grid lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-2 gap-3">';
+            foreach($tags_array as $single_tag){
+                if(empty($single_tag)) continue;
+                $html .= '<div class="w-full badge badge-neutral p-4">'.$single_tag.'</div>';
+            }
+            $html .= '</div>';
+    return $html;
+}
 function simplecharm_portfolio_load_works($works){
-    $sanitized_works = [];
-        foreach($works as $work){
-        if(is_array($work) && array_key_exists('title',$work) && empty($work['title'])) continue;
-        $flattern_work = array_merge(...$work);
-        if(!is_array($flattern_work) || empty($flattern_work)) continue;
-        if(!array_key_exists('title', $flattern_work)) continue;
-        $sanitized_works[] = $flattern_work;
+    foreach($works as $work_index => &$work){
+        foreach($work as $work_data_index => $work_data){
+                if(!is_array($work_data) || empty($work_data)) continue;
+            foreach($work_data as $key => $single_work_data){
+                // echo var_dump($single_work_data);
+                $work[$key] = $single_work_data;
+            }
+        if(is_array($work_data)) unset($work[$work_data_index]);
         }
-        echo var_dump($sanitized_works);
+    }
+    return $works;
 }

@@ -13,12 +13,12 @@
 			<div class="footer-mail flex justify-center items-center gap-x-3">
 				<i class="text-3xl fa fa-envelope fa-3" aria-hidden="true"></i>
 				<h2 class="text-3xl"><?php echo esc_html($args["email"]); ?></h2>
-				<i class="text-3xl fa-solid fa fa-clipboard fa-3"></i>
+				<i class="text-3xl fa-solid fa fa-clipboard fa-3 simplecharm-portfolio-copy-mail"></i>
 			</div>
 			<div class="footer-phone flex justify-center items-center gap-x-3">
 				<i class="text-3xl fa fa-phone" aria-hidden="true"></i>
 				<h2 class="text-3xl"> <?php echo esc_html($args["phone"]); ?> </h2>
-				<i class="text-3xl fa-solid fa fa-clipboard fa-3"></i>
+				<i class="text-3xl fa-solid fa fa-clipboard fa-3 simplecharm-portfolio-copy-phone"></i>
 			</div>
 			<div class="footer-social-links">
 				<p>You may also find me on these platforms!</p>

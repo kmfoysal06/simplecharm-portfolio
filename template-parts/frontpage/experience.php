@@ -3,9 +3,6 @@
  * Experience Template
  * @package SimpleCharm Portfolio
  */
-// $date = strtotime('12-03-2006');
-// $output = date('M o',$date);
-// echo var_dump($output);
 if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['experiences']) && !empty(array_merge(...$args['experiences']))):
 ?>
 <div class="experience-title my-3 flex flex-col items-center">
@@ -17,7 +14,7 @@ if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['e
 		
 		$experiences = $args['experiences'];
 		foreach($experiences as $single_experience):
-		$flattern_experience = simplecharm_portfolio_flatter_array($single_experience);
+		$flattern_experience = simplecharm_portfolio_flattern_array($single_experience);
 		if(empty($flattern_experience)) continue;
 		$start_date = array_key_exists('start_date',$flattern_experience) && !empty($flattern_experience['start_date']) ? date('M o',strtotime($flattern_experience['start_date'])) : '';
 		$working_now = array_key_exists('working',$flattern_experience) ? $flattern_experience['working'] : 'off';
@@ -42,8 +39,6 @@ if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['e
 			<?php endif; ?>
 			</div>
 		</div>
-		<?php
-	endforeach;
-	endif;
-		?>
+		<?php endforeach;?>
 	</div>
+	<?php endif; ?>

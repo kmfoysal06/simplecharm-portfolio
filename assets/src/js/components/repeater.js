@@ -17,20 +17,18 @@
             $(`#${addBtn}`).on('click', function() {
                 queue++;
                 queue = isNaN(queue) ? 1 : queue ;
-                let row = $(`.${hiddenFields.join(".")}`).clone(true);
+                let row = $(`.${hiddenFields.join(".")}`).clone(true).removeClass(hiddenFields.join(" "));
                 let newInputs = row.find('input, textarea');
                 newInputs.each(function() {
                     $(this).attr('data-queue', queue);
                     let name = $(this).attr('name');
-                    let inputType = $(this)[0].className;
-                    console.log(inputType)
-                    $(this).attr('name', `simplecharm_portfolio[${dataName}][${queue}][][${inputType}]`);
+                    let inputType = $(this)[0].className;                    $(this).attr('name', `simplecharm_portfolio[${dataName}][${queue}][][${inputType}]`);
                     let inputId = $(this).attr("id");
                     let LabelFor = $(this).siblings('label').attr('for');
                     $(this).attr("id",`${inputId}-${queue}`);
                     $(this).siblings('label').attr("for",`${LabelFor}-${queue}`);
                 });
-                row.removeClass(hiddenFields.join(" "));
+                // row.removeClass(hiddenFields.join(" "));
                 row.insertBefore(`${insertBefore}:last-child`);
                 return false;
             });
