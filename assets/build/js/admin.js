@@ -49,6 +49,7 @@
     init() {
       this.mediaUploader('simplecharm-portfolio-user-image', "simplecharm_portfolio_user_image");
       this.mediaUploader('simplecharm-portfolio-user-image2', "simplecharm_portfolio_user_image2");
+      this.mediaUploaderRepeater('simplecharm_portfolio_project_thumbnail');
     }
     mediaUploader(picked_image, hidden_field) {
       //doing the same things if there any multiple field with the class name
@@ -70,6 +71,32 @@
           // Let's assign the url value to the input field
           $(`.${picked_image}`).attr("src", image_url);
           $(`.${hidden_field}`).val(image_url);
+        });
+      });
+    }
+    mediaUploaderRepeater(images) {
+      $(`.${images}`).each((index, single_image) => {
+        $(single_image).on("click", e => {
+          e.preventDefault();
+          let image = wp.media({
+            title: 'Upload Image',
+            // mutiple: true if you want to upload multiple files at once
+            multiple: false,
+            // only load image files
+            library: {
+              type: 'image'
+            }
+          }).open().on('select', function (e) {
+            // This will return the selected image from the Media Uploader, the result is an object
+            let uploaded_image = image.state().get('selection').first();
+            // We convert uploaded_image to a JSON object to make accessing it easier
+            let image_url = uploaded_image.toJSON().url;
+            // Let's assign the url value to the input field
+            // $(this).attr("src", image_url);
+            // $(this).siblings("input").val(image_url);
+            $(single_image).src = image_url;
+            console.log(image_url);
+          });
         });
       });
     }
@@ -96,7 +123,8 @@
     init() {
       this.handleRepeater("simplecharm_social_link_add", ['simplecharm_portfolio_empty-row__social_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr', 'simplecharm_social_link_remove', 'social_link');
       this.handleRepeater("simplecharm_skill_link_add", ['simplecharm_portfolio_empty-row__skills_link', 'screen-reader-text'], '#repeatable-fieldset-one tbody>tr', 'simplecharm_skills_remove', 'skills');
-      this.handleRepeater("simplecharm_experience_link_add", ['simplecharm_portfolio_empty-row__experience_link', 'screen-reader-text'], '#repeatable-fieldset-two tbody>tr', 'simplecharm_experience_remove', 'experiences');
+      this.handleRepeater("simplecharm_experience_add", ['simplecharm_portfolio_empty-row__experience', 'screen-reader-text'], '#repeatable-fieldset-two tbody>tr', 'simplecharm_experience_remove', 'experiences');
+      this.handleRepeater("simplecharm_work_add", ['simplecharm_portfolio_empty-row__works', 'screen-reader-text'], '#repeatable-fieldset-three tbody>tr', 'simplecharm_project_remove', 'works');
     }
     handleRepeater(addBtn, hiddenFields, insertBefore, removeBtn, dataName) {
       let queue = $(`${insertBefore}:nth-last-child(2) input`).data("queue");
@@ -109,10 +137,10 @@
           $(this).attr('data-queue', queue);
           let name = $(this).attr('name');
           let inputType = $(this)[0].className;
+          console.log(inputType);
           $(this).attr('name', `simplecharm_portfolio[${dataName}][${queue}][][${inputType}]`);
           let inputId = $(this).attr("id");
           let LabelFor = $(this).siblings('label').attr('for');
-          console.log(queue);
           $(this).attr("id", `${inputId}-${queue}`);
           $(this).siblings('label').attr("for", `${LabelFor}-${queue}`);
         });
