@@ -17,7 +17,8 @@
       this.handleCopyBtn(".simplecharm-portfolio-copy-phone");
     }
     handleCopyBtn(copyBtn) {
-      $(copyBtn).on("click", function (e) {
+      let bottomAlert = this.askjfdkdasjfhksdajfhk();
+      $(copyBtn).on("click", function () {
         let tempTextArea = document.createElement("textarea");
         tempTextArea.value = $(copyBtn).siblings("h2").html();
         document.body.appendChild(tempTextArea);
@@ -29,10 +30,11 @@
           // this.showBottomAlert("Can't Copy The Code! Try Again.","#f00",3000);
         }
         document.body.removeChild(tempTextArea);
+        this.askjfdkdasjfhksdajfhk();
       });
     }
-    showBottomAlert(alert, color, time) {
-      console.log(alert);
+    askjfdkdasjfhksdajfhk() {
+      alert("hello");
     }
   }
   new CopyBtn();

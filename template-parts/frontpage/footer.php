@@ -27,3 +27,4 @@
 				</div>
 			</div>
 		</div>
+		<div class="bottom-alert" id="simplecharm-portfolio-bottom-alert"></div>
