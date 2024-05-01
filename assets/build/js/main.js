@@ -17,7 +17,7 @@
       this.handleCopyBtn(".simplecharm-portfolio-copy-phone");
     }
     handleCopyBtn(copyBtn) {
-      let bottomAlert = this.askjfdkdasjfhksdajfhk();
+      let instance = this;
       $(copyBtn).on("click", function () {
         let tempTextArea = document.createElement("textarea");
         tempTextArea.value = $(copyBtn).siblings("h2").html();
@@ -25,16 +25,23 @@
         tempTextArea.select();
         tempTextArea.setSelectionRange(0, 99999);
         if (document.execCommand("copy")) {
-          // this.showBottomAlert("Code Copied!","#204ecf",1000);
+          instance.bottomAlert("Copied!", "#204ecf", 1000);
         } else {
-          // this.showBottomAlert("Can't Copy The Code! Try Again.","#f00",3000);
+          instance.bottomAlert("Can't Copy! Try Again.", "#f00", 3000);
         }
         document.body.removeChild(tempTextArea);
-        this.askjfdkdasjfhksdajfhk();
       });
     }
-    askjfdkdasjfhksdajfhk() {
-      alert("hello");
+    bottomAlert(alertText, bgColor, timing) {
+      var bottomAlert = document.getElementById("simplecharm-portfolio-bottom-alert");
+      bottomAlert.textContent = alertText;
+      bottomAlert.style.background = bgColor;
+      bottomAlert.style.opacity = "1";
+      bottomAlert.style.transform = "translate(-50%,0)";
+      setTimeout(function () {
+        bottomAlert.style.transform = "translate(-50%,50px)";
+        bottomAlert.style.opacity = "0";
+      }, timing);
     }
   }
   new CopyBtn();
