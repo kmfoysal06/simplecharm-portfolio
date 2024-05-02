@@ -34,9 +34,11 @@ if (is_array($args) && array_key_exists("works", $args) && !empty($args['works']
 					]
 				)
 			) ?>
-		<div class="work-live-link">
-			<a href="<?php echo esc_url(isset($work['link']) ? $work['link'] : ''); ?>"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+		<?php if(array_key_exists('link',$work) && !empty($work['link'])): ?>
+			<div class="work-live-link">
+			<a href="<?php echo esc_url(isset($work['link']) ? $work['link'] : ''); ?>"><span class="dashicons dashicons-external"></span></i></a>
 		</div>
+	<?php endif; ?>
 		</div>
 		</div>
 <?php endforeach; ?>

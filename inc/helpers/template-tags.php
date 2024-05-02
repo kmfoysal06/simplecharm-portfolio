@@ -80,7 +80,6 @@ function simplecharm_portfolio_link_social_frontend($social_links)
         'vk',
         'wikipedia',
         'twitch',
-        'github',
     );
     foreach ($social_links as $social_link) {
         $icon = strtolower(is_array($social_link['name']) ? implode('', $social_link['name']) : $social_link['name']);
