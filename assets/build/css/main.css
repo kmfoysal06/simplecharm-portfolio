@@ -1691,11 +1691,11 @@ html {
 .static {
   position: static;
 }
-.m-auto {
-  margin: auto;
-}
 .m-3 {
   margin: 0.75rem;
+}
+.m-auto {
+  margin: auto;
 }
 .my-2 {
   margin-top: 0.5rem;
@@ -1708,10 +1708,6 @@ html {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
 }
 .block {
   display: block;
@@ -1827,6 +1823,10 @@ html {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
 }
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
@@ -1835,12 +1835,11 @@ html {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
 .p-2 {
   padding: 0.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
 }
 .p-4 {
   padding: 1rem;
@@ -1851,20 +1850,9 @@ html {
 .p-6 {
   padding: 1.5rem;
 }
-.p-3 {
-  padding: 0.75rem;
-}
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1873,6 +1861,14 @@ html {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .text-center {
   text-align: center;
@@ -1885,6 +1881,10 @@ html {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -1896,10 +1896,6 @@ html {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1967,6 +1963,187 @@ html {
   transition: all 0.5s ease;
 }
 
+.wp-caption {
+  max-width: 100%;
+  margin-bottom: 1.5em;
+  padding: 0;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wp-caption img {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  max-width: 100%;
+  height: auto;
+}
+
+.wp-caption p.wp-caption-text {
+  font-size: 0.875em;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.sticky {
+  background-color: #f5f5f5;
+  border: 1px solid #dd0101;
+  border-left-width: 5px;
+}
+
+.sticky img {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  max-width: 100%;
+  height: auto;
+}
+
+.sticky p.wp-caption-text {
+  font-size: 0.875em;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.sticky .wp-caption {
+  max-width: 100%;
+  margin-bottom: 1.5em;
+  padding: 0;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sticky .wp-caption img {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  max-width: 100%;
+  height: auto;
+}
+
+.sticky .wp-caption p.wp-caption-text {
+  font-size: 0.875em;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.gallery-caption {
+  font-size: 0.875em;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption.alignleft {
+  margin-right: 1.5em;
+}
+
+.wp-caption.alignright {
+  margin-left: 1.5em;
+}
+
+.wp-caption.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a img.alignleft {
+  margin-right: 1.5em;
+}
+
+a img.alignright {
+  margin-left: 1.5em;
+}
+
+a img.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wp-caption.alignnone, a img.alignnone {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.wp-caption.alignnone {
+  margin-bottom: 1.5em;
+}
+
+.wp-caption.alignnone img {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  max-width: 100%;
+  height: auto;
+}
+
+.wp-caption.alignnone p.wp-caption-text {
+  font-size: 0.875em;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+.post-meta a {
+  color: #005882;
+}
+
 /**
  * Import FontAwesome
  */
@@ -1980,12 +2157,6 @@ html {
   }
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .sm\:items-center {
-    align-items: center;
-  }
-  .sm\:justify-center {
-    justify-content: center;
   }
 }
 

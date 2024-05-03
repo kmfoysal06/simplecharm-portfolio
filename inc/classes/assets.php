@@ -37,14 +37,12 @@ class Assets
         // register styles
         wp_register_style('SIMPLECHARM_PORTFOLIO_main', get_stylesheet_uri(), ['SIMPLECHARM_PORTFOLIO_fontawesome', 'SIMPLECHARM_PORTFOLIO_tailwindcss'], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/style.css'), 'all');
         wp_register_style("SIMPLECHARM_PORTFOLIO_inter", SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/src/fonts/fonts.css', [], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/src/fonts/fonts.css'));
-        wp_enqueue_style("SIMPLECHARM_PORTFOLIO_fontawesome", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css", [], false, 'all');
         wp_register_style('SIMPLECHARM_PORTFOLIO_tailwindcss', SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/css/main.css', [], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/css/main.css'), 'all');
 
         // enqueue styles
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_main');
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_inter');
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_tailwindcss');
-        wp_enqueue_style("SIMPLECHARM_PORTFOLIO_fontawesome");
     }
     public function admin_enqueue_styles()
     {
