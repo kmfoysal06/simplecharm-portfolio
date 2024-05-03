@@ -49,6 +49,21 @@
 
 /***/ }),
 
+/***/ "./src/js/components/navigation-toggler.js":
+/*!*************************************************!*\
+  !*** ./src/js/components/navigation-toggler.js ***!
+  \*************************************************/
+/***/ (function() {
+
+(function ($) {
+  $('.simplecharm-portfolio-navigation-toggler').on('click', function (e) {
+    e.preventDefault();
+    $(this).siblings('#simplecharm-portfolio-navigation').slideToggle();
+  });
+})(jQuery);
+
+/***/ }),
+
 /***/ "./src/sass/main.scss":
 /*!****************************!*\
   !*** ./src/sass/main.scss ***!
@@ -141,7 +156,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/main.scss */ "./src/sass/main.scss");
 /* harmony import */ var _components_copybtn_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/copybtn.js */ "./src/js/components/copybtn.js");
 /* harmony import */ var _components_copybtn_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_copybtn_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_navigation_toggler_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/navigation-toggler.js */ "./src/js/components/navigation-toggler.js");
+/* harmony import */ var _components_navigation_toggler_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_navigation_toggler_js__WEBPACK_IMPORTED_MODULE_2__);
 //import sass
+
 
 
 }();

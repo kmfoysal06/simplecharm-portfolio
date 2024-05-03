@@ -1,5 +1,5 @@
 // header navigation menu
-nav.simplecharm-main-navigation ul {
+nav.simplecharm-portfolio-main-navigation ul {
     list-style: none;
     position: relative;
     background: rgba(255,255,255,0.4);
@@ -7,22 +7,22 @@ nav.simplecharm-main-navigation ul {
     transition:all 0.4s;
     transition-delay:0.2s;
 }
-nav.simplecharm-main-navigation ul .sub-menu {
+nav.simplecharm-portfolio-main-navigation ul .sub-menu {
     display: flex;
     flex-direction: column;
     float: left;
     width: 25%;
 }
-nav.simplecharm-main-navigation ul li {
+nav.simplecharm-portfolio-main-navigation ul li {
     display: inline-block;
     margin: 10px;
 }
-nav.simplecharm-main-navigation ul li a{
+nav.simplecharm-portfolio-main-navigation ul li a{
 	padding:10px;
 	color:#000;
 }
 
-nav.simplecharm-main-navigation ul .sub-menu {
+nav.simplecharm-portfolio-main-navigation ul .sub-menu {
     position: absolute;
     width: 100%;
     left: 0;
@@ -32,14 +32,34 @@ nav.simplecharm-main-navigation ul .sub-menu {
     pointer-events:none;
 }
 
-nav.simplecharm-main-navigation ul li:hover .sub-menu,
-nav.simplecharm-main-navigation ul li:focus-within .sub-menu {
+nav.simplecharm-portfolio-main-navigation ul li:hover .sub-menu,
+nav.simplecharm-portfolio-main-navigation ul li:focus-within .sub-menu {
     opacity:1;
     pointer-events:auto;
 }
-nav.simplecharm-main-navigation ul li a:hover,
-nav.simplecharm-main-navigation ul li a:focus{
+nav.simplecharm-portfolio-main-navigation ul li a:hover,
+nav.simplecharm-portfolio-main-navigation ul li a:focus{
     text-decoration: underline;
+}
+
+// styles for mediam devices 760px
+@media screen and (max-width: 760px) {
+    .simplecharm-portfolio-navigation-toggler{
+        display: block;
+    }
+    nav.simplecharm-portfolio-main-navigation ul li {
+        display: block;
+        margin: 10px;
+        padding: 10px;
+    }
+    #simplecharm-portfolio-navigation{
+        display: none;
+    }
+}
+@media screen and (min-width: 761px) {
+    #simplecharm-portfolio-navigation{
+        display: block!important;
+    }
 }
 
 // search bar
