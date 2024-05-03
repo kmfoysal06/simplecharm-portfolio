@@ -7,26 +7,29 @@ get_header();
 ?>
 <?php if(have_posts()): the_post(); ?>
 	<?php if(post_password_required()):
-		echo get_the_password_form();
+		?>
+		<div class="simplecharm-portfolio-form my-3 text-center">
+			<?php echo get_the_password_form(); ?>
+		</div>
+		<?php
 	else:
 	?>
 <article id="post-<?php the_ID(); ?>" <?php post_class("simplecharm-portfolio-single-post m-3 p-3"); ?>>
-	<h2 class="simplecharm-portfolio-single-post-title text-2xl">
+	<h2 class="simplecharm-portfolio-single-post-title text-3xl my-1">
 		<?php echo apply_filters('the_title', sanitize_text_field(get_the_title())); ?>
 	</h2>
 	<div class="simplecharm-portfolio-single-post-content">
 		<p class="simplecharm-portfolio-single-post-modified">
 			<span>
-			<?php esc_html__("Last Modified:-","simplecharm-portfolio"); ?> 
-			<?php esc_html__(the_modified_date(),"simplecharm-portfolio"); ?></span>
-		</p>
-		<p>
-			<span>
-				<?php echo esc_html__("Author:-","simplecharm-portfolio"); ?>
-				<?php esc_html__(the_author_posts_link(),"simplecharm-portfolio"); ?>
+			<?php echo __("Last Modified:- ".get_the_modified_date(),"simplecharm-portfolio"); ?> 
 			</span>
 		</p>
-		<p><?php echo apply_filters('the_content', wp_kses_post(get_the_content())); ?></p>
+		<p>
+			<span class="link-wrapper">
+				<?php echo __("Author:- ".get_the_author_posts_link(),"simplecharm-portfolio"); ?>
+			</span>
+		</p>
+		<p class="my-3"><?php echo apply_filters('the_content', wp_kses_post(get_the_content())); ?></p>
 		 <?php 
             wp_link_pages(array(
                 'before' => '<div class="page-links">'.esc_html__( 'Pages','simplecharm-portfolio' ).'',
@@ -34,11 +37,13 @@ get_header();
             ));
             ?>
 		<?php if(has_tag()): ?>
-			<div class="simplecharm-portfolio-single-post-tags">
+			<div class="simplecharm-portfolio-single-post-tags link-wrapper">
 				<?php esc_html__(the_tags()); ?>
 			</div>
 		<?php endif; ?>
-        category : <?php echo wp_kses_post(get_the_category_list(', ')); ?>
+        <div class="link-wrapper">
+        	category : <?php echo wp_kses_post(get_the_category_list(', ')); ?>
+        </div>
 	</div>
 </article>
 <div class="comment-respond wp-block-post-comments-form">
