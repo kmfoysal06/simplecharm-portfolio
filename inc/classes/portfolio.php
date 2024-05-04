@@ -18,7 +18,6 @@ class Portfolio
     {
         add_action("admin_menu", [$this, "add_menu"]);
         add_action("admin_menu", [$this, "add_submenu"]);
-        add_action("admin_menu", [$this, "add_debug_submenu"]);
         add_action("admin_menu", [$this, "add_additional_submenu"]);
         add_action("admin_init", [$this, "save_data"]);
         add_action("admin_init", [$this, "save_additional_data"]);
@@ -47,18 +46,6 @@ class Portfolio
         );
     }
 
-    public function add_debug_submenu()
-    {
-        add_submenu_page(
-            "simplecharm_portfolio_page",
-            "Debug Portfolio",
-            "Debug Portfolio",
-            "manage_options",
-            "simplecharm_debug_menu",
-            [$this, "portfolio_debug_submenu_html"]
-        );
-    }
-
     public function add_additional_submenu()
     {
         add_submenu_page(
@@ -70,27 +57,10 @@ class Portfolio
             [$this, "portfolio_additional_submenu_html"]
         );
     }
+
     /**
      * Main Option Page For Portfolio Page
      */
-    public function portfolio_debug_submenu_html()
-    {
-        echo '<pre>';
-        $works = get_option('simplecharm_portfolio_additional_data')['works'];
-        // simplecharm_portfolio_load_works($works);
-        // foreach($works as $work_index => &$work){
-        //     foreach($work as $work_data_index => $work_data){
-        //             if(!is_array($work_data) || empty($work_data)) continue;
-        //         foreach($work_data as $key => $single_work_data){
-        //             // echo var_dump($single_work_data);
-        //             $work[$key] = $single_work_data;
-        //         }
-        //     if(is_array($work_data)) unset($work[$work_data_index]);
-        //     }
-        // }
-        echo var_dump($works);
-    }
-
     public function portfolio_html()
     {
         $saved_values = $this->display_saved_value();
@@ -113,7 +83,7 @@ class Portfolio
         <div class="admin-portfolio-modify__container">
             <div class="admin-portfolio-modify">
                 <div class="page-title">
-                    <h1>Your Informations Here:-</h1>
+                    <h1><?php _e("Modify Your Informations Here:-","simplecharm_portfolio"); ?></h1>
                 </div>
                 <form class="page-contents" method="POST">
                         <!-- basic settings -->
@@ -142,10 +112,9 @@ class Portfolio
     <div class="admin-portfolio-additionals__container">
         <div class="admin-portfolio-additionals">
             <div class="page-title">
-                <h1>Customize Your Additional Informations Here:</h1>
+                <h1><?php __e("Customize Your Additional Informations Here:","simplecharm_portfolio"); ?></h1>
             </div>
             <form class="page-contents" method="POST">
-
                 <?php get_template_part("template-parts/portfolio/portfolio", 'skills', $this->display_saved_value());?>
                 <?php get_template_part("template-parts/portfolio/portfolio", 'experience', $this->display_saved_value());?>
                 <?php get_template_part("template-parts/portfolio/portfolio", 'works', $this->display_saved_value());?>
@@ -156,7 +125,7 @@ class Portfolio
         </div>
     </div>
         <?php
-}
+    }
 
     /**
      * Updating Informations About Portfolio
@@ -179,7 +148,7 @@ class Portfolio
             // check for name is valid and it should between 2 to 20 words
             if (!preg_match("/^[a-zA-Z\s]{2,20}$/", $modified_data['name'])) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>Name is not valid! It should be between 2 to 20 words</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'.__("Name is not valid! It should be between 2 to 20 words","simplecharm_portfolio").'</p></div>';
                 });
                 return;
             }
@@ -353,6 +322,40 @@ class Portfolio
                     }
                 }
             }
+            // validate projects title.title must contain less then or equel 20 characters
+            if (is_array($modified_data['works'])) {
+                foreach ($modified_data['works'] as $work) {
+                        if (empty($work['title'])) {
+                            continue;
+                        }
+                        if (strlen($work['title']) > 20) {
+                            add_action('admin_notices', function () {
+                                echo '<div class="notice notice-error is-dismissible"><p>Project Title is too long! It should be less than 20 words</p></div>';
+                            });
+                            return;
+                        }
+                        if (strlen($work['description']) > 800) {
+                            add_action('admin_notices', function () {
+                                echo '<div class="notice notice-error is-dismissible"><p>Project Description is too long! It should be less than 800 words</p></div>';
+                            });
+                            return;
+                        }
+                        if (strlen($work['tags']) > 200) {
+                            add_action('admin_notices', function () {
+                                echo '<div class="notice notice-error is-dismissible"><p>Project Tags is too long! It should be less than 200 words</p></div>';
+                            });
+                            return;
+                        }
+                        if (!filter_var($work['link'], FILTER_VALIDATE_URL)) {
+                            add_action('admin_notices', function () {
+                                echo '<div class="notice notice-error is-dismissible"><p>Invalid URL!Try to add http:// or https://</p></div>';
+                            });
+                            return;
+                        }
+
+                }
+            }
+
 
             //sanitization
             $modified_data = $this->sanitize_array($modified_data);
