@@ -2000,6 +2000,7 @@ nav.simplecharm-portfolio-main-navigation ul {
   margin: 0 0 5px 0;
   transition: all 0.4s;
   transition-delay: 0.2s;
+  background: #fafafa;
 }
 
 nav.simplecharm-portfolio-main-navigation ul .sub-menu {
@@ -2007,6 +2008,7 @@ nav.simplecharm-portfolio-main-navigation ul .sub-menu {
   flex-direction: column;
   float: left;
   width: 25%;
+  background: #fafafa;
 }
 
 nav.simplecharm-portfolio-main-navigation ul li {

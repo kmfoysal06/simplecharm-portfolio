@@ -163,6 +163,7 @@ class Portfolio
      */
     public function save_data()
     {
+        // validation
         if (isset($_POST['update_portfolio_data'])) {
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_page__nonce')) {
@@ -175,6 +176,79 @@ class Portfolio
             if (!current_user_can('manage_options')) {
                 return;
             }
+            // check for name is valid and it should between 2 to 20 words 
+            if (!preg_match("/^[a-zA-Z\s]{2,20}$/", $modified_data['name'])) {
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-error is-dismissible"><p>Name is not valid! It should be between 2 to 20 words</p></div>';
+                });
+                return;
+            }
+            // validation for email and phone
+            if (!filter_var($modified_data['email'], FILTER_VALIDATE_EMAIL)) {
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-error is-dismissible"><p>Email is not valid!</p></div>';
+                });
+                return;
+            }
+            // phone should be in 2 to 15 digits
+            if (!preg_match("/^[0-9]{7,15}$/", $modified_data['phone'])) {
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-error is-dismissible"><p>Phone is not valid! It should be between 2 to 15 digits</p></div>';
+                });
+                return;
+            }
+            //validation of social link
+            if (is_array($modified_data['social_link']) && !empty($modified_data['social_link'])) {
+                foreach ($modified_data['social_link'] as $social_link) {
+                    // $social_link is array of arrays of name url name url name url
+                    foreach ($social_link as $single_social_link) {
+                        if(empty($single_social_link['url'])) continue;
+                        if(empty($single_social_link['name'])) continue;
+                        if (isset($single_social_link['url']) && !filter_var($single_social_link['url'], FILTER_VALIDATE_URL)) {
+                            add_action('admin_notices', function () {
+                                echo '<div class="notice notice-error is-dismissible"><p>Invalid Social Link!</p></div>';
+                            });
+                            return;
+                        }
+                }
+            }
+        }
+        if (isset($modified_data['short_description']) && strlen($modified_data['short_description']) > 200) {
+            add_action('admin_notices', function () {
+                echo '<div class="notice notice-error is-dismissible"><p>Short Description is too long! It should be less than 200 words</p></div>';
+            });
+            return;
+        }
+        if (isset($modified_data['short_description']) && strlen($modified_data['description']) > 800) {
+            add_action('admin_notices', function () {
+                echo '<div class="notice notice-error is-dismissible"><p>Description is too long! It should be less than 800 words</p></div>';
+            });
+            return;
+        }
+        // validate both image
+        if (isset($modified_data['image']) && !filter_var($modified_data['image'], FILTER_VALIDATE_URL)) {
+            add_action('admin_notices', function () {
+                echo '<div class="notice notice-error is-dismissible"><p>Invalid Image URL!</p></div>';
+            });
+            return;
+        }
+        if (isset($modified_data['image_2']) && !filter_var($modified_data['image_2'], FILTER_VALIDATE_URL)) {
+            add_action('admin_notices', function () {
+                echo '<div class="notice notice-error is-dismissible"><p>Invalid Image URL!</p></div>';
+            });
+            return;
+        }
+        if (isset($modified_data['address']) && strlen($modified_data['address']) > 100) {
+            add_action('admin_notices', function () {
+                echo '<div class="notice notice-error is-dismissible"><p>Address is too long! It should be less than 100 words</p></div>';
+            });
+            return;
+        }
+
+
+            // sanitization
+            $modified_data = $this->sanitize_array($modified_data);
+
             if (update_option('simplecharm_portfolio_data', $modified_data)) {
                 // Display success message
                 add_action('admin_notices', function () {
@@ -194,6 +268,7 @@ class Portfolio
             $modified_data = $_POST['simplecharm_portfolio'];
             // echo var_dump($modified_data['works']);
             // die();
+            //validations
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {
                 return;
             }
@@ -204,6 +279,9 @@ class Portfolio
             if (!current_user_can('manage_options')) {
                 return;
             }
+
+            //sanitization
+            $modified_data = $this->sanitize_array($modified_data);
             if (update_option('simplecharm_portfolio_additional_data', $modified_data)) {
                 // Display success message
                 add_action('admin_notices', function () {
