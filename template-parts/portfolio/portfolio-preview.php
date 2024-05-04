@@ -52,7 +52,7 @@
 				?>
 			</p>
 			<p><?php 
-			_e("Social Links:- ");
+			_e("Social Links:- ","simplecharm-portfolio");
 			$social_links = simplecharm_portfolio_link_social($args['social_links']);
 			esc_html($social_links);
 	?></p>

@@ -83,7 +83,7 @@ class Portfolio
         <div class="admin-portfolio-modify__container">
             <div class="admin-portfolio-modify">
                 <div class="page-title">
-                    <h2><?php _e("Modify Your Informations Here:-","simplecharm_portfolio"); ?></h2>
+                    <h2><?php _e("Modify Your Informations Here:-","simplecharm-portfolio"); ?></h2>
                 </div>
                 <form class="page-contents" method="POST">
                         <!-- basic settings -->
@@ -112,7 +112,7 @@ class Portfolio
     <div class="admin-portfolio-additionals__container">
         <div class="admin-portfolio-additionals">
             <div class="page-title">
-                <h2><?php _e("Customize Your Additional Informations Here:","simplecharm_portfolio"); ?></h2>
+                <h2><?php _e("Customize Your Additional Informations Here:","simplecharm-portfolio"); ?></h2>
             </div>
             <form class="page-contents" method="POST">
                 <?php get_template_part("template-parts/portfolio/portfolio", 'skills', $this->display_saved_value());?>
@@ -148,7 +148,7 @@ class Portfolio
             // check for name is valid and it should between 2 to 20 words
             if (!preg_match("/^[a-zA-Z\s]{2,20}$/", $modified_data['name'])) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>'.__("Name is not valid! It should be between 2 to 20 words","simplecharm_portfolio").'</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'.__("Name is not valid! It should be between 2 to 20 words","simplecharm-portfolio").'</p></div>';
                 });
                 return;
             }

@@ -6,7 +6,7 @@
 ?>
 <!-- skills setting -->
 <div class="portfolio-section-wrapper">
-	<h3 class="portfolio-section-toggle">Skills Customization</h3>
+	<h3 class="portfolio-section-toggle"><?php _e("Skills Customization","simplecharm-portfolio"); ?></h3>
 <div class="portfolio-section-content simplecharm-portfolio-skills">
     <table id="repeatable-fieldset-one" width="100%">
       <tbody>
@@ -16,9 +16,9 @@ if (is_array($args) && array_key_exists("skills", $args)):
         ?>
         <tr class="flex">
           <td>
-            <label for="skill-name-<?php echo $key; ?>"></label>
-            <input type="text" class="name" data-queue="<?php echo $key; ?>" placeholder="Skill Name" name="simplecharm_portfolio[skills][<?php echo $key; ?>][][name]" value="<?php echo $skill; ?>" id="skill-name-<?php echo $key; ?>" /></td>
-          <td><a class="button simplecharm_skills_remove" href="#1">Remove</a></td>
+            <label for="skill-name-<?php _e($key,"simplecharm-portfolio"); ?>"></label>
+            <input type="text" class="name" data-queue="<?php _e($key,"simplecharm-portfolio"); ?>" placeholder="<?php _e("Skill Name","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[skills][<?php _e($key,"simplecharm-portfolio"); ?>][][name]" value="<?php echo $skill; ?>" id="skill-name-<?php _e($key,"simplecharm-portfolio"); ?>" /></td>
+          <td><a class="button simplecharm_skills_remove" href="#1"><?php _e("Remove","simplecharm-portfolio"); ?></a></td>
         </tr>
     <?php
 endforeach;
@@ -29,12 +29,12 @@ endforeach;
     <tr class="simplecharm_portfolio_empty-row__skills_link screen-reader-text flex">
 	    <td>
         <label for="skill-name"></label>
-	    <input type="text" class="name" data-queue="0" placeholder="Skill Name" name="simplecharm_portfolio[skills][0][][name]" value="" id="skill-name" />
+	    <input type="text" class="name" data-queue="0" placeholder="<?php _e("Skill Name","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[skills][0][][name]" value="" id="skill-name" />
 	    </td>
-	    <td><a class="button simplecharm_skills_remove" href="#1">Remove</a></td>
+	    <td><a class="button simplecharm_skills_remove" href="#1"><?php _e("Remove","simplecharm-portfolio"); ?></a></td>
     </tr>
   </tbody>
 </table>
-<p><a id="simplecharm_skill_link_add" class="button" href="#">Add another</a></p>
+<p><a id="simplecharm_skill_link_add" class="button" href="#"><?php _e("Add Another","simplecharm-portfolio"); ?></a></p>
 </div>
 </div>

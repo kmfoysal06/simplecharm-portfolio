@@ -19,7 +19,7 @@ if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['e
 		$start_date = array_key_exists('start_date',$flattern_experience) && !empty($flattern_experience['start_date']) ? date('M o',strtotime($flattern_experience['start_date'])) : '';
 		$working_now = array_key_exists('working',$flattern_experience) ? $flattern_experience['working'] : 'off';
 		$end_date = array_key_exists('end_date',$flattern_experience) && !empty($flattern_experience['end_date']) ? date('M o',strtotime($flattern_experience['end_date'])) : '';
-		$end_date_status = strtolower($working_now) === 'on' ? 'Present' : $end_date;
+		$end_date_status = strtolower($working_now) === 'on' ? __("Present","simplecharm-portfolio") : $end_date;
 		?>
 		<div class="grid grid-cols-3 p-2 my-2 shadow-2xl">
 			<div class="experience-name flex justify-center items-center">
@@ -35,7 +35,7 @@ if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['e
 				<?php
 				if(!empty($start_date)):
 				?>
-				<h4><?php _e($start_date ." - ". $end_date_status,"simplecharm-portfolio"); ?></h4>
+				<h4><?php echo esc_html($start_date.' - '.$end_date_status); ?></h4>
 			<?php endif; ?>
 			</div>
 		</div>

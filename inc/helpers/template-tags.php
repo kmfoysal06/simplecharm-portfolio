@@ -77,7 +77,6 @@ function simplecharm_portfolio_link_social_frontend($social_links)
         'whatsapp',
         'xing',
         'yelp',
-        'vk',
         'wikipedia',
         'twitch',
     );
