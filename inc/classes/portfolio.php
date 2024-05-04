@@ -146,9 +146,9 @@ class Portfolio
             </div>
             <form class="page-contents" method="POST">
 
-                <?php get_template_part("template-parts/portfolio/portfolio",'skills',$this->display_saved_value()); ?>
-                <?php get_template_part("template-parts/portfolio/portfolio",'experience',$this->display_saved_value()); ?>
-                <?php get_template_part("template-parts/portfolio/portfolio",'works',$this->display_saved_value()); ?>
+                <?php get_template_part("template-parts/portfolio/portfolio", 'skills', $this->display_saved_value());?>
+                <?php get_template_part("template-parts/portfolio/portfolio", 'experience', $this->display_saved_value());?>
+                <?php get_template_part("template-parts/portfolio/portfolio", 'works', $this->display_saved_value());?>
                 <input type="hidden" name="simplecharm-portfolio__nonce" value="<?php echo wp_create_nonce("simplecharm_portfolio_modify_additionals__nonce") ?>">
                 <input type="submit" name="update_portfolio_data" value="UPDATE" class="btn">
 
@@ -176,7 +176,7 @@ class Portfolio
             if (!current_user_can('manage_options')) {
                 return;
             }
-            // check for name is valid and it should between 2 to 20 words 
+            // check for name is valid and it should between 2 to 20 words
             if (!preg_match("/^[a-zA-Z\s]{2,20}$/", $modified_data['name'])) {
                 add_action('admin_notices', function () {
                     echo '<div class="notice notice-error is-dismissible"><p>Name is not valid! It should be between 2 to 20 words</p></div>';
@@ -202,49 +202,54 @@ class Portfolio
                 foreach ($modified_data['social_link'] as $social_link) {
                     // $social_link is array of arrays of name url name url name url
                     foreach ($social_link as $single_social_link) {
-                        if(empty($single_social_link['url'])) continue;
-                        if(empty($single_social_link['name'])) continue;
+                        if (empty($single_social_link['url'])) {
+                            continue;
+                        }
+
+                        if (empty($single_social_link['name'])) {
+                            continue;
+                        }
+
                         if (isset($single_social_link['url']) && !filter_var($single_social_link['url'], FILTER_VALIDATE_URL)) {
                             add_action('admin_notices', function () {
                                 echo '<div class="notice notice-error is-dismissible"><p>Invalid Social Link!</p></div>';
                             });
                             return;
                         }
+                    }
                 }
             }
-        }
-        if (isset($modified_data['short_description']) && strlen($modified_data['short_description']) > 200) {
-            add_action('admin_notices', function () {
-                echo '<div class="notice notice-error is-dismissible"><p>Short Description is too long! It should be less than 200 words</p></div>';
-            });
-            return;
-        }
-        if (isset($modified_data['short_description']) && strlen($modified_data['description']) > 800) {
-            add_action('admin_notices', function () {
-                echo '<div class="notice notice-error is-dismissible"><p>Description is too long! It should be less than 800 words</p></div>';
-            });
-            return;
-        }
-        // validate both image
-        if (isset($modified_data['image']) && !filter_var($modified_data['image'], FILTER_VALIDATE_URL)) {
-            add_action('admin_notices', function () {
-                echo '<div class="notice notice-error is-dismissible"><p>Invalid Image URL!</p></div>';
-            });
-            return;
-        }
-        if (isset($modified_data['image_2']) && !filter_var($modified_data['image_2'], FILTER_VALIDATE_URL)) {
-            add_action('admin_notices', function () {
-                echo '<div class="notice notice-error is-dismissible"><p>Invalid Image URL!</p></div>';
-            });
-            return;
-        }
-        if (isset($modified_data['address']) && strlen($modified_data['address']) > 100) {
-            add_action('admin_notices', function () {
-                echo '<div class="notice notice-error is-dismissible"><p>Address is too long! It should be less than 100 words</p></div>';
-            });
-            return;
-        }
-
+            if (isset($modified_data['short_description']) && strlen($modified_data['short_description']) > 200) {
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-error is-dismissible"><p>Short Description is too long! It should be less than 200 words</p></div>';
+                });
+                return;
+            }
+            if (isset($modified_data['short_description']) && strlen($modified_data['description']) > 800) {
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-error is-dismissible"><p>Description is too long! It should be less than 800 words</p></div>';
+                });
+                return;
+            }
+            // validate both image
+            if (isset($modified_data['image']) && !filter_var($modified_data['image'], FILTER_VALIDATE_URL)) {
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-error is-dismissible"><p>Invalid Image URL!</p></div>';
+                });
+                return;
+            }
+            if (isset($modified_data['image_2']) && !filter_var($modified_data['image_2'], FILTER_VALIDATE_URL)) {
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-error is-dismissible"><p>Invalid Image URL!</p></div>';
+                });
+                return;
+            }
+            if (isset($modified_data['address']) && strlen($modified_data['address']) > 100) {
+                add_action('admin_notices', function () {
+                    echo '<div class="notice notice-error is-dismissible"><p>Address is too long! It should be less than 100 words</p></div>';
+                });
+                return;
+            }
 
             // sanitization
             $modified_data = $this->sanitize_array($modified_data);
@@ -282,13 +287,68 @@ class Portfolio
             //validations
             if (is_array($modified_data['skills'])) {
                 foreach ($modified_data['skills'] as $skill) {
-                    foreach($skill as $single_skill){
-                        if(empty($single_skill['name'])) continue;
+                    foreach ($skill as $single_skill) {
+                        if (empty($single_skill['name'])) {
+                            continue;
+                        }
+
                         if (strlen($single_skill['name']) > 20) {
                             add_action('admin_notices', function () {
                                 echo '<div class="notice notice-error is-dismissible"><p>Skill Name is too long! It should be less than 20 words</p></div>';
                             });
                             return;
+                        }
+                    }
+                }
+            }
+            if (is_array($modified_data['experiences'])) {
+                foreach ($modified_data['experiences'] as $experience) {
+                    foreach ($experience as $single_experience) {
+                        if (isset($single_experience['institution'])) {
+                            if (empty($single_experience['institution'])) {
+                                continue;
+                            }
+
+                            if (strlen($single_experience['institution']) > 20) {
+                                add_action('admin_notices', function () {
+                                    echo '<div class="notice notice-error is-dismissible"><p>Institution Name is too long! It should be less than 20 words</p></div>';
+                                });
+                                return;
+                            }
+                        }elseif(isset($single_experience['post-title'])){
+                            if(empty($single_experience['post-title'])) continue;
+                            if(strlen($single_experience['post-title']) > 20){
+                                add_action('admin_notices', function () {
+                                    echo '<div class="notice notice-error is-dismissible"><p>Post Title is too long! It should be less than 20 words</p></div>';
+                                });
+                                return;
+                            }
+                        }elseif(isset($single_experience['responsibility'])){
+                            if(empty($single_experience['responsibility'])) continue;
+                            if(strlen($single_experience['responsibility']) > 800){
+                                add_action('admin_notices', function () {
+                                    echo '<div class="notice notice-error is-dismissible"><p>Responsibility is too long! It should be less than 200 words</p></div>';
+                                });
+                                return;
+                            }
+                        }elseif(isset($single_experience['start_date'])){
+                            if(empty($single_experience['start_date'])) continue;
+                            // only date must be contain
+                            if(!preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}/",$single_experience['start_date'])){
+                                add_action('admin_notices', function () {
+                                    echo '<div class="notice notice-error is-dismissible"><p>Invalid Date!</p></div>';
+                                });
+                                return;
+                            }
+                        }elseif(isset($single_experience['end_date'])){
+                            if(empty($single_experience['end_date'])) continue;
+                            // only date must be contain
+                            if(!preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}/",$single_experience['end_date'])){
+                                add_action('admin_notices', function () {
+                                    echo '<div class="notice notice-error is-dismissible"><p>Invalid Date!</p></div>';
+                                });
+                                return;
+                            }
                         }
                     }
                 }
@@ -326,9 +386,9 @@ class Portfolio
 
     public function display_saved_value()
     {
-        $option_value = get_option("simplecharm_portfolio_data");
+        $option_value            = get_option("simplecharm_portfolio_data");
         $additional_option_value = get_option("simplecharm_portfolio_additional_data");
-        $saved_values = [
+        $saved_values            = [
             'name'              => 'Charm',
             'user_image'        => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg",
             'user_image2'       => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg",
@@ -369,18 +429,18 @@ class Portfolio
             ];
         }
 
-        if(is_array($additional_option_value)){
-            $skills = array_key_exists("skills", $additional_option_value) ? simplecharm_portfolio_load_skills($additional_option_value["skills"]) : [];
+        if (is_array($additional_option_value)) {
+            $skills      = array_key_exists("skills", $additional_option_value) ? simplecharm_portfolio_load_skills($additional_option_value["skills"]) : [];
             $experiences = array_key_exists("experiences", $additional_option_value) ? simplecharm_portfolio_load_experience($additional_option_value["experiences"]) : [];
-            $works = array_key_exists("works", $additional_option_value) ? simplecharm_portfolio_load_works($additional_option_value["works"]) : [];
-        }else{
-            $skills = [];
+            $works       = array_key_exists("works", $additional_option_value) ? simplecharm_portfolio_load_works($additional_option_value["works"]) : [];
+        } else {
+            $skills      = [];
             $experiences = [];
-            $works = [];
+            $works       = [];
         }
-        $saved_values['skills'] = $skills;
+        $saved_values['skills']      = $skills;
         $saved_values['experiences'] = $experiences;
-        $saved_values['works'] = $works;
+        $saved_values['works']       = $works;
 
         return $saved_values;
     }
