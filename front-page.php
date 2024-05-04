@@ -38,11 +38,6 @@ get_template_part("template-parts/frontpage/aboutme", "", $portfolio_saved_value
 	<?php get_template_part("template-parts/frontpage/projects", "", $portfolio_saved_value); ?>
 </section>
 
-<!-- Testimonials Section -->
-<!-- <section class="testimonials min-h-max p-6 my-2 flex flex-col"> -->
-<?php // get_template_part("template-parts/frontpage/testimonials", "", $portfolio_saved_value); ?>
-<!-- </section>  -->
-
 <!-- Contact Section -->
 <section class="home-footer w-full bg-gray-400 text-white py-3 text-center shadow-2xl my-2">
 	<?php get_template_part("template-parts/frontpage/footer", "", $portfolio_saved_value);?>

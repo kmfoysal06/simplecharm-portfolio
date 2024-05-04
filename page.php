@@ -25,7 +25,7 @@ if (have_posts()) :
     endwhile;
 else:
     ?>
-<p><?php echo esc_html__( "No posts found", "simplecharm-portfolio" ); ?></p>
+<p><?php echo esc_html__( "Nothing found Here", "simplecharm-portfolio" ); ?></p>
 <?php
 endif;
 get_footer();

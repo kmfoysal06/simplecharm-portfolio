@@ -5,7 +5,10 @@
  */
 get_header();
 ?>
-<?php if(have_posts()): the_post(); ?>
+	<?php 
+		if(have_posts()):
+		the_post(); 
+	?>
 	<?php if(post_password_required()):
 		?>
 		<div class="simplecharm-portfolio-form my-3 text-center">

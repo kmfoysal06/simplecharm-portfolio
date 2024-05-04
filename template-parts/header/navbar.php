@@ -33,9 +33,4 @@ $menus = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Menus::get_instance();
                 </div>
                 </nav>
             </div>
-            <div class="simplecharm-header-image">
-                <img alt="header-image" src="<?php header_image(); ?>"
-                    width="<?php echo absint( get_custom_header()->width ); ?>"
-                    height="<?php echo absint( get_custom_header()->height ); ?>">
-            </div>
         </div>

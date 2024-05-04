@@ -83,7 +83,7 @@ class Portfolio
         <div class="admin-portfolio-modify__container">
             <div class="admin-portfolio-modify">
                 <div class="page-title">
-                    <h1><?php _e("Modify Your Informations Here:-","simplecharm_portfolio"); ?></h1>
+                    <h2><?php _e("Modify Your Informations Here:-","simplecharm_portfolio"); ?></h2>
                 </div>
                 <form class="page-contents" method="POST">
                         <!-- basic settings -->
@@ -112,7 +112,7 @@ class Portfolio
     <div class="admin-portfolio-additionals__container">
         <div class="admin-portfolio-additionals">
             <div class="page-title">
-                <h1><?php __e("Customize Your Additional Informations Here:","simplecharm_portfolio"); ?></h1>
+                <h2><?php _e("Customize Your Additional Informations Here:","simplecharm_portfolio"); ?></h2>
             </div>
             <form class="page-contents" method="POST">
                 <?php get_template_part("template-parts/portfolio/portfolio", 'skills', $this->display_saved_value());?>
@@ -155,14 +155,14 @@ class Portfolio
             // validation for email and phone
             if (!filter_var($modified_data['email'], FILTER_VALIDATE_EMAIL)) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>Email is not valid!</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'.__("Email is not valid!","simplecharm-portfolio").'</p></div>';
                 });
                 return;
             }
             // phone should be in 2 to 15 digits
             if (!preg_match("/^[0-9]{7,15}$/", $modified_data['phone'])) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>Phone is not valid! It should be between 2 to 15 digits</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'.__("Phone is not valid! It should be between 7 to 15 digits","simplecharm-portfolio").'</p></div>';
                 });
                 return;
             }
@@ -181,7 +181,7 @@ class Portfolio
 
                         if (isset($single_social_link['url']) && !filter_var($single_social_link['url'], FILTER_VALIDATE_URL)) {
                             add_action('admin_notices', function () {
-                                echo '<div class="notice notice-error is-dismissible"><p>Invalid Social Link!</p></div>';
+                                echo '<div class="notice notice-error is-dismissible"><p>'.__("Invalid Social Link!","simplecharm-portfolio").'</p></div>';
                             });
                             return;
                         }
@@ -190,32 +190,32 @@ class Portfolio
             }
             if (isset($modified_data['short_description']) && strlen($modified_data['short_description']) > 200) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>Short Description is too long! It should be less than 200 words</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Short Description is too long! It should be less than 200 words','simplecharm-portfolio').'</p></div>';
                 });
                 return;
             }
             if (isset($modified_data['short_description']) && strlen($modified_data['description']) > 800) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>Description is too long! It should be less than 800 words</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'._e('Description is too long! It should be less than 800 words','simplecharm-portfolio').'</p></div>';
                 });
                 return;
             }
             // validate both image
             if (isset($modified_data['image']) && !filter_var($modified_data['image'], FILTER_VALIDATE_URL)) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>Invalid Image URL!</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Invalid Image URL!','simplecharm-portfolio').'</p></div>';
                 });
                 return;
             }
             if (isset($modified_data['image_2']) && !filter_var($modified_data['image_2'], FILTER_VALIDATE_URL)) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>Invalid Image URL!</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Invalid Image URL!','simplecharm-portfolio').'</p></div>';
                 });
                 return;
             }
             if (isset($modified_data['address']) && strlen($modified_data['address']) > 100) {
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-error is-dismissible"><p>Address is too long! It should be less than 100 words</p></div>';
+                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Address is too long! It should be less than 100 words','simplecharm-portfolio').'</p></div>';
                 });
                 return;
             }
@@ -226,7 +226,7 @@ class Portfolio
             if (update_option('simplecharm_portfolio_data', $modified_data)) {
                 // Display success message
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-success is-dismissible"><p>Data saved successfully!</p></div>';
+                    echo '<div class="notice notice-success is-dismissible"><p>'.__('Data saved successfully!','simplecharm-portfolio').'</p></div>';
                 });
             }
         }
@@ -238,10 +238,7 @@ class Portfolio
     public function save_additional_data()
     {
         if (isset($_POST['update_portfolio_data'])) {
-            // echo '<pre>';
             $modified_data = $_POST['simplecharm_portfolio'];
-            // echo var_dump($modified_data['works']);
-            // die();
             //validations
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_additionals__nonce')) {
                 return;
@@ -263,7 +260,7 @@ class Portfolio
 
                         if (strlen($single_skill['name']) > 20) {
                             add_action('admin_notices', function () {
-                                echo '<div class="notice notice-error is-dismissible"><p>Skill Name is too long! It should be less than 20 words</p></div>';
+                                echo '<div class="notice notice-error is-dismissible"><p>'.__('Skill Name is too long! It should be less than 20 words','simplecharm-portfolio').'</p></div>';
                             });
                             return;
                         }
@@ -280,7 +277,7 @@ class Portfolio
 
                             if (strlen($single_experience['institution']) > 20) {
                                 add_action('admin_notices', function () {
-                                    echo '<div class="notice notice-error is-dismissible"><p>Institution Name is too long! It should be less than 20 words</p></div>';
+                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Institution Name is too long! It should be less than 20 words','simplecharm-portfolio').'</p></div>';
                                 });
                                 return;
                             }
@@ -288,7 +285,7 @@ class Portfolio
                             if(empty($single_experience['post-title'])) continue;
                             if(strlen($single_experience['post-title']) > 20){
                                 add_action('admin_notices', function () {
-                                    echo '<div class="notice notice-error is-dismissible"><p>Post Title is too long! It should be less than 20 words</p></div>';
+                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Post Title is too long! It should be less than 20 words','simplecharm-portfolio').'</p></div>';
                                 });
                                 return;
                             }
@@ -296,7 +293,7 @@ class Portfolio
                             if(empty($single_experience['responsibility'])) continue;
                             if(strlen($single_experience['responsibility']) > 800){
                                 add_action('admin_notices', function () {
-                                    echo '<div class="notice notice-error is-dismissible"><p>Responsibility is too long! It should be less than 200 words</p></div>';
+                                    echo '<div class="notice notice-error is-dismissible"><p>'.__("Responsibility is too long! It should be less than 200 words","simplecharm-portfolio").'</p></div>';
                                 });
                                 return;
                             }
@@ -305,7 +302,7 @@ class Portfolio
                             // only date must be contain
                             if(!preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}/",$single_experience['start_date'])){
                                 add_action('admin_notices', function () {
-                                    echo '<div class="notice notice-error is-dismissible"><p>Invalid Date!</p></div>';
+                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Start Date is Invalid').'!</p></div>';
                                 });
                                 return;
                             }
@@ -314,7 +311,7 @@ class Portfolio
                             // only date must be contain
                             if(!preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}/",$single_experience['end_date'])){
                                 add_action('admin_notices', function () {
-                                    echo '<div class="notice notice-error is-dismissible"><p>Invalid Date!</p></div>';
+                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('End Date is Invalid').'</p></div>';
                                 });
                                 return;
                             }
@@ -330,25 +327,25 @@ class Portfolio
                         }
                         if (strlen($work['title']) > 20) {
                             add_action('admin_notices', function () {
-                                echo '<div class="notice notice-error is-dismissible"><p>Project Title is too long! It should be less than 20 words</p></div>';
+                                echo '<div class="notice notice-error is-dismissible"><p>'.__('Project Title is too long! It should be less than 20 words','simplecharm-portfolio').'</p></div>';
                             });
                             return;
                         }
                         if (strlen($work['description']) > 800) {
                             add_action('admin_notices', function () {
-                                echo '<div class="notice notice-error is-dismissible"><p>Project Description is too long! It should be less than 800 words</p></div>';
+                                echo '<div class="notice notice-error is-dismissible"><p>'.__("Project Description is too long! It should be less than 800 words","simplecharm-portfolio").'</p></div>';
                             });
                             return;
                         }
                         if (strlen($work['tags']) > 200) {
                             add_action('admin_notices', function () {
-                                echo '<div class="notice notice-error is-dismissible"><p>Project Tags is too long! It should be less than 200 words</p></div>';
+                                echo '<div class="notice notice-error is-dismissible"><p>'.__("Project Tags is too long! It should be less than 200 words","simplecharm-portfolio").'</p></div>';
                             });
                             return;
                         }
                         if (!filter_var($work['link'], FILTER_VALIDATE_URL)) {
                             add_action('admin_notices', function () {
-                                echo '<div class="notice notice-error is-dismissible"><p>Invalid URL!Try to add http:// or https://</p></div>';
+                                echo '<div class="notice notice-error is-dismissible"><p>'.__("Invalid URL!Try to add http:// or https://","simplecharm-portfolio").'</p></div>';
                             });
                             return;
                         }
@@ -362,7 +359,7 @@ class Portfolio
             if (update_option('simplecharm_portfolio_additional_data', $modified_data)) {
                 // Display success message
                 add_action('admin_notices', function () {
-                    echo '<div class="notice notice-success is-dismissible"><p>Data saved successfully!</p></div>';
+                    echo '<div class="notice notice-success is-dismissible"><p>'.__("Data saved successfully!","simplecharm-portfolio").'</p></div>';
                 });
             }
         }
@@ -461,7 +458,7 @@ class Portfolio
         }
     }
     /**
-     * Load Media
+     * Load Media To Make Image Upload Possible
      */
     public function load_media()
     {

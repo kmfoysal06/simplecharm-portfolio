@@ -5,24 +5,68 @@
  */
 ?>
 <div class="portfolio-section-wrapper">
-	<h3 class="portfolio-section-toggle">Your Informations Here:-</h3>
+	<h2 class="portfolio-section-toggle"><?php _e("Your Informations are Here:-","simplecharm-portfolio"); ?></h2>
 	<div class="page-contents portfolio-section-content">
 		<div class="portfolio-intro">
-			<p>Name:- <?php echo esc_html($args['name']); ?></p>
-			<p>Image:- <img src="<?php echo esc_url($args['user_image']); ?>" width="100px"></p>
-			<p>2nd Image:- <img src="<?php echo esc_url($args['user_image2']); ?>" width="100px"></p>
-			<p>Email:- <?php echo esc_html($args['email']); ?></p>
-			<p>Phone:- <?php echo esc_html($args['phone']); ?></p>
-			<p>Short Description:- <?php echo esc_html($args['short_description']); ?></p>
-			<p>Description:- <?php echo esc_html($args['description']); ?></p>
-			<p>Address:- <?php echo esc_html($args['address']); ?></p>
-			<p>Availabel:- <?php echo esc_html($args['available']); ?></p>
-			<p>Social Links:-  <?php 
+			<p><?php
+				_e(sprintf("Name:- %s",esc_html($args['name'])));
+				?>
+			</p>
+			<p><?php
+				_e(wp_kses(sprintf('Image:- <img src="%s" width="100px">',esc_url($args['user_image'])),['img'=>['src'=>[],'width'=>array()]]));
+				?>
+			</p>
+			<p>
+				<?php
+				_e(wp_kses(sprintf('2nd Image:- <img src="%s" width="100px">',esc_url($args['user_image2'])),['img'=>['src'=>[],'width'=>array()]]));
+				?>
+			</p>
+			<p>
+				<?php
+				_e(sprintf("Mail:- %s",esc_html($args['email'])));
+				?>
+			</p>
+			<p>
+				<?php
+				_e(sprintf("Phone:- %s",esc_html($args['phone'])));
+				?>
+			</p>
+			<p>
+				<?php
+				_e(sprintf("Short Description:- %s",esc_html($args['short_description'])));
+				?>
+			</p>
+			<p>
+				<?php
+				_e(sprintf("Description:- %s",esc_html($args['description'])));
+				?>
+			</p>
+			<p>
+				<?php
+				_e(sprintf("Address:- %s",esc_html($args['address'])));
+				?>
+			</p>
+			<p>
+				<?php
+				_e(sprintf("Available:- %s",esc_html($args['available'])));
+				?>
+			</p>
+			<p><?php 
+			_e("Social Links:- ");
 			$social_links = simplecharm_portfolio_link_social($args['social_links']);
-			$social_links;
+			esc_html($social_links);
 	?></p>
-			<p>Skills:- <?php echo implode(', ', $args['skills']) ?></p>
-			<p>Experience:- <?php echo implode(', ', simplecharm_portfolio_experience_admin($args['experiences']))?></p>
+			<p>
+				<?php
+				_e(sprintf("Skills:- %s",implode(', ',$args['skills'])));
+				?>
+				</p>
+			<p>
+				<?php
+				_e(sprintf("Experience:- %s",implode(', ', simplecharm_portfolio_experience_admin($args['experiences']))));
+				?>
+				</p>
+			</p>
 		</div>
 	</div>
 </div>

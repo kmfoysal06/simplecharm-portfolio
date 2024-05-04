@@ -6,8 +6,8 @@
 if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['experiences']) && !empty(array_merge(...$args['experiences']))):
 ?>
 <div class="experience-title my-3 flex flex-col items-center">
-		<div class="badge badge-neutral">Experience</div>
-		<p>Here is a quick summary of my most recent experiences:</p>
+		<div class="badge badge-neutral"><?php _e("Experience","simplecharm-portfolio"); ?></div>
+		<p><?php _e("Here is a quick summary of my most recent experiences:","simplecharm-portfolio"); ?></p>
 	</div>
 	<div class="experience-content">
 		<?php
@@ -35,7 +35,7 @@ if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['e
 				<?php
 				if(!empty($start_date)):
 				?>
-				<h4><?php echo $start_date; ?> - <?php echo $end_date_status; ?></h4>
+				<h4><?php _e($start_date ." - ". $end_date_status,"simplecharm-portfolio"); ?></h4>
 			<?php endif; ?>
 			</div>
 		</div>

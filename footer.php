@@ -7,7 +7,7 @@
 	</main>
 	<footer role="contentinfo" class="site-footer w-full bg-gray-400 text-white py-3 text-center">
 		<div class="footer-copyright">
-			<p>&copy; 2024 | All Rights Are Reserved</p>
+			<p>&copy; <?php _e('2024 | All Rights Are Reserved','simplecharm-portfolio') ?></p>
 		</div>
 	</footer>
 	<?php wp_footer();?>
