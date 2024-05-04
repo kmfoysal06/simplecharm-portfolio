@@ -279,6 +279,20 @@ class Portfolio
             if (!current_user_can('manage_options')) {
                 return;
             }
+            //validations
+            if (is_array($modified_data['skills'])) {
+                foreach ($modified_data['skills'] as $skill) {
+                    foreach($skill as $single_skill){
+                        if(empty($single_skill['name'])) continue;
+                        if (strlen($single_skill['name']) > 20) {
+                            add_action('admin_notices', function () {
+                                echo '<div class="notice notice-error is-dismissible"><p>Skill Name is too long! It should be less than 20 words</p></div>';
+                            });
+                            return;
+                        }
+                    }
+                }
+            }
 
             //sanitization
             $modified_data = $this->sanitize_array($modified_data);
