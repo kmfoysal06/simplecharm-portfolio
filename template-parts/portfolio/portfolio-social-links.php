@@ -15,11 +15,11 @@ if (is_array($args) && array_key_exists("social_links", $args)):
             ?>
               <tr class="flex">
                 <td>
-                  <label for="social_link-name-<?php _e($key,"simplecharm-portfolio"); ?>"></label>
-                  <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][][name]" value="<?php echo is_array($social['name']) ? implode('', $social['url']) : $social['name']  ?>" id="social_link-name-<?php _e($key,"simplecharm-portfolio"); ?>" /></td>
+                  <label for="social_link-name-<?php esc_html($key,"simplecharm-portfolio"); ?>"></label>
+                  <input type="text" class="name" data-queue="0" placeholder="social link name" name="simplecharm_portfolio[social_link][0][][name]" value="<?php echo is_array($social['name']) ? implode('', $social['url']) : $social['name']  ?>" id="social_link-name-<?php esc_html($key,"simplecharm-portfolio"); ?>" /></td>
                 <td>
-                  <label for="social_link-url-<?php _e($key,"simplecharm-portfolio"); ?>"></label>
-                  <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][][url]" value="<?php echo is_array($social['url']) ? implode('', $social['url']) : $social['url']  ?>" id="social_link-url-<?php _e($key,"simplecharm-portfolio"); ?>" />
+                  <label for="social_link-url-<?php esc_html($key,"simplecharm-portfolio"); ?>"></label>
+                  <input type="text" class="url" data-queue="0" placeholder="social link" name="simplecharm_portfolio[social_link][0][][url]" value="<?php echo is_array($social['url']) ? implode('', $social['url']) : $social['url']  ?>" id="social_link-url-<?php esc_html($key,"simplecharm-portfolio"); ?>" />
                 </td>
                 <td><a class="button simplecharm_social_link_remove" href="#1">Remove</a></td>
               </tr>

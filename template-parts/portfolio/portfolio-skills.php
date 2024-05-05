@@ -16,8 +16,8 @@ if (is_array($args) && array_key_exists("skills", $args)):
         ?>
         <tr class="flex">
           <td>
-            <label for="skill-name-<?php _e($key,"simplecharm-portfolio"); ?>"></label>
-            <input type="text" class="name" data-queue="<?php _e($key,"simplecharm-portfolio"); ?>" placeholder="<?php _e("Skill Name","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[skills][<?php _e($key,"simplecharm-portfolio"); ?>][][name]" value="<?php echo $skill; ?>" id="skill-name-<?php _e($key,"simplecharm-portfolio"); ?>" /></td>
+            <label for="skill-name-<?php esc_html($key,"simplecharm-portfolio"); ?>"></label>
+            <input type="text" class="name" data-queue="<?php esc_html($key,"simplecharm-portfolio"); ?>" placeholder="<?php _e("Skill Name","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[skills][<?php esc_html($key,"simplecharm-portfolio"); ?>][][name]" value="<?php echo $skill; ?>" id="skill-name-<?php esc_html($key,"simplecharm-portfolio"); ?>" /></td>
           <td><a class="button simplecharm_skills_remove" href="#1"><?php _e("Remove","simplecharm-portfolio"); ?></a></td>
         </tr>
     <?php
