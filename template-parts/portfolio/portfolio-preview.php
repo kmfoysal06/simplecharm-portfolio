@@ -9,7 +9,7 @@
 	<div class="page-contents portfolio-section-content">
 		<div class="portfolio-intro">
 			<p><?php
-				_e(sprintf("Name:- %s",esc_html($args['name'])));
+				printf(__('Name:- %s', 'simplecharm-portfolio'), $args['name']);
 				?>
 			</p>
 			<p><?php

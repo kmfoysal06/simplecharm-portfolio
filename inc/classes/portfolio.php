@@ -302,7 +302,7 @@ class Portfolio
                             // only date must be contain
                             if(!preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}/",$single_experience['start_date'])){
                                 add_action('admin_notices', function () {
-                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Start Date is Invalid').'!</p></div>';
+                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Start Date is Invalid',"simplecharm-portfolio").'!</p></div>';
                                 });
                                 return;
                             }
@@ -311,7 +311,7 @@ class Portfolio
                             // only date must be contain
                             if(!preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}/",$single_experience['end_date'])){
                                 add_action('admin_notices', function () {
-                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('End Date is Invalid').'</p></div>';
+                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('End Date is Invalid',"simplecharm-portfolio").'</p></div>';
                                 });
                                 return;
                             }
