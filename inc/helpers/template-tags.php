@@ -124,6 +124,8 @@ function simplecharm_portfolio_load_experience($experiences){
 }
 function simplecharm_portfolio_flattern_array($arr){
     return array_merge(...$arr);
+    // echo '<pre>';
+    // echo var_dump($arr);
 }
 
 function simplecharm_portfolio_experience_admin($experiences){
@@ -149,7 +151,7 @@ function simplecharm_portfolio_experience_responsibility_list($responsibilities)
 }
 function simplecharm_portfolio_split_tags($tags){
     $html = '';
-            $tags_array = (!empty($tags) && strpos(", ", $tags)) ? explode(', ', $tags) : [] ;
+            $tags_array = (!empty($tags) && strpos(", ", $tags) && explode(', ', $tags) !== null) ? explode(', ', $tags) : [] ;
             $html .= '<div class="work-tags grid lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-2 gap-3">';
             foreach($tags_array as $single_tag){
                 if(empty($single_tag)) continue;

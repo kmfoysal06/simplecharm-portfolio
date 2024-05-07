@@ -283,9 +283,9 @@ class Portfolio
                             }
                         }elseif(isset($single_experience['post-title'])){
                             if(empty($single_experience['post-title'])) continue;
-                            if(strlen($single_experience['post-title']) > 20){
+                            if(strlen($single_experience['post-title']) > 30){
                                 add_action('admin_notices', function () {
-                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Post Title is too long! It should be less than 20 words','simplecharm-portfolio').'</p></div>';
+                                    echo '<div class="notice notice-error is-dismissible"><p>'.__('Post Title is too long! It should be less than 30 words','simplecharm-portfolio').'</p></div>';
                                 });
                                 return;
                             }
