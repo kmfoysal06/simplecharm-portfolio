@@ -124,8 +124,6 @@ function simplecharm_portfolio_load_experience($experiences){
 }
 function simplecharm_portfolio_flattern_array($arr){
     return array_merge(...$arr);
-    // echo '<pre>';
-    // echo var_dump($arr);
 }
 
 function simplecharm_portfolio_experience_admin($experiences){

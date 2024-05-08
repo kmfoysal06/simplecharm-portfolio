@@ -319,12 +319,12 @@ class Portfolio
                     }
                 }
             }
-            // validate projects title.title must contain less then or equel 20 characters
             if (is_array($modified_data['works'])) {
                 foreach ($modified_data['works'] as $work) {
                         if (empty($work['title'])) {
                             continue;
                         }
+                        //title na thakle to baki shov sanitiziation continue hoy jabe.etha fix korte hove
                         if (strlen($work['title']) > 20) {
                             add_action('admin_notices', function () {
                                 echo '<div class="notice notice-error is-dismissible"><p>'.__('Project Title is too long! It should be less than 20 words','simplecharm-portfolio').'</p></div>';
