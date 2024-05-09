@@ -6,7 +6,7 @@
 ?>
 <!-- skills setting -->
 <div class="portfolio-section-wrapper">
-	<h3 class="portfolio-section-toggle"><?php echo esc_html("Skills Customization","simplecharm-portfolio"); ?></h3>
+	<h3 class="portfolio-section-toggle"><?php _e("Skills Customization","simplecharm-portfolio"); ?></h3>
 <div class="portfolio-section-content simplecharm-portfolio-skills">
     <table id="repeatable-fieldset-one" width="100%">
       <tbody>
@@ -16,8 +16,8 @@ if (is_array($args) && array_key_exists("skills", $args)):
         ?>
         <tr class="flex">
           <td>
-            <label for="skill-name-<?php esc_html($key,"simplecharm-portfolio"); ?>"></label>
-            <input type="text" class="name" data-queue="<?php esc_attr_e($key,"simplecharm-portfolio"); ?>" placeholder="<?php _e("Skill Name","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[skills][<?php esc_attr_e($key,"simplecharm-portfolio"); ?>][][name]" value="<?php echo $skill; ?>" id="skill-name-<?php esc_html($key,"simplecharm-portfolio"); ?>" /></td>
+            <label for="<?php echo esc_attr("skill-name-" . $key); ?>"></label>
+            <input type="text" class="name" data-queue="<?php echo esc_attr($key); ?>" placeholder="<?php _e("Skill Name","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[skills][<?php echo esc_attr($key); ?>][][name]" value="<?php echo esc_attr($skill); ?>" id="<?php echo esc_attr("skill-name-" . $key); ?>" /></td>
           <td><a class="button simplecharm_skills_remove" href="#1"><?php _e("Remove","simplecharm-portfolio"); ?></a></td>
         </tr>
     <?php

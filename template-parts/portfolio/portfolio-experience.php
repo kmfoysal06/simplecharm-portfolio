@@ -23,28 +23,28 @@ if (is_array($args) && array_key_exists("experiences", $args)):
     ?>
  <tr class="flex flex-col simplecharm-basic-border simplecharm-basic-padding">
     <td>
-        <label for="experience-institution-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>">Institution</label>
-        <input type="text" class="institution" placeholder="Experience Institution" name="simplecharm_portfolio[experiences][<?php esc_attr_e($key,'simplecharm-portfolio'); ?>][][institution]" value="<?php echo (array_key_exists("institution",$flattern_experience)) ? $flattern_experience['institution'] : '' ;?>" id="experience-institution-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>"  data-queue="<?php esc_attr_e($key,'simplecharm-portfolio'); ?>">
+        <label for="<?php echo esc_attr("experience-institution-" . $key,'simplecharm-portfolio'); ?>"><?php _e("Institution",'simplecharm-portfolio'); ?></label>
+        <input type="text" class="institution" placeholder="Experience Institution" name="simplecharm_portfolio[experiences][<?php echo esc_attr($key); ?>][][institution]" value="<?php echo (array_key_exists("institution",$flattern_experience)) ? esc_attr($flattern_experience['institution']) : "" ;?>" id="experience-institution-<?php echo esc_attr($key); ?>"  data-queue="<?php echo esc_attr($key); ?>">
     </td>
     <td>
-        <label for="experience-post-title-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" title="enter your job post title eg:- Sr. Laravel Developer etc.">Post Title</label>
-        <input type="text" class="post-title" placeholder="<?php _e('Post Title','simplecharm-portfolio'); ?>" name="simplecharm_portfolio[experiences][<?php esc_attr_e($key,'simplecharm-portfolio'); ?>][][post-title]" value="<?php echo (array_key_exists("post-title",$flattern_experience)) ? $flattern_experience['post-title'] : '' ;?>" id="experience-post-title-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" data-queue="<?php esc_attr_e($key,'simplecharm-portfolio'); ?>">
+        <label for="<?php echo esc_attr("experience-post-title-" . $key); ?>" title="<?php _e("enter your job post title eg:- Sr. Laravel Developer etc.","simplecharm-portfolio"); ?>"><?php _e("Post Title","simplecharm-portfolio"); ?></label>
+        <input type="text" class="post-title" placeholder="<?php _e('Post Title','simplecharm-portfolio'); ?>" name="simplecharm_portfolio[experiences][<?php echo esc_attr($key); ?>][][post-title]" value="<?php echo (array_key_exists("post-title",$flattern_experience)) ? esc_attr($flattern_experience['post-title']) : '' ;?>" id="<?php echo esc_attr("experience-post-title-" . $key,'simplecharm-portfolio'); ?>" data-queue="<?php echo esc_attr($key); ?>">
     </td>
     <td class="responsibilities" id="repeatable-fieldset-three">
-        <label for="responsibilities-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" title="<?php _e('enter list separated by three dash (---) eg:- ---first responsibility --- second responsibility ---third responsibility etc.','simplecharm-portfolio'); ?>"><?php _e('Responsibilities','simplecharm-portfolio'); ?></label>
-        <textarea name="simplecharm_portfolio[experiences][<?php esc_attr_e($key,'simplecharm-portfolio'); ?>][][responsibility]" id="responsibilities-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" cols="50" rows="5" class="responsibility" data-queue="<?php esc_attr_e($key,'simplecharm-portfolio'); ?>"><?php echo esc_textarea((array_key_exists("responsibility",$flattern_experience)) ? $flattern_experience['responsibility'] : '') ;?></textarea>
+        <label for="<?php echo esc_attr("responsibilities-" . $key); ?>" title="<?php _e('enter list separated by three dash (---) eg:- ---first responsibility --- second responsibility ---third responsibility etc.','simplecharm-portfolio'); ?>"><?php _e('Responsibilities','simplecharm-portfolio'); ?></label>
+        <textarea name="simplecharm_portfolio[experiences][<?php echo esc_attr($key,'simplecharm-portfolio'); ?>][][responsibility]" id="<?php echo esc_attr("responsibilities-" . $key); ?>" cols="50" rows="5" class="responsibility" data-queue="<?php echo esc_attr($key); ?>"><?php echo esc_textarea((array_key_exists("responsibility",$flattern_experience)) ? $flattern_experience['responsibility'] : '') ;?></textarea>
     </td>
     <td>
-        <label for="start-date-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>"><?php _e("Start Date",'simplecharm-portfolio'); ?></label>
-        <input type="date" class="start_date" name="simplecharm_portfolio[experiences][<?php esc_attr_e($key,'simplecharm-portfolio'); ?>][][start_date]" placeholder="<?php _e("Start Date",'simplecharm-portfolio'); ?>" id="start-date-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" data-queue="<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" value="<?php echo (array_key_exists("start_date",$flattern_experience)) ? $flattern_experience['start_date'] : '' ;?>">
+        <label for="<?php echo esc_attr("start-date-" . $key); ?>"><?php _e("Start Date",'simplecharm-portfolio'); ?></label>
+        <input type="date" class="start_date" name="simplecharm_portfolio[experiences][<?php echo esc_attr($key); ?>][][start_date]" placeholder="<?php _e("Start Date",'simplecharm-portfolio'); ?>" id="<?php echo esc_attr("start-date-" . $key); ?>" data-queue="<?php echo esc_attr($key); ?>" value="<?php echo (array_key_exists("start_date",$flattern_experience)) ? esc_attr($flattern_experience['start_date']) : '' ;?>">
     </td>
     <td>
-        <label for="end-date-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>"><?php _e("End Date",'simplecharm-portfolio'); ?></label>
-        <input type="date" class="end_date" name="simplecharm_portfolio[experiences][<?php esc_attr_e($key,'simplecharm-portfolio'); ?>][][end_date]" placeholder="<?php _e("End Date",'simplecharm-portfolio'); ?>" id="end-date-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" data-queue="<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" value="<?php echo (array_key_exists("end_date",$flattern_experience)) ? $flattern_experience['end_date'] : '' ;?>" <?php disabled($working_now,'on');?>>
+        <label for="<?php echo esc_attr("end-date-" . $key); ?>"><?php _e("End Date",'simplecharm-portfolio'); ?></label>
+        <input type="date" class="end_date" name="simplecharm_portfolio[experiences][<?php echo esc_attr($key); ?>][][end_date]" placeholder="<?php _e("End Date",'simplecharm-portfolio'); ?>" id="<?php esc_attr_("end-date-" . $key); ?>" data-queue="<?php echo esc_attr($key); ?>" value="<?php echo (array_key_exists("end_date",$flattern_experience)) ? esc_attr($flattern_experience['end_date']) : '' ;?>" <?php disabled($working_now,'on');?>>
     </td>
     <td>
-        <label for="working-now-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" title="<?php _e("Are You Still Working Here?",'simplecharm-portfolio'); ?>"><?php _e("Still Working?",'simplecharm-portfolio'); ?></label>
-        <input type="checkbox" id="working-now-<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" name="simplecharm_portfolio[experiences][<?php esc_attr_e($key,'simplecharm-portfolio'); ?>][][working]" class="working" data-queue="<?php esc_attr_e($key,'simplecharm-portfolio'); ?>" <?php checked($working_now,'on'); ?>>
+        <label for="<?php echo esc_attr("working-now-" . $key,'simplecharm-portfolio'); ?>" title="<?php _e("Are You Still Working Here?",'simplecharm-portfolio'); ?>"><?php _e("Still Working?",'simplecharm-portfolio'); ?></label>
+        <input type="checkbox" id="<?php echo esc_attr("working-now-" . $key); ?>" name="simplecharm_portfolio[experiences][<?php echo esc_attr($key); ?>][][working]" class="working" data-queue="<?php echo esc_attr($key); ?>" <?php checked($working_now,'on'); ?>>
     </td>
     <td>
         <a class="button simplecharm_experience_remove" href="#1"><?php _e('Remove','simplecharm-portfolio'); ?></a>

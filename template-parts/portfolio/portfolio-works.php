@@ -18,12 +18,12 @@
         if(empty($work['title'])) continue; ?>
     <tr class="flex simplecharm-basic-border simplecharm-basic-padding flex flex-col">
         <td>
-            <label for="project-title-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>"><?php _e("Title","simplecharm-portfolio"); ?></label>
-            <input type="text" class="title" placeholder="<?php echo __("Project Title","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php echo esc_attr($key,"simplecharm-portfolio"); ?>][title]" value="<?php echo echo esc_attr($work['title'],'simplecharm-portfolio'); ?>" id="project-title-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" data-queue="<?php echo esc_attr($key,"simplecharm-portfolio"); ?>">
+            <label for="<?php echo esc_attr("project-title-" . $key); ?>"><?php _e("Title","simplecharm-portfolio"); ?></label>
+            <input type="text" class="title" placeholder="<?php _e("Project Title","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php echo esc_attr($key); ?>][title]" value="<?php echo esc_attr($work['title']); ?>" id="<?php echo esc_attr("project-title-" . $key); ?>" data-queue="<?php echo esc_attr($key); ?>">
         </td>
         <td>
-            <label for="project-description-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>"><?php _e("Description","simplecharm-portfolio"); ?></label>
-            <textarea class="description" placeholder="<?php _e("Project Description","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php echo esc_attr($key,"simplecharm-portfolio"); ?>][description]" id="project-description-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" data-queue="<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" cols="50" rows="5"><?php echo esc_textarea($work['description']); ?></textarea>
+            <label for="<?php echo esc_attr("project-description-" . $key); ?>"><?php _e("Description","simplecharm-portfolio"); ?></label>
+            <textarea class="description" placeholder="<?php _e("Project Description","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php echo esc_attr($key); ?>][description]" id="<?php echo esc_attr("project-description-" . $key); ?>" data-queue="<?php echo esc_attr($key); ?>" cols="50" rows="5"><?php echo esc_textarea($work['description']); ?></textarea>
         </td>
         <td>
             <label for="project-tags-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>"><?php _e("Tags","simplecharm-portfolio"); ?></label>
