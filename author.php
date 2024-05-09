@@ -42,7 +42,7 @@ if (have_posts()) :
     echo '</div>';
 else:
     ?>
-<p class="text-center"><?php esc_html_e('No posts by this author.', 'simplecharm'); ?></p>
+<p class="text-center"><?php esc_html_e('No posts by this author.', 'simplecharm-portfolio'); ?></p>
 <?php
 endif;
 

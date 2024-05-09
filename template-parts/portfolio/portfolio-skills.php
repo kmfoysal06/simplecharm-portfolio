@@ -6,7 +6,7 @@
 ?>
 <!-- skills setting -->
 <div class="portfolio-section-wrapper">
-	<h3 class="portfolio-section-toggle"><?php _e("Skills Customization","simplecharm-portfolio"); ?></h3>
+	<h3 class="portfolio-section-toggle"><?php echo esc_html("Skills Customization","simplecharm-portfolio"); ?></h3>
 <div class="portfolio-section-content simplecharm-portfolio-skills">
     <table id="repeatable-fieldset-one" width="100%">
       <tbody>

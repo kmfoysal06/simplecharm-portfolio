@@ -18,20 +18,20 @@
         if(empty($work['title'])) continue; ?>
     <tr class="flex simplecharm-basic-border simplecharm-basic-padding flex flex-col">
         <td>
-            <label for="project-title-<?php esc_attr_e($key,"simplecharm-portfolio"); ?>"><?php _e("Title","simplecharm-portfolio"); ?></label>
-            <input type="text" class="title" placeholder="<?php _e("Project Title","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php esc_attr_e($key,"simplecharm-portfolio"); ?>][title]" value="<?php echo esc_attr_e($work['title']); ?>" id="project-title-<?php esc_attr_e($key,"simplecharm-portfolio"); ?>" data-queue="<?php esc_attr_e($key,"simplecharm-portfolio"); ?>">
+            <label for="project-title-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>"><?php _e("Title","simplecharm-portfolio"); ?></label>
+            <input type="text" class="title" placeholder="<?php echo __("Project Title","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php echo esc_attr($key,"simplecharm-portfolio"); ?>][title]" value="<?php echo echo esc_attr($work['title'],'simplecharm-portfolio'); ?>" id="project-title-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" data-queue="<?php echo esc_attr($key,"simplecharm-portfolio"); ?>">
         </td>
         <td>
-            <label for="project-description-<?php esc_attr_e($key,"simplecharm-portfolio"); ?>"><?php _e("Description","simplecharm-portfolio"); ?></label>
-            <textarea class="description" placeholder="<?php _e("Project Description","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php esc_attr_e($key,"simplecharm-portfolio"); ?>][description]" id="project-description-<?php esc_attr_e($key,"simplecharm-portfolio"); ?>" data-queue="<?php esc_attr_e($key,"simplecharm-portfolio"); ?>" cols="50" rows="5"><?php echo esc_textarea($work['description']); ?></textarea>
+            <label for="project-description-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>"><?php _e("Description","simplecharm-portfolio"); ?></label>
+            <textarea class="description" placeholder="<?php _e("Project Description","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php echo esc_attr($key,"simplecharm-portfolio"); ?>][description]" id="project-description-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" data-queue="<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" cols="50" rows="5"><?php echo esc_textarea($work['description']); ?></textarea>
         </td>
         <td>
-            <label for="project-tags-<?php esc_attr_e($key,"simplecharm-portfolio"); ?>"><?php _e("Tags","simplecharm-portfolio"); ?></label>
-            <textarea class="tags" placeholder="<?php _e("Project Tags","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php esc_attr_e($key,"simplecharm-portfolio"); ?>][tags]" id="project-tags-<?php esc_attr_e($key,"simplecharm-portfolio"); ?>" data-queue="<?php esc_attr_e($key,"simplecharm-portfolio"); ?>" cols="50" rows="5"><?php echo esc_textarea($work['tags']); ?></textarea>
+            <label for="project-tags-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>"><?php _e("Tags","simplecharm-portfolio"); ?></label>
+            <textarea class="tags" placeholder="<?php _e("Project Tags","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php echo esc_attr($key,"simplecharm-portfolio"); ?>][tags]" id="project-tags-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" data-queue="<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" cols="50" rows="5"><?php echo esc_textarea($work['tags']); ?></textarea>
         </td>
          <td>
-            <label for="project-link-<?php esc_attr_e($key,"simplecharm-portfolio"); ?>"><?php _e("Live Link","simplecharm-portfolio"); ?></label>
-            <input type="text" class="link" placeholder="<?php _e("Project Live Link","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php esc_attr_e($key,"simplecharm-portfolio"); ?>][link]" value="<?php echo esc_url($work['link']); ?>" id="project-link-<?php esc_attr_e($key,"simplecharm-portfolio"); ?>" data-queue="<?php esc_attr_e($key,"simplecharm-portfolio"); ?>">
+            <label for="project-link-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>"><?php _e("Live Link","simplecharm-portfolio"); ?></label>
+            <input type="text" class="link" placeholder="<?php _e("Project Live Link","simplecharm-portfolio"); ?>" name="simplecharm_portfolio[works][<?php echo esc_attr($key,"simplecharm-portfolio"); ?>][link]" value="<?php echo esc_url($work['link']); ?>" id="project-link-<?php echo esc_attr($key,"simplecharm-portfolio"); ?>" data-queue="<?php echo esc_attr($key,"simplecharm-portfolio"); ?>">
         </td>
         <td>
             <a class="button simplecharm_project_remove" href="#1"><?php _e("Remove","simplecharm-portfolio"); ?></a>
