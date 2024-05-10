@@ -43,6 +43,7 @@ class Assets
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_main');
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_inter');
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_tailwindcss');
+        wp_enqueue_style('dashicons');
     }
     public function admin_enqueue_styles()
     {

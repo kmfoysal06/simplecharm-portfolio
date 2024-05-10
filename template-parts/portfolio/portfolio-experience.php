@@ -40,7 +40,7 @@ if (is_array($args) && array_key_exists("experiences", $args)):
     </td>
     <td>
         <label for="<?php echo esc_attr("end-date-" . $key); ?>"><?php _e("End Date",'simplecharm-portfolio'); ?></label>
-        <input type="date" class="end_date" name="simplecharm_portfolio[experiences][<?php echo esc_attr($key); ?>][][end_date]" placeholder="<?php _e("End Date",'simplecharm-portfolio'); ?>" id="<?php esc_attr_("end-date-" . $key); ?>" data-queue="<?php echo esc_attr($key); ?>" value="<?php echo (array_key_exists("end_date",$flattern_experience)) ? esc_attr($flattern_experience['end_date']) : '' ;?>" <?php disabled($working_now,'on');?>>
+        <input type="date" class="end_date" name="simplecharm_portfolio[experiences][<?php echo esc_attr($key); ?>][][end_date]" placeholder="<?php _e("End Date",'simplecharm-portfolio'); ?>" id="<?php echo esc_attr("end-date-" . $key); ?>" data-queue="<?php echo esc_attr($key); ?>" value="<?php echo (array_key_exists("end_date",$flattern_experience)) ? esc_attr($flattern_experience['end_date']) : '' ;?>" <?php disabled($working_now,'on');?>>
     </td>
     <td>
         <label for="<?php echo esc_attr("working-now-" . $key,'simplecharm-portfolio'); ?>" title="<?php _e("Are You Still Working Here?",'simplecharm-portfolio'); ?>"><?php _e("Still Working?",'simplecharm-portfolio'); ?></label>

@@ -21,7 +21,7 @@ if (is_array($args) && array_key_exists("works", $args) && !empty($args['works']
 			<h2 class="text-5xl">
 				<?php echo esc_html(isset($work['title']) ? $work['title'] : ''); ?>
 			</h2>
-			<p>
+			<p class="overflow-y-auto">
 				<?php echo esc_html(isset($work['description']) ? $work['description'] : ''); ?>
 			</p>
 			<?php printf(

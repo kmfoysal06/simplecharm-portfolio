@@ -1143,11 +1143,6 @@ html {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
-.mockup-phone .display {
-  overflow: hidden;
-  border-radius: 40px;
-  margin-top: -25px;
-}
 .mockup-browser .mockup-browser-toolbar .input {
   position: relative;
   margin-left: auto;
@@ -1327,6 +1322,39 @@ html {
 .right-0 {
   right: 0px;
 }
+.right-1 {
+  right: 0.25rem;
+}
+.top-0 {
+  top: 0px;
+}
+.top-1 {
+  top: 0.25rem;
+}
+.top-2 {
+  top: 0.5rem;
+}
+.top-2\/4 {
+  top: 50%;
+}
+.right-4 {
+  right: 1rem;
+}
+.top-3 {
+  top: 0.75rem;
+}
+.top-5 {
+  top: 1.25rem;
+}
+.top-7 {
+  top: 1.75rem;
+}
+.top-10 {
+  top: 2.5rem;
+}
+.top-8 {
+  top: 2rem;
+}
 .z-10 {
   z-index: 10;
 }
@@ -1404,6 +1432,10 @@ html {
 .w-full {
   width: 100%;
 }
+.translate-y-2\/4 {
+  --tw-translate-y: 50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1453,6 +1485,9 @@ html {
 }
 .self-center {
   align-self: center;
+}
+.overflow-y-auto {
+  overflow-y: auto;
 }
 .rounded-lg {
   border-radius: 0.5rem;
@@ -1803,7 +1838,7 @@ nav.simplecharm-portfolio-main-navigation ul li {
 }
 
 nav.simplecharm-portfolio-main-navigation ul li a {
-  padding: 10px;
+  padding: 5px;
   color: #000;
 }
 
@@ -1876,6 +1911,9 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
  */
 
 @media (min-width: 640px) {
+  .sm\:absolute {
+    position: absolute;
+  }
   .sm\:w-4\/5 {
     width: 80%;
   }

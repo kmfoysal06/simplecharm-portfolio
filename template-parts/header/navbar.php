@@ -8,7 +8,7 @@ $menus = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Menus::get_instance();
 <a class="skip-link screen-reader-text" href="#simplecharm-content">
         <?php _e( 'Skip to content', 'simplecharm-portfolio' ); ?></a>
         <div class="simplecharm-portfolio-header">
-            <div class="simplecharm-portfolio-header-contents flex justify-between">
+            <div class="simplecharm-portfolio-header-contents flex justify-between items-center">
                 <span>
                     <?php
                 if(has_custom_logo()){
@@ -22,7 +22,7 @@ $menus = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Menus::get_instance();
                 <a class="simplecharm-portfolio-navigation-toggler menu-toggler z-10 relative block hidden" href="#simplecharm-portfolio-navigation">
                     <span class="dashicons dashicons-menu-alt3"></span>
                 </a>
-                <div class="absolute right-0" id="simplecharm-portfolio-navigation">
+                <div class="absolute right-1 top-8" id="simplecharm-portfolio-navigation">
                     <?php
                         if(has_nav_menu( "simplecharm_portfolio_header_menu" )){
                             wp_nav_menu( [

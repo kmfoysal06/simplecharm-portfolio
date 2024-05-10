@@ -10,7 +10,7 @@ $portfolio_saved_value = $portfolio->display_saved_value();
 <?php get_header();?>
 
 <!-- hero section -->
-<section class="min-h-screen bg-base-200 min-h-lvh my-2">
+<section class="min-h-screen bg-base-200 min-h-lvh my-2 grid items-center">
   <?php
 get_template_part("template-parts/frontpage/basic-info", "", $portfolio_saved_value);
 ?>
