@@ -27,8 +27,8 @@ Posts Page Design
 Author/Profile Page Design
 
 == Icons ==
-Location Icon: https://uxwing.com/maps-pin-line-icon/
-License: https://uxwing.com/license/
+All Icons Used From Dashicons.
+https://developer.wordpress.org/resource/dashicons/
 
 == Library and Frameworks ==
 Licnse:

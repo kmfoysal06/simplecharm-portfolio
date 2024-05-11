@@ -4,6 +4,8 @@
  * @package SimpleCharm Portfolio
  */
 if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['experiences']) && !empty(array_merge(...$args['experiences']))):
+	// skills leng
+	$skills_length = isset($args['skills']) ? count($args['skills']) : 0;
 ?>
 <div class="experience-title my-3 flex flex-col items-center">
 		<div class="badge badge-neutral"><?php _e("Experience","simplecharm-portfolio"); ?></div>

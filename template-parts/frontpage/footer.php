@@ -15,17 +15,17 @@
 			<div class="footer-mail flex justify-center items-center gap-x-3">
 				<span class="dashicons dashicons-email"></span>
 				<h2 class="text-xl md:text-xl"><?php echo esc_html($args["email"]); ?></h2>
-				<span class="dashicons dashicons-clipboard simplecharm-portfolio-copy-mail cursor-pointer"></span>
+				<button class="simplecharm-portfolio-copy-mail"><span class="dashicons dashicons-clipboard cursor-pointer"></span></button>
 			</div>
 			<div class="footer-phone flex justify-center items-center gap-x-3">
 				<span class="dashicons dashicons-smartphone"></span>
 				<h2 class="text-xl md:text-xl"> <?php echo esc_html($args["phone"]); ?> </h2>
-				<span class="dashicons dashicons-clipboard simplecharm-portfolio-copy-phone cursor-pointer"></span>
+				<button class="simplecharm-portfolio-copy-phone"><span class="dashicons dashicons-clipboard cursor-pointer"></span></button>
 			</div>
 			<div class="footer-social-links">
 				<p><?php _e("You may also find me on these platforms!","simplecharm-portfolio"); ?></p>
 				<div class="social-link flex gap-3 my-2 justify-center">
-				    <?php simplecharm_portfolio_link_social_frontend($args['social_links']); ?>
+				    <?php simplecharm_portfolio_link_social_frontend($args['social_links'],10); ?>
 				</div>
 			</div>
 		</div>
