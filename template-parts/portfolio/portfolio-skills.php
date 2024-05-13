@@ -1,6 +1,6 @@
 <?php
 /**
- * Customize  Skills 
+ * Skills Template For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
 ?>

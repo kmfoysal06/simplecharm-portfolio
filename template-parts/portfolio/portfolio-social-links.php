@@ -1,6 +1,6 @@
 <?php
 /**
- * Customize  Social Links
+ * Customize  Social Links Template For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
 ?>

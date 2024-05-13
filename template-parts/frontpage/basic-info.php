@@ -1,6 +1,6 @@
 <?php
 /**
- * Basic Info
+ * Basic Info Template For Frontpage
  * @package SimpleCharm Portfolio
  */
 ?>

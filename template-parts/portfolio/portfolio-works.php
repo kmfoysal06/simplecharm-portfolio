@@ -1,6 +1,6 @@
 <?php
 /**
- * Customize  Project Showcase
+ * Customize  Project Showcase For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
 ?>

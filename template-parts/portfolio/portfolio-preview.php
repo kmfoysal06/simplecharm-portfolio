@@ -94,7 +94,7 @@
 				    esc_html(implode(', ',$args['skills']))
 				);
 				?>
-				</p>
+			</p>
 			<p>
 				<?php
 				printf(
@@ -102,7 +102,14 @@
 				    esc_html(implode(', ',simplecharm_portfolio_experience_admin($args['experiences'])))
 				);
 				?>
-				</p>
+			</p>
+			<p>
+				<?php
+				printf(
+				    __( 'Works: %s.', 'simplecharm-portfolio' ),
+				    esc_html(implode(', ',simplecharm_portfolio_works_admin($args['works'])))
+				);
+				?>
 			</p>
 		</div>
 	</div>

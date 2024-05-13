@@ -132,7 +132,7 @@ class Portfolio
      */
     public function save_data()
     {
-        // validation
+        // validations
         if (isset($_POST['update_portfolio_data'])) {
             $modified_data = $_POST['simplecharm_portfolio'];
             if (!isset($_POST['simplecharm-portfolio__nonce']) || !wp_verify_nonce($_POST['simplecharm-portfolio__nonce'], 'simplecharm_portfolio_modify_page__nonce')) {
@@ -233,7 +233,7 @@ class Portfolio
 
     }
     /**
-     * Updating Additional Informations About Portfolio
+     * Updating Additional Informations About Portfolio.
      */
     public function save_additional_data()
     {
@@ -366,7 +366,7 @@ class Portfolio
     }
 
     /**
-     * Return The Saved Value as Array
+     * Return The Saved Value as Array.
      * @param string $type default text
      * @param string $data_key default empty string
      */
@@ -380,10 +380,10 @@ class Portfolio
             return "";
         }
     }
+
     /**
      * This Function Will Return The Saved Value
      */
-
     public function display_saved_value()
     {
         $option_value            = get_option("simplecharm_portfolio_data");
@@ -444,11 +444,11 @@ class Portfolio
 
         return $saved_values;
     }
+
     /**
      * Sanitize The Array
      * @param array $input_array
      */
-
     public function sanitize_array($input_array)
     {
         if (is_array($input_array)) {
@@ -457,6 +457,7 @@ class Portfolio
             return is_scalar($input_array) ? sanitize_text_field($input_array) : $input_array;
         }
     }
+    
     /**
      * Load Media To Make Image Upload Possible
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Customize  Experience
+ * Customize  Experience For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
 ?>

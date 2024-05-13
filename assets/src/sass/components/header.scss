@@ -1,4 +1,7 @@
 // header navigation menu
+.simplecharm-portfolio-header {
+    position: relative;
+}
 nav.simplecharm-portfolio-main-navigation ul {
     list-style: none;
     position: relative;
@@ -11,12 +14,12 @@ nav.simplecharm-portfolio-main-navigation ul .sub-menu {
     display: flex;
     flex-direction: column;
     float: left;
-    width: 25%;
     background: #fafafa;
 }
 nav.simplecharm-portfolio-main-navigation ul li {
     display: inline-block;
-    margin: 10px 5px;
+    margin: 0 5px;
+    padding: 5px 10px;
 }
 nav.simplecharm-portfolio-main-navigation ul li a{
 	padding:5px;
@@ -25,14 +28,13 @@ nav.simplecharm-portfolio-main-navigation ul li a{
 
 nav.simplecharm-portfolio-main-navigation ul .sub-menu {
     position: absolute;
-    width: 100%;
-    left: 0;
+    top: 100%;
+    left: -50%;
     z-index: 12;
     display:flex;
     opacity:0;
     pointer-events:none;
 }
-
 nav.simplecharm-portfolio-main-navigation ul li:hover .sub-menu,
 nav.simplecharm-portfolio-main-navigation ul li:focus-within .sub-menu {
     opacity:1;
@@ -42,8 +44,14 @@ nav.simplecharm-portfolio-main-navigation ul li a:hover,
 nav.simplecharm-portfolio-main-navigation ul li a:focus{
     text-decoration: underline;
 }
-
-// styles for mediam devices 760px
+#simplecharm-portfolio-navigation {
+    top: 50%;
+    transform: translateY(-50%);
+}
+#simplecharm-portfolio-navigation .menu:first-child{
+    display: unset;
+}
+// styles for medium devices 760px
 @media screen and (max-width: 760px) {
     .simplecharm-portfolio-navigation-toggler{
         display: block;
@@ -55,6 +63,9 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus{
     }
     #simplecharm-portfolio-navigation{
         display: none;
+    }
+    #simplecharm-portfolio-navigation .menu:first-child{
+        display: flex;
     }
 }
 @media screen and (min-width: 761px) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * About Me Section Setting
+ * About Me Template For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
 ?>

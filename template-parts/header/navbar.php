@@ -1,6 +1,6 @@
 <?php
 /**
- * Navbar Template
+ * Navbar Template For Header
  * @package SimpleCharm Portfolio
  */
 $menus = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Menus::get_instance();
@@ -22,7 +22,7 @@ $menus = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Menus::get_instance();
                 <a class="simplecharm-portfolio-navigation-toggler menu-toggler z-10 relative block hidden" href="#simplecharm-portfolio-navigation">
                     <span class="dashicons dashicons-menu-alt3"></span>
                 </a>
-                <div class="absolute right-1 top-8" id="simplecharm-portfolio-navigation">
+                <div class="absolute right-1" id="simplecharm-portfolio-navigation">
                     <?php
                         if(has_nav_menu( "simplecharm_portfolio_header_menu" )){
                             wp_nav_menu( [

@@ -17,7 +17,7 @@ get_template_part("template-parts/frontpage/basic-info", "", $portfolio_saved_va
 </section>
 
 <!-- about me section -->
-<section class="about-me min-h-screen bg-base-200 min-h-max my-2 flex">
+<section class="about-me min-h-screen bg-base-200 min-h-max my-2 flex justify-center">
  <?php
 get_template_part("template-parts/frontpage/aboutme", "", $portfolio_saved_value);
 ?>

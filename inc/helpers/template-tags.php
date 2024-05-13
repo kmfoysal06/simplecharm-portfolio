@@ -1,21 +1,24 @@
 <?php
 /**
  * Custom template tags for this theme.
- * Eventually, some of the functionality here could be replaced by core features.
  * @package SimpleCharm Portfolio
  * @since 1.0
  */
 
+/**
+ * Returns An Array Of Social Links In Easy To Iterate Format.
+ * For Using The Complex Social Links Array That Stored In Database In A Complex Array Format.
+ * @param array $social_links
+ * @return array
+ */
 function simplecharm_portfolio_load_social($social_links)
 {
         if (isset($social_links) && is_array($social_links) && !empty($social_links)) {
         $social_links_array = [];
         foreach ($social_links as $link) {
-            // If the current element of $social_links is an array with "name" and "url" keys
             if (isset($link['name']) && isset($link['url'])) {
                 $name = $link['name'];
                 $url  = $link['url'];
-                // Now you can use $name and $url as needed
                 array_push($social_links_array, ['name' => $name
                     , 'url' => $url]);
             } else {
@@ -40,12 +43,23 @@ function simplecharm_portfolio_load_social($social_links)
     return $social_links_array;
 }
 
+/**
+ * Display social links as normal html link in portfolio menu page.
+ * @param array $social_links
+ * @return void
+ */
 function simplecharm_portfolio_link_social($social_links)
 {
     foreach ($social_links as $social_link) {
         echo '<a href="' . esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '">' .  esc_attr(is_array($social_link['name']) ? implode('', $social_link['name']) : $social_link['name']) . '</a> ';
     }
 }
+
+/**
+ * Display Social Links Using Dasicons In Frontend If They Exists.
+ * @param array $social_links
+ * @return void
+ */
 function simplecharm_portfolio_link_social_frontend($social_links)
 {
     $allowed_icons = array(
@@ -55,43 +69,32 @@ function simplecharm_portfolio_link_social_frontend($social_links)
         'youtube',
         'linkedin',
         'pinterest',
+        'podio',
         'google',
-        'tumblr',
-        'vimeo',
-        'flickr',
         'reddit',
         'wordpress',
-        'blogger',
-        'delicious',
-        'digg',
-        'lastfm',
-        'stumbleupon',
         'twitter',
         'rss',
-        'vkontakte',
-        'odnoklassniki',
-        'pocket',
-        'skype',
-        'telegram',
-        'wechat',
         'whatsapp',
         'xing',
-        'yelp',
-        'wikipedia',
         'twitch',
     );
     foreach ($social_links as $social_link) {
         $icon = strtolower(is_array($social_link['name']) ? implode('', $social_link['name']) : $social_link['name']);
         if (in_array($icon, $allowed_icons)) {
-            // dashicons
             echo '<a href="' .  esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '"><span class="dashicons dashicons-' . $icon . '"></span></a> ';
         } else {
-            //show link icon from dashicon
             echo '<a href="' .  esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '"><span class="dashicons dashicons-admin-links"></span></a> ';
         }
     }
 }
 
+/**
+ * Returns An Array Of Skills In Easy To Iterate Format.
+ * For Using The Complex Skills Array That Stored In Database In A Complex Array Format.
+ * @param array $all_skills
+ * @return array
+ */
 function simplecharm_portfolio_load_skills($all_skills)
 {
     $skillsArray = [];
@@ -109,6 +112,12 @@ function simplecharm_portfolio_load_skills($all_skills)
     return $skillsArray;
 }
 
+/**
+ * Returns An Array Of Experience In Easy To Iterate Format.
+ * For Using The Complex Experience Array That Stored In Database In A Complex Array Format.
+ * @param array $experiences
+ * @return array
+ */
 function simplecharm_portfolio_load_experience($experiences){
     $sanitized_experiences = [];
     foreach ($experiences as $experience) {
@@ -122,10 +131,21 @@ function simplecharm_portfolio_load_experience($experiences){
     }
     return $sanitized_experiences;
 }
+
+/**
+ * Flatterns An Array Using Array Merge.
+ * @param array $arr
+ * @return array
+ */
 function simplecharm_portfolio_flattern_array($arr){
     return array_merge(...$arr);
 }
 
+/**
+ * Display Experiences Institution in Option Page.
+ * @param array $experiences
+ * @return array
+ */
 function simplecharm_portfolio_experience_admin($experiences){
     $experience_institutions = [];
     foreach($experiences as $experience){
@@ -136,6 +156,12 @@ function simplecharm_portfolio_experience_admin($experiences){
     }
     return $experience_institutions;
 }
+
+/**
+ * Load The Responsibility Field as List if Responisbilities are Separated with Three Hiphen (---).
+ * @param string $responsibilities
+ * @return string
+ */
 function simplecharm_portfolio_experience_responsibility_list($responsibilities){
     $html = '';
             $responsibility_array = explode('---', $responsibilities);
@@ -147,6 +173,13 @@ function simplecharm_portfolio_experience_responsibility_list($responsibilities)
             $html .= '</ul>';
     return $html;
 }
+
+/**
+ * Splits Project Tags Separated by Comma and Returns As List.
+ * @param string $tags
+ * @return string
+ */
+
 function simplecharm_portfolio_split_tags($tags){
     $html = '';
             $tags_array = (!empty($tags) && strpos(", ", $tags) && explode(', ', $tags) !== null) ? explode(', ', $tags) : [] ;
@@ -158,6 +191,13 @@ function simplecharm_portfolio_split_tags($tags){
             $html .= '</div>';
     return $html;
 }
+
+/**
+ * Returns An Array Of Project List In Easy To Iterate Format.
+ * For Using The Complex Projects List Array That Stored In Database In A Complex Array Format.
+ * @param array $works
+ * @return array
+ */
 function simplecharm_portfolio_load_works($works){
     foreach($works as $work_index => &$work){
         foreach($work as $work_data_index => $work_data){
@@ -170,4 +210,17 @@ function simplecharm_portfolio_load_works($works){
         }
     }
     return $works;
+}
+
+/**
+ * Display All Project Title Institution in Option Page.
+ * @param array $works
+ * @return array
+ */
+function simplecharm_portfolio_works_admin($works){
+    $works_array = [];
+    foreach($works as $work){
+        $works_array[] = $work['title'];
+    }
+    return $works_array;
 }

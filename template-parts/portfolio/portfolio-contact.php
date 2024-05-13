@@ -1,6 +1,6 @@
 <?php
 /**
- * Customize Contact Informations
+ * Contact Informations For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
 ?>

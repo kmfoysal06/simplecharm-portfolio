@@ -1,6 +1,6 @@
 <?php
 /**
- * Basic Settings 
+ * Basic Settings Template For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
 ?>

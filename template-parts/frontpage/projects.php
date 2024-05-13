@@ -1,6 +1,6 @@
 <?php
 /**
- * Project List Template
+ * Project List Template For Frontpage
  * @package SimpleCharm Portfolio
  */
 if (is_array($args) && array_key_exists("works", $args) && !empty($args['works']) && !empty(array_merge(...$args['works']))):
@@ -16,7 +16,7 @@ if (is_array($args) && array_key_exists("works", $args) && !empty($args['works']
 		if(is_array($work) && empty($work)) continue;
 		if(array_key_exists('title', $work) && empty($work['title'])) continue;
 	?>
-		<div class="">
+		<div class="line-break-anywhere">
 			<div class="flex flex-col my-4 gap-y-7 p-6 shadow-2xl">
 			<h2 class="text-5xl">
 				<?php echo esc_html(isset($work['title']) ? $work['title'] : ''); ?>

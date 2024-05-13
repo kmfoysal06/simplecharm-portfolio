@@ -1,6 +1,7 @@
 <?php
 /**
- * Footer For Front Page
+ * Footer Template For Front Page
+ * @package Simplecharm Portfolio
  */
 ?>
 <div class="footer-inner flex flex-col justify-center gap-3">
@@ -14,12 +15,12 @@
 			</div>
 			<div class="footer-mail flex justify-center items-center gap-x-3">
 				<span class="dashicons dashicons-email"></span>
-				<h2 class="text-xl md:text-xl"><?php echo esc_html($args["email"]); ?></h2>
+				<h2 class="text-xl md:text-xl line-break-anywhere"><?php echo esc_html($args["email"]); ?></h2>
 				<button class="simplecharm-portfolio-copy-mail"><span class="dashicons dashicons-clipboard cursor-pointer"></span></button>
 			</div>
 			<div class="footer-phone flex justify-center items-center gap-x-3">
 				<span class="dashicons dashicons-smartphone"></span>
-				<h2 class="text-xl md:text-xl"> <?php echo esc_html($args["phone"]); ?> </h2>
+				<h2 class="text-xl md:text-xl line-break-anywhere"> <?php echo esc_html($args["phone"]); ?> </h2>
 				<button class="simplecharm-portfolio-copy-phone"><span class="dashicons dashicons-clipboard cursor-pointer"></span></button>
 			</div>
 			<div class="footer-social-links">
