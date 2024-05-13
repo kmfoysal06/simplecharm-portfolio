@@ -8,10 +8,10 @@ if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['e
 	$skills_length = isset($args['skills']) ? count($args['skills']) : 0;
 ?>
 <div class="experience-title my-3 flex flex-col items-center">
-		<div class="badge badge-neutral"><?php _e("Experience","simplecharm-portfolio"); ?></div>
+		<div class="badge badge-neutral" tabindex="12"><?php _e("Experience","simplecharm-portfolio"); ?></div>
 		<p><?php _e("Here is a quick summary of my most recent experiences:","simplecharm-portfolio"); ?></p>
 	</div>
-	<div class="experience-content">
+	<div class="experience-content" tabindex="13">
 		<?php
 		
 		$experiences = $args['experiences'];

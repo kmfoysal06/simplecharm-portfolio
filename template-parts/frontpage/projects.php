@@ -7,10 +7,10 @@ if (is_array($args) && array_key_exists("works", $args) && !empty($args['works']
 
 ?>
 	<div class="project-title my-3 flex flex-col items-center">
-		<div class="badge badge-neutral"><?php _e("Work","simplecharm-portfolio"); ?></div>
+		<div class="badge badge-neutral" tabindex="14"><?php _e("Work","simplecharm-portfolio"); ?></div>
 		<p><?php _e("Some of the noteworthy projects I have built:","simplecharm-portfolio"); ?></p>
 	</div>
-	<div class="single-work-info grid lg:grid-cols-2 md:grid-cols-2 gap-x-4 my-3">
+	<div class="single-work-info grid lg:grid-cols-2 md:grid-cols-2 gap-x-4 my-3" tabindex="15">
 	<?php 
 	foreach($args['works'] as $work):
 		if(is_array($work) && empty($work)) continue;

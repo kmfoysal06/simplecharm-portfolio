@@ -4,7 +4,7 @@
 	border: 5px solid var(--col-1);
 	background: var(--col-2);
 }
-.simplecharm-skill-card:hover{
+.simplecharm-skill-card:is(:hover,:focus){
 	background: var(--col-1);
 	border-color:var(--col-2);
 }

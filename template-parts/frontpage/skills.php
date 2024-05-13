@@ -11,9 +11,9 @@ if(is_array($args['skills']) && !empty($args['skills'])){
 			</div>
 		<div class="skills-container items-center gap-3 grid lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-3" tabindex="11">
 			<?php
-			foreach($args['skills'] as $key => $skill){
+			foreach($args['skills'] as $skill){
 				?>
-			<div class="simplecharm-skill-card gap-3 cursor-pointer p-5 w-40 h-40 bg-blue-700 flex justify-center items-center transition-all" tabindex="<?php echo esc_attr($key + 11); ?>">
+			<div class="simplecharm-skill-card gap-3 cursor-pointer p-5 w-40 h-40 bg-blue-700 flex justify-center items-center transition-all">
 				<h4 class="skill-name text-center text-lg"><?php echo esc_html($skill); ?></h4>
 				<div class="simplecharm-skill-card-blank"></div>
 			</div>

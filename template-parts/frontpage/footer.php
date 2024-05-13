@@ -4,8 +4,8 @@
  */
 ?>
 <div class="footer-inner flex flex-col justify-center gap-3">
-			<div class="badge badge-neutral p-2 self-center"><?php _e("Get in Touch","simplecharm-portfolio"); ?></div>
-			<div class="footer-text">
+			<div class="badge badge-neutral p-2 self-center" tabindex="16"><?php _e("Get in Touch","simplecharm-portfolio"); ?></div>
+			<div class="footer-text" tabindex="17">
 				<p>
 					<?php
 					_e("What’s next? Feel free to reach out to me if you're looking for <br> a developer, have a query, or simply want to connect.","simplecharm-portfolio");
