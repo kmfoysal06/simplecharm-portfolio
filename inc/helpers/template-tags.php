@@ -82,9 +82,9 @@ function simplecharm_portfolio_link_social_frontend($social_links)
     foreach ($social_links as $social_link) {
         $icon = strtolower(is_array($social_link['name']) ? implode('', $social_link['name']) : $social_link['name']);
         if (in_array($icon, $allowed_icons)) {
-            echo '<a href="' .  esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '"><span class="dashicons dashicons-' . $icon . '"></span></a> ';
+            echo '<a class="simplecharm-portfolio-button-hover" href="' .  esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '"><span class="dashicons dashicons-' . $icon . '"></span></a> ';
         } else {
-            echo '<a href="' .  esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '"><span class="dashicons dashicons-admin-links"></span></a> ';
+            echo '<a class="simplecharm-portfolio-button-hover" href="' .  esc_attr(is_array($social_link['url']) ? implode('', $social_link['url']) : $social_link['url']) . '"><span class="dashicons dashicons-admin-links"></span></a> ';
         }
     }
 }
@@ -186,7 +186,7 @@ function simplecharm_portfolio_split_tags($tags){
             $html .= '<div class="work-tags grid lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-2 gap-3">';
             foreach($tags_array as $single_tag){
                 if(empty($single_tag)) continue;
-                $html .= '<div class="w-full badge badge-neutral p-4">'.$single_tag.'</div>';
+                $html .= '<div class="w-full badge badge-neutral p-4" tabindex="0">'.$single_tag.'</div>';
             }
             $html .= '</div>';
     return $html;

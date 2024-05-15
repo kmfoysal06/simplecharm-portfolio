@@ -1,0 +1,8 @@
+=== v1.0 ==
+- Initial Release.
+=== v1.0.1 ===
+- Made Some Correction in Theme Details in style.css and readme.txt.
+- Fixed Some Tabindex Related Issues.
+=== v1.0.2 ===
+- Made Some Correction in Theme Details in style.css and readme.txt.
+- Added changelog.txt file.

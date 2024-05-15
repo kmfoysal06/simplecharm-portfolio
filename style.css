@@ -1,15 +1,14 @@
 /**
  * Theme Name: SimpleCharm Portfolio
- * Theme URI: http://www.kmfoysal.com/
- * Description: SimpleCharm Portfolio is a simple, clean and minimal portfolio WordPress theme. It is designed for creative professionals such as graphic designers, web developers, photographers, art directors etc. It is built on Bootstrap framework and supports custom header, custom background, custom menu, widgetized sidebar, and footer. Theme options are available in the WordPress Customizer. SimpleCharm Portfolio is also translation ready.
+ * Description: SimpleCharm Portfolio is a simple, clean and minimal portfolio WordPress theme. It is designed for creative professionals such as graphic designers, web developers, photographers, art directors etc. It is built on Bootstrap framework. SimpleCharm Portfolio is also translation ready.
  * Author: Kazi Mohammad Foysal
  * Author URI: profiles.wordpress.org/kmfoysal06/
- * Version: 1.0
- * Tested Up To: 6
- * Requires PHP: 8
+ * Version: 1.0.2
+ * Tested Up To: 6.5
+ * Requires PHP: 7.4
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Tags: one-column, two-columns, right-sidebar, left-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+ * Tags: sticky-post, threaded-comments, translation-ready, portfolio
  * Text Domain: simplecharm-portfolio
  * Domain Path: /languages
  */

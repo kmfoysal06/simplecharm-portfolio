@@ -3,7 +3,7 @@ Contributors: kmfoysal06
 Requires at least: 5.0
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.0
+Stable tag: 1.0.2
 Text Domain: simplecharm-portfolio
 Author URI: http://profiles.wordpress.org/kmfoysal06
 License: GPLv2 or later
@@ -43,7 +43,7 @@ TailwindCss
 3. Click on the 'Activate' button to use your new theme right away.
 
 == Description ==
-SimpleCharm Portfolio is a simple, clean and minimal portfolio WordPress theme. It is designed for creative professionals such as graphic designers, web developers, photographers, art directors etc. It is built on Bootstrap framework and supports custom header, custom background, custom menu, widgetized sidebar, and footer. Theme options are available in the WordPress Customizer. SimpleCharm Portfolio is also translation ready.
+SimpleCharm Portfolio is a simple, clean and minimal portfolio WordPress theme. It is designed for creative professionals such as graphic designers, web developers, photographers, art directors etc. SimpleCharm Portfolio is also translation ready.
 
 == Changelog ==
 

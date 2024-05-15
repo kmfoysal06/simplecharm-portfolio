@@ -160,7 +160,7 @@ class Portfolio
                 return;
             }
             // phone should be in 2 to 15 digits
-            if (!preg_match("/^[0-9]{7,15}$/", $modified_data['phone'])) {
+            if (!preg_match("/^\+?[0-9]{7,15}$/", $modified_data['phone'])) {
                 add_action('admin_notices', function () {
                     echo '<div class="notice notice-error is-dismissible"><p>'.__("Phone is not valid! It should be between 7 to 15 digits","simplecharm-portfolio").'</p></div>';
                 });

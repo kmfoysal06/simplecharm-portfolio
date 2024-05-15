@@ -4,14 +4,12 @@
  * @package SimpleCharm Portfolio
  */
 if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['experiences']) && !empty(array_merge(...$args['experiences']))):
-	// skills leng
-	$skills_length = isset($args['skills']) ? count($args['skills']) : 0;
 ?>
 <div class="experience-title my-3 flex flex-col items-center">
-		<div class="badge badge-neutral" tabindex="12"><?php _e("Experience","simplecharm-portfolio"); ?></div>
+		<div class="badge badge-neutral"><?php _e("Experience","simplecharm-portfolio"); ?></div>
 		<p><?php _e("Here is a quick summary of my most recent experiences:","simplecharm-portfolio"); ?></p>
 	</div>
-	<div class="experience-content" tabindex="13">
+	<div class="experience-content">
 		<?php
 		
 		$experiences = $args['experiences'];
@@ -23,7 +21,7 @@ if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['e
 		$end_date = array_key_exists('end_date',$flattern_experience) && !empty($flattern_experience['end_date']) ? date('M o',strtotime($flattern_experience['end_date'])) : '';
 		$end_date_status = strtolower($working_now) === 'on' ? __("Present","simplecharm-portfolio") : $end_date;
 		?>
-		<div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 p-2 my-2 shadow-2xl">
+		<div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 p-2 my-2 shadow-2xl" tabindex="0">
 			<div class="experience-name flex justify-center items-center">
 				<h2 class="text-5xl"><?php echo esc_html($flattern_experience['institution']); ?></h2>
 			</div>
