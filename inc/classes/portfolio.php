@@ -17,6 +17,7 @@ class Portfolio
     public function setup_hook()
     {
         add_action("admin_menu", [$this, "add_menu"]);
+        add_action('admin_bar_menu', [$this,'add_admin_bar_menu'], 100);
         add_action("admin_menu", [$this, "add_submenu"]);
         add_action("admin_menu", [$this, "add_additional_submenu"]);
         add_action("admin_init", [$this, "save_data"]);
@@ -33,6 +34,25 @@ class Portfolio
             [$this, "portfolio_html"],
             "dashicons-portfolio"
         );
+    }
+
+    /**
+     * Make The Option Available in With site-title Menu in Admin Bar
+     */
+    public function add_admin_bar_menu($wp_admin_bar) {
+        // Check if the user has the capability to manage options
+        if (!current_user_can('manage_options')) {
+            return;
+        }
+
+        // Add the custom menu item under the "Site Name" node
+        $wp_admin_bar->add_node(array(
+            'parent' => 'site-name', // Add this under the "Site Name" node
+            'id'     => 'simplecharm_portfolio', // Unique ID for the menu item
+            'title'  => 'Portfolio', // Title of the menu item
+            'href'   => admin_url('admin.php?page=simplecharm_portfolio_page'), // URL when the menu item is clicked
+            'meta'   => array('class' => 'simplecharm-portfolio') // Additional properties (optional)
+        ));
     }
     public function add_submenu()
     {
@@ -390,8 +410,8 @@ class Portfolio
         $additional_option_value = get_option("simplecharm_portfolio_additional_data");
         $saved_values            = [
             'name'              => 'Charm',
-            'user_image'        => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg",
-            'user_image2'       => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg",
+            'user_image'        => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/build/img/simplecharm-default-avater.jpg",
+            'user_image2'       => SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/build/img/simplecharm-default-avater.jpg",
             'email'             => 'abc@gmail.com',
             'phone'             => '1234567890',
             'short_description' => "Hi, This Is Default Lorem Ipsum Description For You Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
@@ -403,8 +423,8 @@ class Portfolio
         ];
         if (is_array($option_value)) {
             $name              = array_key_exists("name", $option_value) ? $option_value["name"] : "";
-            $image             = (array_key_exists("image", $option_value) && !empty($option_value['image'])) ? $option_value["image"] : SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg";
-            $image2            = (array_key_exists("image_2", $option_value) && !empty($option_value['image_2'])) ? $option_value["image_2"] : SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/src/img/simplecharm-default-avater.jpg";
+            $image             = (array_key_exists("image", $option_value) && !empty($option_value['image'])) ? $option_value["image"] : SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/build/img/simplecharm-default-avater.jpg";
+            $image2            = (array_key_exists("image_2", $option_value) && !empty($option_value['image_2'])) ? $option_value["image_2"] : SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/build/img/simplecharm-default-avater.jpg";
             $email             = array_key_exists("email", $option_value) ? $option_value["email"] : "abc@gmail.com";
             $phone             = array_key_exists("phone", $option_value) ? $option_value["phone"] : "1234567890";
             $short_description = array_key_exists("short_description", $option_value) ? $option_value["short_description"] : "";

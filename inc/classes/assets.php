@@ -35,13 +35,11 @@ class Assets
     public function enqueue_styles()
     {
         // register styles
-        wp_register_style('SIMPLECHARM_PORTFOLIO_main', get_stylesheet_uri(), ['SIMPLECHARM_PORTFOLIO_fontawesome', 'SIMPLECHARM_PORTFOLIO_tailwindcss'], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/style.css'), 'all');
-        wp_register_style("SIMPLECHARM_PORTFOLIO_inter", SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/src/fonts/fonts.css', [], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/src/fonts/fonts.css'));
+        wp_register_style('SIMPLECHARM_PORTFOLIO_main', get_stylesheet_uri(), ['SIMPLECHARM_PORTFOLIO_tailwindcss'], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/style.css'), 'all');
         wp_register_style('SIMPLECHARM_PORTFOLIO_tailwindcss', SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/css/main.css', [], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/css/main.css'), 'all');
 
         // enqueue styles
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_main');
-        wp_enqueue_style('SIMPLECHARM_PORTFOLIO_inter');
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_tailwindcss');
         wp_enqueue_style('dashicons');
     }
