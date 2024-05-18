@@ -20,7 +20,7 @@ if (have_posts()) :
     }
 ?>
     </div>
-    <div class="posts-by">
+    <div class="posts-by m-2">
     <?php
     echo '<br>';
     echo '<h1 class="text-center">Posts by ' . esc_html(get_the_author()) . '</h1>';
@@ -29,7 +29,7 @@ if (have_posts()) :
         ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class("simplecharm-portfolio-content my-4"); ?>>
     <h3 class="post-title text-2xl"><a
-            href="<?php echo esc_url(get_the_permalink()); ?>"><?php echo esc_html(get_the_title()); ?></a></h3>
+            href="<?php echo esc_url(get_the_permalink()); ?>" class="underline"><?php echo esc_html(get_the_title()); ?></a></h3>
     <div class="post-meta">
         <span class="post-date"><?php echo esc_html(get_the_date()); ?></span>
     </div>

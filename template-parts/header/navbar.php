@@ -5,8 +5,6 @@
  */
 $menus = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Menus::get_instance();
 ?>
-<a class="skip-link screen-reader-text" href="#simplecharm-content">
-        <?php _e( 'Skip to content', 'simplecharm-portfolio' ); ?></a>
         <div class="simplecharm-portfolio-header">
             <div class="simplecharm-portfolio-header-contents flex justify-between items-center">
                 <span>
