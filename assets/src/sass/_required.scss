@@ -165,22 +165,6 @@ a img.aligncenter {
 .link-wrapper a{
     text-decoration: underline;
 }
-.simplecharm-portfolio-form{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    border: none;
-    padding: 10px;
-    margin: 10px;
-    form{
-        display: flex;
-        justify-content: space-between;
-        column-gap: 5px;
-    }
-    input[type="submit"]{
-        @include simplecharm-portfolio-button;
-    }
-}
-.simplecharm-portfolio-single-post a, .wp-block-post-comments-form a{
+.simplecharm-portfolio-single-post a{
     text-decoration: underline;
 }

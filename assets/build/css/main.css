@@ -1559,6 +1559,9 @@ html {
 .border {
   border-width: 1px;
 }
+.border-0 {
+  border-width: 0px;
+}
 .bg-base-200 {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
@@ -1886,25 +1889,7 @@ a img.aligncenter {
   text-decoration: underline;
 }
 
-.simplecharm-portfolio-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  border: none;
-  padding: 10px;
-  margin: 10px;
-}
-.simplecharm-portfolio-form form {
-  display: flex;
-  justify-content: space-between;
-  -moz-column-gap: 5px;
-       column-gap: 5px;
-}
-.simplecharm-portfolio-form form input[type=submit] {
-  border: 1px solid #fff;
-}
-
-.simplecharm-portfolio-single-post a, .wp-block-post-comments-form a {
+.simplecharm-portfolio-single-post a {
   text-decoration: underline;
 }
 
@@ -2019,6 +2004,15 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
   line-break: anywhere;
 }
 
+.simplecharm-portfolio-button-hover, .form-submit input {
+  background: rgba(0, 0, 0, 0);
+  padding: 5px;
+  display: inline-grid;
+  place-items: center;
+  transition: 0.2s;
+  border: 1px solid #fff;
+}
+
 .simplecharm-portfolio-button-hover:is(:hover, :focus) {
   background: rgba(0, 0, 0, 0.1);
 }
@@ -2070,9 +2064,47 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
     transform: rotate(-15deg);
   }
 }
+.simplecharm-portfolio-form {
+  display: flex;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+}
+.simplecharm-portfolio-form form {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+.simplecharm-portfolio-form form.post-password-form {
+  flex-direction: column;
+  display: block;
+  margin: auto;
+}
+.simplecharm-portfolio-form form.post-password-form input {
+  padding: 5px;
+  margin: 0 0 0 5px;
+}
+.simplecharm-portfolio-form form.search-form {
+  margin-left: auto;
+}
+.simplecharm-portfolio-form input[type=submit] {
+  background: rgba(0, 0, 0, 0);
+  padding: 5px;
+  display: inline-grid;
+  place-items: center;
+  transition: 0.2s;
+  border: 1px solid #fff;
+}
+
+.wp-block-post-comments-form a {
+  text-decoration: underline;
+}
+
 /**
  * Import FontAwesome
  */
+
 @media (min-width: 640px) {
   .sm\:w-4\/5 {
     width: 80%;
@@ -2093,6 +2125,7 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
     justify-content: space-between;
   }
 }
+
 @media (min-width: 768px) {
   .md\:w-2\/4 {
     width: 50%;
@@ -2114,6 +2147,7 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
     line-height: 1.75rem;
   }
 }
+
 @media (min-width: 1024px) {
   .lg\:w-2\/4 {
     width: 50%;

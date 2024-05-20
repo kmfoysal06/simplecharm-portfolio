@@ -9,7 +9,11 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
-
+?>
+    <div class="simplecharm-portfolio-form">
+        <?php get_search_form(); ?>
+    </div>
+<?php
 if (have_posts()) :
         ?><section class="simplecharm-portfolio-blogs grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-3"><?php
     while (have_posts()) : the_post();
@@ -33,7 +37,7 @@ if (have_posts()) :
     the_posts_navigation();
 else:
     ?>
-<p class="simplecharm-text-center">
+<p class="simplecharm-text-center min-h-screen flex justify-center items-center">
     <?php echo esc_html( sprintf( __( 'No search results found for "%s"', 'simplecharm-portfolio' ), get_search_query() ) ); ?>
 </p>
 
