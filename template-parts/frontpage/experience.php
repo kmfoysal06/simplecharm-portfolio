@@ -28,12 +28,12 @@ if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['e
 				<h2 class="text-5xl"><?php echo esc_html($flattern_experience['institution']); ?></h2>
 			</div>
 			<div class="experience-info experience-name flex flex-col justify-center p-4 gap-4">
-				<h3 class="text-2xl"><?php echo esc_html($flattern_experience['post-title']); ?></h3>
+				<h3 class="text-2xl lg:text-left md:text-left sm:text-center"><?php echo esc_html($flattern_experience['post-title']); ?></h3>
 				<?php
 				echo simplecharm_portfolio_experience_responsibility_list($flattern_experience['responsibility']);
 				?>
 			</div>
-			<div class="experience-date experience-name flex justify-center items-center">
+			<div class="experience-date experience-name flex justify-center items-center lg:col-auto md:col-span-2">
 				<?php
 				if(!empty($start_date)):
 				?>

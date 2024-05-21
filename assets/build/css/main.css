@@ -1423,6 +1423,12 @@ html {
 .z-10 {
   z-index: 10;
 }
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
 .m-2 {
   margin: 0.5rem;
 }
@@ -1558,9 +1564,6 @@ html {
 }
 .border {
   border-width: 1px;
-}
-.border-0 {
-  border-width: 0px;
 }
 .bg-base-200 {
   --tw-bg-opacity: 1;
@@ -2124,9 +2127,15 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
   .sm\:justify-between {
     justify-content: space-between;
   }
+  .sm\:text-center {
+    text-align: center;
+  }
 }
 
 @media (min-width: 768px) {
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
   .md\:w-2\/4 {
     width: 50%;
   }
@@ -2142,6 +2151,9 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
   .md\:justify-between {
     justify-content: space-between;
   }
+  .md\:text-left {
+    text-align: left;
+  }
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -2149,6 +2161,9 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
 }
 
 @media (min-width: 1024px) {
+  .lg\:col-auto {
+    grid-column: auto;
+  }
   .lg\:w-2\/4 {
     width: 50%;
   }
@@ -2172,6 +2187,9 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
   }
   .lg\:justify-between {
     justify-content: space-between;
+  }
+  .lg\:text-left {
+    text-align: left;
   }
   .lg\:text-justify {
     text-align: justify;
