@@ -13,6 +13,10 @@
         }
         mediaUploader(picked_image,hidden_field) {
             let image;
+                $(`.${picked_image}`).off('keyup').on('keyup',function(e) {
+                    if($(e.keyCode)[0] !== 13) return ;
+                    e.target.click();
+                })
                 $(`.${picked_image}`).off('click').on('click', function(e) {
                 e.preventDefault();
             if(!image){

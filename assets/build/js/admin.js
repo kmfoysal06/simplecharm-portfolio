@@ -31,6 +31,40 @@
 
 /***/ }),
 
+/***/ "./src/js/components/form.js":
+/*!***********************************!*\
+  !*** ./src/js/components/form.js ***!
+  \***********************************/
+/***/ (function() {
+
+/**
+ * All Codes Related to form will be here.
+ */
+(function ($) {
+  class Form {
+    constructor() {
+      this.init();
+    }
+    init() {
+      this.checkbox('available');
+    }
+    // todo: make all input field work with keyboard navigation
+    checkbox(checkbox) {
+      //when user focus on checkbox and enter then checkbox should toggle not submit the form.
+      $(`.${checkbox}`).each(function (evt) {
+        evt.target.on('keydown', function (e) {
+          if (e.key !== 'Enter') return;
+          this.checked = !this.checked;
+          e.preventDefault();
+        });
+      });
+    }
+  }
+  new Form();
+})(jQuery);
+
+/***/ }),
+
 /***/ "./src/js/components/media.js":
 /*!************************************!*\
   !*** ./src/js/components/media.js ***!
@@ -52,6 +86,10 @@
     }
     mediaUploader(picked_image, hidden_field) {
       let image;
+      $(`.${picked_image}`).off('keyup').on('keyup', function (e) {
+        if ($(e.keyCode)[0] !== 13) return;
+        e.target.click();
+      });
       $(`.${picked_image}`).off('click').on('click', function (e) {
         e.preventDefault();
         if (!image) {
@@ -248,6 +286,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_toggler_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_toggler_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_admin_experience_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/admin-experience.js */ "./src/js/components/admin-experience.js");
 /* harmony import */ var _components_admin_experience_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_admin_experience_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_form_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/form.js */ "./src/js/components/form.js");
+/* harmony import */ var _components_form_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_components_form_js__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
