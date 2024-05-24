@@ -1420,8 +1420,14 @@ html {
 .right-1 {
   right: 0.25rem;
 }
+.bottom-0 {
+  bottom: 0px;
+}
 .z-10 {
   z-index: 10;
+}
+.z-20 {
+  z-index: 20;
 }
 .m-2 {
   margin: 0.5rem;
@@ -1647,6 +1653,10 @@ html {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;

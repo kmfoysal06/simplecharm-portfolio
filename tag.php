@@ -1,6 +1,6 @@
 <?php
 /**
- * Blogs Page Index
+ * Tag Page Index
  * @package Simplecharm Portfolio
  */
 

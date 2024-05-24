@@ -20,10 +20,12 @@ if (have_posts()) :
         ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <h3 class="text-2xl"><a
+            class="underline" 
             href="<?php echo esc_url(get_the_permalink()); ?>"><?php echo esc_html(get_the_title()); ?></a></h1>
     <div class="post-meta">
         <span class="post-date"><?php echo esc_html(get_the_date()); ?></span>
         <span class="post-author"><a
+                class="underline" 
                 href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><?php echo esc_html(get_the_author()); ?></a></span>
     </div>
     <div class="post-content"><?php echo esc_html(get_the_excerpt()); ?></div>
