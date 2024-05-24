@@ -3,7 +3,7 @@
  * Description: SimpleCharm Portfolio is a simple, clean and minimal portfolio WordPress theme. It is designed for creative professionals such as graphic designers, web developers, photographers, art directors etc. It is built on Bootstrap framework. SimpleCharm Portfolio is also translation ready.
  * Author: Kazi Mohammad Foysal
  * Author URI: profiles.wordpress.org/kmfoysal06/
- * Version: 1.0.2
+ * Version: 1.0.3
  * Tested Up To: 6.5
  * Requires PHP: 7.4
  * License: GNU General Public License v2 or later
@@ -19,13 +19,11 @@
    --primary-color-dark: #F9FAFB;
    --secondary-color: #4B5563;
    --secondary-color-dark: #D1D5DB;
-   --font: 'Inter', sans-serif;
 }
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: var(--font);
 }
 p,span,cite{
 	color: var(--secondary-color-dark);

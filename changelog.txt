@@ -5,4 +5,10 @@
 - Fixed Some Tabindex Related Issues.
 === v1.0.2 ===
 - Made Some Correction in Theme Details in style.css and readme.txt.
-- Added changelog.txt file.
+- Fixed Fonts Related Issues.
+- All Assets Moved To Build Directory Including Images and Fonts.
+- Added Portfolio Option to The Admin Bar site-title Menu.
+- Improved Design.
+=== v1.0.3 ===
+- Removed Unnecessary Files.
+- Added Translation Function for All Strings.

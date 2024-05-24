@@ -1,3 +1,6 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
 .wp-caption {
     max-width: 100%;
     margin-bottom: 1.5em;
@@ -162,7 +165,6 @@ a img.aligncenter {
 .link-wrapper a{
     text-decoration: underline;
 }
-.simplecharm-portfolio-form input{
-    border: 1px solid;
-    padding: 10px;
+.simplecharm-portfolio-single-post a{
+    text-decoration: underline;
 }

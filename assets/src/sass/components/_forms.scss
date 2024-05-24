@@ -1,0 +1,30 @@
+@use "./button";
+.simplecharm-portfolio-form{
+    display: flex;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    form{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 5px;
+        &.post-password-form{
+            flex-direction: column;
+            display: block;
+            margin: auto;
+            input{
+                padding: 5px;
+                margin: 0 0 0 5px;
+            }
+        }
+        &.search-form{
+            margin-left: auto;
+        }
+    }
+    input[type="submit"]{
+        @include button.simplecharm-portfolio-button;
+    }
+}
+.wp-block-post-comments-form a{
+    text-decoration: underline;
+}
