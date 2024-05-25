@@ -3,6 +3,9 @@
  * Customize  Experience For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- experience setting -->
 <div class="portfolio-section-wrapper">

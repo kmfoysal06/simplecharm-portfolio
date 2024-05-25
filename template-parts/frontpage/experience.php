@@ -3,6 +3,9 @@
  * Experience Template For Frontpage
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 if (is_array($args) && array_key_exists("experiences", $args) && !empty($args['experiences']) && !empty(array_merge(...$args['experiences']))):
 ?>
 <div class="experience-title my-3 flex flex-col items-center">

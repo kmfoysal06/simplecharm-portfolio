@@ -3,6 +3,9 @@
  * Single Page Template
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 get_header();
 ?>
 	<?php 

@@ -3,6 +3,9 @@
  * Skills Template For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+  exit;
+}
 ?>
 <!-- skills setting -->
 <div class="portfolio-section-wrapper">

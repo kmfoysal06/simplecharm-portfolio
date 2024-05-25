@@ -3,6 +3,9 @@
  * Footer Template
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 	</main>
 	<footer role="contentinfo" class="site-footer w-full bg-gray-400 text-white py-3 text-center">

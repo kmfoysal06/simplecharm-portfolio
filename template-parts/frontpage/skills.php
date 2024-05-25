@@ -3,6 +3,9 @@
  * Skills Template For Frontpage
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 if(is_array($args['skills']) && !empty($args['skills'])){
 		?>
 		<div class="skills-title my-3 flex flex-col items-center">

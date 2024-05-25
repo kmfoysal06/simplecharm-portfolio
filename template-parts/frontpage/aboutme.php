@@ -3,6 +3,9 @@
  * About Me Template For Frontpage
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+  exit;
+}
 ?>
  <div class="flex flex-col" tabindex="0">
   <div class="aboutme-title my-3 flex flex-col items-center">

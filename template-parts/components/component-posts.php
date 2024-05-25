@@ -3,6 +3,9 @@
  * Template For Loading Post in Blog page,Category page, Search etc.
  * @package Simplecharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 	<div class="simplecharm-portfolio-form">
 		<?php get_search_form(); ?>

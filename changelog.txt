@@ -12,3 +12,5 @@
 === v1.0.3 ===
 - Removed Unnecessary Files.
 - Added Translation Function for All Strings.
+=== v1.0.4 ==
+- Added Conditional Statement to Prevent User if They Try to Access Any PHP Page Directly

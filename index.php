@@ -3,6 +3,9 @@
  * Main Index Template
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 $portfolio             = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Portfolio::get_instance();
 $portfolio_saved_value = $portfolio->display_saved_value();
 ?>

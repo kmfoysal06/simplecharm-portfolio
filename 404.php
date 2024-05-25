@@ -3,6 +3,9 @@
  * 404 Page Template
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 get_header();
 ?>
 <div class="simplecharm-portfolio-404 min-h-screen grid place-items-center">

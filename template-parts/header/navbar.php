@@ -3,6 +3,9 @@
  * Navbar Template For Header
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 $menus = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Menus::get_instance();
 ?>
         <div class="simplecharm-portfolio-header">

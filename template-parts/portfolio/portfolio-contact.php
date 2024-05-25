@@ -3,6 +3,9 @@
  * Contact Informations For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <div class="portfolio-section-wrapper">
 	<h3 class="portfolio-section-toggle"><?php _e("Contact Informations",'simplecharm-portfolio'); ?></h3>

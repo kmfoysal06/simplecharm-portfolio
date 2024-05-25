@@ -3,6 +3,9 @@
  * Project List Template For Frontpage
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 if (is_array($args) && array_key_exists("works", $args) && !empty($args['works']) && !empty(array_merge(...$args['works']))):
 if(array_key_exists("title",array_merge(...$args['works'])) && empty(array_merge(...$args['works'])['title'])) return;
 

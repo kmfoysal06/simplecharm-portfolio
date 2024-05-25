@@ -3,6 +3,9 @@
  * Footer Template For Front Page
  * @package Simplecharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <div class="footer-inner flex flex-col justify-center gap-3">
 			<div class="badge badge-neutral p-2 self-center"><?php _e("Get in Touch","simplecharm-portfolio"); ?></div>

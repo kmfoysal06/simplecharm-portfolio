@@ -3,6 +3,9 @@
  * Enqueue All Assets
  * @package Simplecharm_Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 namespace SIMPLECHARM_PORTFOLIO\Inc\Classes;
 
 use SIMPLECHARM_PORTFOLIO\Inc\Traits\Singleton;

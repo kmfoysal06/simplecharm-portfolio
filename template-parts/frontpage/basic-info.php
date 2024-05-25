@@ -3,6 +3,9 @@
  * Basic Info Template For Frontpage
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+  exit;
+}
 ?>
 <div class="grid grid-cols-1 text-center lg:text-justify lg:grid-cols-2 lg:grid-flow-col-reverse p-4" tabindex="0">
     <img src="<?php echo esc_url($args["user_image"]); ?>" class="lg:max-w-sm rounded-lg shadow-2xl block m-auto sm:w-4/5" />

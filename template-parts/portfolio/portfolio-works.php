@@ -3,6 +3,9 @@
  * Customize  Project Showcase For Portfolio Customization Option
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- project list setting -->
 <div class="portfolio-section-wrapper">

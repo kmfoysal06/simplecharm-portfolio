@@ -3,6 +3,9 @@
  * Preview All Update About Portfolio in a Basic Template
  * @package Simplecharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <div class="portfolio-section-wrapper">
 	<h2 class="portfolio-section-toggle"><?php _e("Your Informations are Here:-","simplecharm-portfolio"); ?></h2>

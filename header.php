@@ -3,6 +3,9 @@
  * Header Template
  * @package SimpleCharm Portfolio
  */
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
