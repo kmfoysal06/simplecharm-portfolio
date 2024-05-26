@@ -7,7 +7,7 @@
 
 /**
  * Returns An Array Of Social Links In Easy To Iterate Format.
- * For Using The Complex Social Links Array That Stored In Database In A Complex Array Format.
+ * For Returning The Complex Social Links Array That Stored In Database In A Complex Array Format.
  * @param array $social_links
  * @return array
  */
