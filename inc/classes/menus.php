@@ -3,9 +3,6 @@
  * Register Menus For Theme
  * @package SimpleCharm Portfolio
  */
-if( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
 namespace SIMPLECHARM_PORTFOLIO\Inc\Classes;
 use SIMPLECHARM_PORTFOLIO\Inc\Traits\Singleton;
 class Menus{
