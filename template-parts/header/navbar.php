@@ -19,17 +19,19 @@ $menus = \SIMPLECHARM_PORTFOLIO\Inc\Classes\Menus::get_instance();
                 }
                 ?>
                 </span>
+                <?php
+                    if(has_nav_menu( "simplecharm_portfolio_header_menu" )):
+                    ?>
                 <nav role="navigation" class="simplecharm-portfolio-main-navigation flex flex-row-reverse">
                 <a class="simplecharm-portfolio-navigation-toggler menu-toggler z-20 relative block hidden" href="#simplecharm-portfolio-navigation">
                     <span class="dashicons dashicons-menu-alt3 z-20 text-black"></span>
                 </a>
                 <div class="absolute right-1 bottom-0 z-10" id="simplecharm-portfolio-navigation">
                     <?php
-                        if(has_nav_menu( "simplecharm_portfolio_header_menu" )){
                             wp_nav_menu( [
                                 'theme_location' => 'simplecharm_portfolio_header_menu',
                             ] );
-                        }
+                        endif;
                     ?>
                 </div>
                 </nav>
