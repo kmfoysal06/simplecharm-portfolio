@@ -224,3 +224,14 @@ function simplecharm_portfolio_works_admin($works){
     }
     return $works_array;
 }
+
+function simplecharm_portfolio_works_blank($works){
+    $projects_count = 0;
+    foreach($works as $work_index => $work){
+        if(is_array($work) && !empty($work)){
+            if(array_key_exists('title', $work) && empty($work['title'])) continue;
+            $projects_count++;
+        }
+    }
+    return $projects_count === 0;
+}

@@ -6,8 +6,10 @@
 if( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if (is_array($args) && array_key_exists("works", $args) && !empty($args['works']) && !empty(array_merge(...$args['works']))):
-if(array_key_exists("title",array_merge(...$args['works'])) && empty(array_merge(...$args['works'])['title'])) return;
+
+
+
+if (is_array($args) && array_key_exists("works", $args) && !empty($args['works']) && !empty(array_merge(...$args['works'])) && !simplecharm_portfolio_works_blank($args['works'])):
 
 ?>
 	<div class="project-title my-3 flex flex-col items-center">
