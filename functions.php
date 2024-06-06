@@ -5,10 +5,10 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
-if (!defined("SIMPLECHARMPORTFOLIO_DIR_PATH")) {
+if (!defined("SIMPLECHARM_PORTFOLIO_DIR_PATH")) {
     define("SIMPLECHARM_PORTFOLIO_DIR_PATH", untrailingslashit(get_template_directory()));
 }
-if (!defined("SIMPLECHARMPORTFOLIO_DIR_URI")) {
+if (!defined("SIMPLECHARM_PORTFOLIO_DIR_URI")) {
     define("SIMPLECHARM_PORTFOLIO_DIR_URI", untrailingslashit(get_template_directory_uri()));
 }
 require_once SIMPLECHARM_PORTFOLIO_DIR_PATH.'/inc/helpers/autoload.php';

@@ -3,22 +3,8 @@
  */
 @forward "./tailwindcss/tailwindcss";
 @forward "./components/fonts";
-@forward "./components/skills";
-@forward "./components/bottom-alert";
 @forward "./required";
 @forward "./components/header";
 @forward "./components/author-page";
-@forward "./components/projects";
 @forward "./components/button";
-@forward "./components/animations";
 @forward "./components/forms";
-/**
- * Import FontAwesome
- */
- // core
- // @import "../lib/scss/fontawesome.scss";
- // // solid and brands
- // @import '../lib/scss/solid.scss';
- // @import '../lib/scss/brands.scss';
-
- // admin styles
