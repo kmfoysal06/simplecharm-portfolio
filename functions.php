@@ -16,4 +16,7 @@ require_once SIMPLECHARM_PORTFOLIO_DIR_PATH.'/inc/helpers/template-tags.php';
 function simplecharm_portfolio_get_instance(){
     return \SIMPLECHARM_PORTFOLIO\Inc\Classes\Simplecharm_Portfolio::get_instance();
 }
+if(function_exists('simplecharm_portfolio_admin_notices')){
+    simplecharm_portfolio_admin_notices();
+}
 simplecharm_portfolio_get_instance();
