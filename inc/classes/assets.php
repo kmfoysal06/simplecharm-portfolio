@@ -21,8 +21,6 @@ class Assets
         add_action("wp_enqueue_scripts", [$this, 'enqueue_scripts']);
         // enqueue styles
         add_action("wp_enqueue_scripts", [$this, 'enqueue_styles']);
-        add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_styles']);
-        add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
     }
     public function enqueue_scripts()
     {
@@ -41,22 +39,6 @@ class Assets
         // enqueue styles
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_main');
         wp_enqueue_style('SIMPLECHARM_PORTFOLIO_tailwindcss');
-        wp_enqueue_style('dashicons');
-    }
-    public function admin_enqueue_styles()
-    {
-        wp_register_style('SIMPLECHARM_PORTFOLIO_admin', SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/css/admin.css',[], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/css/admin.css'), 'all');
-        if (is_admin()) {
-            wp_enqueue_style("SIMPLECHARM_PORTFOLIO_admin");
-        }
-    }
-    public function admin_enqueue_scripts()
-    {
-        wp_register_script("SIMPLECHARM_PORTFOLIO_admin", SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/js/admin.js', [], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/js/admin.js'), true);
-        //admin only scripts
-        if (is_admin()) {
-            wp_enqueue_script("SIMPLECHARM_PORTFOLIO_admin");
-        }
     }
 
 }

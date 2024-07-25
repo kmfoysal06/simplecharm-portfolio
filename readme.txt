@@ -3,7 +3,7 @@ Contributors: kmfoysal06
 Requires at least: 5.0
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Text Domain: simplecharm-portfolio
 Author URI: http://profiles.wordpress.org/kmfoysal06
 License: GPLv2 or later

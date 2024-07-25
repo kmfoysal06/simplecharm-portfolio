@@ -15,6 +15,8 @@ const BUILD_DIR = path.resolve(__dirname, 'build')
 const entry = {
   main: JS_DIR + '/main.js',
   admin: JS_DIR + '/admin.js',
+  editor: JS_DIR + "/editor.js",
+  blocks: JS_DIR + "/blocks.js",
 }
 
 const output = {
