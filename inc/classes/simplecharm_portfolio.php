@@ -14,6 +14,7 @@ class Simplecharm_Portfolio{
         Assets::get_instance();
         Menus::get_instance();
         Block_Patterns::get_instance();
+        Block_Styles::get_instance();
 	}
 	public function setup_hook(){
 		//all action and hook registration here
