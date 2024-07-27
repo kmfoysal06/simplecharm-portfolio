@@ -23,7 +23,7 @@ class Block_Styles{
 	        'core/column', // The block to which the style applies.
 	        array(
 	            'name'         => 'simplecharm_portfolio-skill-button',
-	            'label'        => __( 'Skill Button', 'simplecharm-portfolio' ),
+	            'label'        => __( 'Skill Buttons Container', 'simplecharm-portfolio' ),
 	            'style_handle' => 'simplecharm_portfolio-editor',
 	        )
 	    );

@@ -41,6 +41,17 @@ class Block_Patterns{
             'categories' => ['simplecharm_portfolio'],
             'content' => $this->get_pattern_content("template-parts/patterns/aboutme")
         ]);
+
+                /**
+         * Skills Pattern
+         */
+        register_block_pattern("simplecharm_portfolio/skills",
+        [
+            'title' => __("Portfolio Skills",'simplecharm-portfolio'),
+            'description' => __("Pattern For Skills List"),
+            'categories' => ['simplecharm_portfolio'],
+            'content' => $this->get_pattern_content("template-parts/patterns/skills")
+        ]);
         }
     }
     public function get_pattern_content($patter_path){
