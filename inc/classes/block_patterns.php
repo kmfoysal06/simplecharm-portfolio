@@ -42,7 +42,7 @@ class Block_Patterns{
             'content' => $this->get_pattern_content("template-parts/patterns/aboutme")
         ]);
 
-                /**
+        /**
          * Skills Pattern
          */
         register_block_pattern("simplecharm_portfolio/skills",
@@ -51,6 +51,28 @@ class Block_Patterns{
             'description' => __("Pattern For Skills List"),
             'categories' => ['simplecharm_portfolio'],
             'content' => $this->get_pattern_content("template-parts/patterns/skills")
+        ]);
+
+        /**
+         * Experience Pattern
+         */
+        register_block_pattern("simplecharm_portfolio/experience",
+        [
+            'title' => __("Portfolio Experience",'simplecharm-portfolio'),
+            'description' => __("Pattern For Experience ShowCase Card"),
+            'categories' => ['simplecharm_portfolio'],
+            'content' => $this->get_pattern_content("template-parts/patterns/experience")
+        ]);
+
+        /**
+         * Project Card Pattern
+         */
+        register_block_pattern("simplecharm_portfolio/project_card",
+        [
+            'title' => __("Portfolio Project Card",'simplecharm-portfolio'),
+            'description' => __("Pattern For Project ShowCase Card"),
+            'categories' => ['simplecharm_portfolio'],
+            'content' => $this->get_pattern_content("template-parts/patterns/project-card")
         ]);
         }
     }

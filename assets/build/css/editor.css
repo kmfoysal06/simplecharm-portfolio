@@ -1,18 +1,36 @@
 /*!*********************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/editor.scss ***!
   \*********************************************************************************************************************************************************/
+.CHARMING_PORTFOLIO_primary-image-container {
+  position: relative;
+}
+.CHARMING_PORTFOLIO_primary-image-container figure:nth-child(1) img {
+  position: relative;
+  z-index: 1;
+}
+.CHARMING_PORTFOLIO_primary-image-container figure:nth-child(2) img {
+  position: absolute;
+  top: -10%;
+  left: 5%;
+  filter: blur(5px);
+}
+
 .wp-block-column.is-style-simplecharm_portfolio-skill-button {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
 }
+
 @media (min-width: 768px) {
   .wp-block-column.is-style-simplecharm_portfolio-skill-button {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
 @media (min-width: 1024px) {
   .wp-block-column.is-style-simplecharm_portfolio-skill-button {
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -41,22 +59,228 @@
   text-shadow: 2px 2px 2px #e0a;
 }
 
-.CHARMING_PORTFOLIO_primary-image-container {
-  position: relative;
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: grid;
+  padding: 0.5rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.CHARMING_PORTFOLIO_primary-image-container figure:nth-child(1) img {
-  position: relative;
-  z-index: 1;
+
+@media (min-width: 640px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
-.CHARMING_PORTFOLIO_primary-image-container figure:nth-child(2) img {
-  position: absolute;
-  top: -10%;
-  left: 5%;
-  filter: blur(5px);
+
+@media (min-width: 768px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+@media (min-width: 640px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card h2 {
+    text-align: center;
+  }
+}
+@media (min-width: 768px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card h2 {
+    text-align: left;
+  }
+}
+@media (min-width: 1024px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card h2 {
+    text-align: left;
+  }
+}
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card .wp-block-column:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card .wp-block-column:nth-child(3) {
+    grid-column: span 2 / span 2;
+  }
+}
+@media (min-width: 1024px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card .wp-block-column:nth-child(3) {
+    grid-column: auto;
+  }
+}
+
+.wp-block-column.is-style-simplecharm_portfolio-project-card {
+  margin: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.75rem;
+  padding: 1.5rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card h2 {
+  font-size: 3rem;
+  line-height: 1;
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-button a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 200ms;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 0.563rem;
+  padding-right: 0.563rem;
+  border-radius: var(--rounded-badge, 1.9rem);
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+}
+:where(.menu li) .wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-button a {
+  justify-self: end;
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-button a {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-n,oklch(var(--n)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
+}
+.badge-outline.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-button a {
+  --tw-text-opacity: 1;
+  color: var(--fallback-n,oklch(var(--n)/var(--tw-text-opacity)));
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-button a {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  padding: 1rem;
+}
+
+.wp-block-column.is-style-simplecharm_portfolio-footer {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wp-block-column.is-style-simplecharm_portfolio-footer h2 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+@media (min-width: 768px) {
+  .wp-block-column.is-style-simplecharm_portfolio-footer h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .wp-block-column.is-style-simplecharm_portfolio-footer h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 hr.wp-block-separator {
   margin: 5px 0;
+}
+
+p.is-style-simplecharm_portfolio-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 200ms;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 0.563rem;
+  padding-right: 0.563rem;
+  border-radius: var(--rounded-badge, 1.9rem);
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+}
+
+:where(.menu li) p.is-style-simplecharm_portfolio-badge {
+  justify-self: end;
+}
+
+p.is-style-simplecharm_portfolio-badge {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-n,oklch(var(--n)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
+}
+
+p.badge-outline.is-style-simplecharm_portfolio-badge {
+  --tw-text-opacity: 1;
+  color: var(--fallback-n,oklch(var(--n)/var(--tw-text-opacity)));
+}
+
+p.is-style-simplecharm_portfolio-badge {
+  padding: 0.5rem;
 }
 
 /*# sourceMappingURL=editor.css.map*/
