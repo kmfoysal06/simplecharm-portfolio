@@ -14,7 +14,7 @@
 <!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:image {"id":2094,"width":"412px","height":"auto","sizeSlug":"large","linkDestination":"none","align":"center","className":"is-style-default"} -->
-<figure class="wp-block-image aligncenter size-large is-resized is-style-default"><img src="http://localhost/wp-content/uploads/2024/03/429847559_439140521802846_6891723555410611842_n-1024x768.jpg" alt="" class="wp-image-2094" style="width:412px;height:auto"/></figure>
+<figure class="wp-block-image aligncenter size-large is-resized is-style-default"><img src="<?php echo SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/build/img/simplecharm-default-avatar.jpg";?>" alt="" class="wp-image-2094" style="width:412px;height:auto"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 

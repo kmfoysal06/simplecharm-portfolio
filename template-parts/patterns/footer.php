@@ -10,15 +10,15 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"textAlign":"center"} -->
-<h2 class="wp-block-heading has-text-align-center">foysalkazimd01@gmail.com</h2>
+<h2 class="wp-block-heading has-text-align-center">abcd@gmail.com</h2>
 <!-- /wp:heading -->
 
 <!-- wp:heading {"textAlign":"center"} -->
-<h2 class="wp-block-heading has-text-align-center">01789377850</h2>
+<h2 class="wp-block-heading has-text-align-center">01000000000</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">You may also find me on these platforms!<a href="https://www.facebook.com/kazimd.foysal.01"></a><a href="https://profiles.wordpress.org/kmfoysal06/"></a><a href="https://youtube.com/@kmfoysal06"></a></p>
+<p class="has-text-align-center">You may also find me on these platforms!<a href="https://www.facebook.com"></a><a href="https://profiles.wordpress.org/"></a><a href="https://youtube.com/"></a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:social-links {"className":"is-style-default py-2","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"}} -->

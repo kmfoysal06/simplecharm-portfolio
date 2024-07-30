@@ -12,27 +12,27 @@
 
 <!-- wp:column {"className":"is-style-simplecharm_portfolio-skill-button"} -->
 <div class="wp-block-column is-style-simplecharm_portfolio-skill-button"><!-- wp:heading -->
-<h2 class="wp-block-heading">javascript</h2>
+<h2 class="wp-block-heading">Skill 1</h2>
 <!-- /wp:heading -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">PHP</h2>
+<h2 class="wp-block-heading">Skill 2</h2>
 <!-- /wp:heading -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Wordpress Theme</h2>
+<h2 class="wp-block-heading">Skill 3</h2>
 <!-- /wp:heading -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Wordpress Plugin</h2>
+<h2 class="wp-block-heading">Skill 4</h2>
 <!-- /wp:heading -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">SAAS</h2>
+<h2 class="wp-block-heading">Skill 5</h2>
 <!-- /wp:heading -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">MYSQL</h2>
+<h2 class="wp-block-heading">Skill 6</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:column -->
 

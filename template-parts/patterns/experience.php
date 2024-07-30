@@ -17,13 +17,13 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Returns An Array Of&nbsp;<strong>Project List</strong>&nbsp;In Easy To Iterate Format.For Using The Complex Projects List Array That Stored In Database In A Complex Array 'Format'. --- Returns An Array Of Project List In Easy To Iterate Format. --- For Using The Complex Projects List Array That Stored In Database In A Complex Array Format. --- Returns An Array Of Project List.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum vel nihil tempora quae ullam, dolorum magni voluptatem vero accusantium consequuntur, expedita. Doloremque eligendi soluta, excepturi voluptates aperiam sapiente deserunt, veritatis?Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing, elit. Reiciendis, quia.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Jul 2024 - Jul 2024<br></p>
+<p class="has-text-align-center">Jul 2024 - Present<br></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
