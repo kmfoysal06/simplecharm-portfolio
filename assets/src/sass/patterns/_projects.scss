@@ -1,0 +1,9 @@
+.wp-block-column.is-style-simplecharm_portfolio-project-card{
+	@apply flex flex-col my-4 gap-y-7 p-6 shadow-2xl m-2;
+	h2{
+		@apply text-5xl;
+	}
+	.wp-block-button a{
+		@apply min-w-max badge badge-neutral p-4 mx-2 my-2;
+	}
+}

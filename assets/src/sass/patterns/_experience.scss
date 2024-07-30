@@ -1,0 +1,12 @@
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card{
+	@apply grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 p-2 my-2 shadow-2xl;
+	h1{
+		@apply text-5xl;
+	}
+	h2{
+		@apply text-2xl lg:text-left md:text-left sm:text-center;
+	}
+	.wp-block-column:nth-child(3){
+		@apply flex justify-center items-center lg:col-auto md:col-span-2;
+	}
+}

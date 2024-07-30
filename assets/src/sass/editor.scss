@@ -1,0 +1,12 @@
+@forward "./patterns/intro";
+@forward "./patterns/skill-button";
+@forward "./patterns/experience";
+@forward "./patterns/projects";
+@forward "./patterns/footer";
+
+hr.wp-block-separator{
+	margin: 5px 0;
+}
+p.is-style-simplecharm_portfolio-badge{
+	@apply badge badge-neutral p-2;
+}

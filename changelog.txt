@@ -16,3 +16,6 @@
 - Added Conditional Statement to Prevent User if They Try to Access Any PHP Page Directly
 -Fixed Navbar Related Issues.
 -Fixed Projects Showcase Issue In Front Page
+=== v1.0.5 ==
+- Moved All Plugin Functionality
+- Removed All FrontPage Style That Moved To The Plugin
