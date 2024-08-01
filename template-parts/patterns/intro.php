@@ -8,7 +8,7 @@
 <!-- wp:columns -->
 <div class="wp-block-columns simplecharm-portfolio-basic-intro-column-pattern grid grid-cols-1 text-center lg:text-justify lg:grid-cols-2 lg:grid-flow-col-reverse p-4 bg-base-400 min-h-screen"><!-- wp:column -->
 <div class="wp-block-column CHARMING_PORTFOLIO_primary-image-container"><!-- wp:image {"id":2400,"sizeSlug":"medium","linkDestination":"none","align":"center","className":"is-style-default"} -->
-<figure class="wp-block-image aligncenter size-medium is-style-default"><img src="<?php echo SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/build/img/simplecharm-default-avatar.jpg";?>" alt="" class="wp-image-2400"/></figure>
+<figure class="wp-block-image aligncenter size-medium is-style-default"><img src="<?php echo SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/build/img/simplecharm-default-avater.jpg";?>" alt="" class="wp-image-2400"/></figure>
 <!-- /wp:image -->
 </div>
 <!-- /wp:column -->
