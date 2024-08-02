@@ -1,4 +1,9 @@
-<?php ?>
+<?php 
+/**
+ * Pattern For Ideal Footer
+ * @package SimpleCharm Portfolio
+ */
+?>
 <!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"width":"100%","className":"is-style-simplecharm_portfolio-footer"} -->
 <div class="wp-block-column is-style-simplecharm_portfolio-footer" style="flex-basis:100%"><!-- wp:paragraph {"className":"is-style-simplecharm_portfolio-badge"} -->

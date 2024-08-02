@@ -48,7 +48,7 @@ class Block_Patterns{
         register_block_pattern("simplecharm_portfolio/skills",
         [
             'title' => __("Portfolio Skills",'simplecharm-portfolio'),
-            'description' => __("Pattern For Skills List"),
+            'description' => __("Pattern For Skills List","simplecharm-portfolio"),
             'categories' => ['simplecharm_portfolio'],
             'content' => $this->get_pattern_content("template-parts/patterns/skills")
         ]);
@@ -59,7 +59,7 @@ class Block_Patterns{
         register_block_pattern("simplecharm_portfolio/experience",
         [
             'title' => __("Portfolio Experience",'simplecharm-portfolio'),
-            'description' => __("Pattern For Experience ShowCase Card"),
+            'description' => __("Pattern For Experience ShowCase Card","simplecharm-portfolio"),
             'categories' => ['simplecharm_portfolio'],
             'content' => $this->get_pattern_content("template-parts/patterns/experience")
         ]);
@@ -70,7 +70,7 @@ class Block_Patterns{
         register_block_pattern("simplecharm_portfolio/project_card",
         [
             'title' => __("Portfolio Project Card",'simplecharm-portfolio'),
-            'description' => __("Pattern For Project ShowCase Card"),
+            'description' => __("Pattern For Project ShowCase Card", "simplecharm-portfolio"),
             'categories' => ['simplecharm_portfolio'],
             'content' => $this->get_pattern_content("template-parts/patterns/project-card")
         ]);
@@ -81,7 +81,7 @@ class Block_Patterns{
         register_block_pattern("simplecharm_portfolio/footer",
         [
             'title' => __("Portfolio Footer",'simplecharm-portfolio'),
-            'description' => __("Pattern For Footer"),
+            'description' => __("Pattern For Footer","simplecharm-portfolio"),
             'categories' => ['simplecharm_portfolio'],
             'content' => $this->get_pattern_content("template-parts/patterns/footer")
         ]);
