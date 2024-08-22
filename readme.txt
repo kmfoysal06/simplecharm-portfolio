@@ -20,18 +20,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 License: CCO https://creativecommons.org/publicdomain/zero/1.0/
 simplecharm-default-avater.jpg - https://www.flickr.com/photos/132795455@N08/24308979032
 
-=== Design ===
-Front Page Design
-License: MIT License (Excluding Images)
-The design for front-page, excluding images, is licensed under the MIT License.
-
-design github: https://github.com/shahsagarm/sagarshah.dev
-design figma: https://www.figma.com/community/file/1262992249991763120/Personal-Portfolio-Website-Template-%7C-Mobile-%26-Desktop
-
 
 == Icons ==
 All Icons Used From Dashicons.
 https://developer.wordpress.org/resource/dashicons/
+
+== Font ==
+Name: Inter
+License: SIL Open Font License, 1.1
 
 == Library and Frameworks ==
 Licnse:

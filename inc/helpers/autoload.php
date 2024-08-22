@@ -3,7 +3,12 @@
  * Class File Autoloader
  * @package Aquila
  */
+if(!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 spl_autoload_register('simplecharm_portfolio_autoloader');
+
 function simplecharm_portfolio_autoloader($class) {
 	$namespace = 'SIMPLECHARM_PORTFOLIO';
  

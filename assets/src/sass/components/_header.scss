@@ -1,5 +1,5 @@
 // header navigation menu
-.simplecharm-portfolio-header {
+.simplecharm-portfolio-header, .menu-item-has-children {
     position: relative;
 }
 nav.simplecharm-portfolio-main-navigation ul {
@@ -29,7 +29,7 @@ nav.simplecharm-portfolio-main-navigation ul li a{
 nav.simplecharm-portfolio-main-navigation ul .sub-menu {
     position: absolute;
     top: 100%;
-    left: -50%;
+    left: 0%;
     z-index: 12;
     display:flex;
     opacity:0;
@@ -49,7 +49,7 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus{
     transform: translateY(-50%);
 }
 #simplecharm-portfolio-navigation .menu:first-child{
-    display: unset;
+    display: flex;
 }
 // styles for medium devices 760px
 @media screen and (max-width: 760px) {
@@ -65,7 +65,10 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus{
         display: none;
     }
     #simplecharm-portfolio-navigation .menu:first-child{
-        display: flex;
+        flex-direction: column;
+    }
+    nav.simplecharm-portfolio-main-navigation ul .sub-menu {
+        top: 100%;
     }
 }
 @media screen and (min-width: 761px) {

@@ -5,6 +5,10 @@
  * @since 1.0
  */
 
+if(!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 // is the charming portfolio activated or not
 if(!function_exists('simplecharm_portfolio_admin_notices')){
 	function simplecharm_portfolio_admin_notices(){

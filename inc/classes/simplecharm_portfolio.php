@@ -4,6 +4,11 @@
  * @package Simplecharm_Portfolio
  */
 namespace SIMPLECHARM_PORTFOLIO\Inc\Classes;
+
+if(!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 use SIMPLECHARM_PORTFOLIO\Inc\Traits\Singleton;
 class Simplecharm_Portfolio{
     use Singleton;

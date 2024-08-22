@@ -4,6 +4,11 @@
  * @package SimpleCharm Portfolio
  */
 namespace SIMPLECHARM_PORTFOLIO\Inc\Classes;
+
+if(!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 use SIMPLECHARM_PORTFOLIO\Inc\Traits\Singleton;
 class Menus{
     use Singleton;
