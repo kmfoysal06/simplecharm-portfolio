@@ -68,18 +68,6 @@ const rules = [
       }
     }
   },
-  {
-    test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-    exclude: [IMG_DIR, /node_modules/],
-    use: {
-      loader: 'file-loader',
-      options: {
-        name: '[path][name].[ext]',
-        outputPath: 'fonts/',
-        publicPath: 'production' === process.env.NODE_ENV ? '../' : '../../'
-      }
-    }
-  }
 ]
 
 /**
@@ -116,3 +104,22 @@ module.exports = (env, argv) => ({
     jquery: 'jQuery'
   }
 })
+
+
+
+
+
+
+// loader to load font (unused but might be used letter)
+  // {
+  //   test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+  //   exclude: [IMG_DIR, /node_modules/],
+  //   use: {
+  //     loader: 'file-loader',
+  //     options: {
+  //       name: '[path][name].[ext]',
+  //       outputPath: 'fonts/',
+  //       publicPath: 'production' === process.env.NODE_ENV ? '../' : '../../'
+  //     }
+  //   }
+  // }
