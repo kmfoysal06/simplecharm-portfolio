@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/sass/editor.scss":
-/*!******************************!*\
-  !*** ./src/sass/editor.scss ***!
-  \******************************/
+/***/ "./src/sass/tailwindcss.scss":
+/*!***********************************!*\
+  !*** ./src/sass/tailwindcss.scss ***!
+  \***********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -56,13 +56,14 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 !function() {
-/*!**************************!*\
-  !*** ./src/js/editor.js ***!
-  \**************************/
+/*!*******************************!*\
+  !*** ./src/js/tailwindcss.js ***!
+  \*******************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _sass_editor_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/editor.scss */ "./src/sass/editor.scss");
+/* harmony import */ var _sass_tailwindcss_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/tailwindcss.scss */ "./src/sass/tailwindcss.scss");
+//import tailwind
 
 }();
 /******/ })()
 ;
-//# sourceMappingURL=editor.js.map
+//# sourceMappingURL=tailwindcss.js.map

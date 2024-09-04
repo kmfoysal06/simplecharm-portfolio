@@ -1,0 +1,9 @@
+.simplecharm-portfolio-aboutme {
+    @apply flex flex-col;
+    h3 {
+        @apply text-xl;
+    }
+    .simplecharm-portfolio-aboutme-inner {
+        @apply hero-content sm:flex-col md:flex-row lg:flex-row sm:justify-between md:justify-between lg:justify-between;
+    }
+}

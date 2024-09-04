@@ -29,8 +29,22 @@
 }
 .sticky {
     border: 1px solid #dd0101;
-    border-left-width:5px;
     padding: 10px;
+    position: relative;
+}
+.sticky::before{
+    content: "\f109";
+    font-family: 'Dashicons';
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.sticky:hover::before{
+    content:'pinned';
+    position: absolute;
+    background-color: red;
+    color: white;
+    padding:5px;
 }
 .sticky img {
     margin: 0;
@@ -171,4 +185,35 @@ a img.aligncenter {
 }
 .footer-copyright p{
     color: #111721;
+}
+.simplecharm-portfolio-single-post-tags, .simplecharm-portfolio-single-post-cats {
+    border: 2px solid;
+    padding: 10px;
+    margin: 5px 0;
+}
+.nav-links .page-numbers {
+    border: 1px solid;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px 0;
+}
+.nav-links a{
+    text-decoration: underline;
+}
+.simplecharm-portfolio-blogs{
+    align-items: normal;
+}
+.simplecharm-portfolio-single-post-content{
+    p,span,cite,h1,h2,h3,h4,h5,h6{
+        color: #000;
+    }
+    .post-meta{
+        margin: 10px 0;
+    }
+}
+.site-footer{
+    @apply w-full bg-gray-400 text-white py-3 text-center;
+}
+.simplecharm-portfolio-single-post{
+    @apply m-2;
 }

@@ -1,7 +1,6 @@
 /**
- * Import TailwindCss
+ * Import Styles
  */
-@forward "./tailwindcss/tailwindcss";
 @forward "./components/fonts";
 @forward "./required";
 @forward "./components/header";
@@ -9,3 +8,4 @@
 @forward "./components/button";
 @forward "./components/forms";
 @forward "./components/comments";
+@forward "./patterns/index";

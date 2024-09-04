@@ -16,6 +16,7 @@ const entry = {
   main: JS_DIR + '/main.js',
   admin: JS_DIR + '/admin.js',
   editor: JS_DIR + "/editor.js",
+  tailwindcss: JS_DIR + "/tailwindcss.js",
 }
 
 const output = {

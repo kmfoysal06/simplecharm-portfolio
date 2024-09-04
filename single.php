@@ -20,11 +20,11 @@ get_header();
 		<?php
 	else:
 	?>
-<article id="post-<?php the_ID(); ?>" <?php post_class("simplecharm-portfolio-single-post m-3 p-3"); ?>>
-	<h2 class="simplecharm-portfolio-single-post-title text-3xl my-1">
-		<?php echo apply_filters('the_title', sanitize_text_field(get_the_title())); ?>
-	</h2>
-	<div class="simplecharm-portfolio-single-post-content">
+<article id="post-<?php the_ID(); ?>" <?php post_class("simplecharm-portfolio-single-post m-3 p-3 simplecharm-portfolio-single-post-content"); ?>>
+	<div class="post-meta">
+		<h2 class="simplecharm-portfolio-single-post-title text-3xl my-1">
+			<?php echo apply_filters('the_title', sanitize_text_field(get_the_title())); ?>
+		</h2>
 		<p class="simplecharm-portfolio-single-post-modified">
 			<span>
 			<?php echo __("Last Modified:- ".get_the_modified_date(),"simplecharm-portfolio"); ?> 
@@ -35,7 +35,10 @@ get_header();
 				<?php echo __("Author:- ".get_the_author_posts_link(),"simplecharm-portfolio"); ?>
 			</span>
 		</p>
-		<p class="my-3"><?php echo apply_filters('the_content', wp_kses_post(get_the_content())); ?></p>
+	</div>
+		<div class="post-content">
+			<p class="my-3"><?php echo apply_filters('the_content', wp_kses_post(get_the_content())); ?></p>
+		</div>
 		 <?php 
             wp_link_pages(array(
                 'before' => '<div class="page-links">'.esc_html__( 'Pages','simplecharm-portfolio' ).'',
@@ -47,10 +50,9 @@ get_header();
 				<?php esc_html__(the_tags()); ?>
 			</div>
 		<?php endif; ?>
-        <div class="link-wrapper">
+        <div class="simplecharm-portfolio-single-post-cats link-wrapper">
         	category : <?php echo wp_kses_post(get_the_category_list(', ')); ?>
         </div>
-	</div>
 </article>
 <div class="comment-respond wp-block-post-comments-form">
     <?php comments_template(); ?>

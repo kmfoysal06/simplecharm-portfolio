@@ -1,5 +1,6 @@
-.CHARMING_PORTFOLIO_primary-image-container{
+div.wp-block-column.CHARMING_PORTFOLIO_primary-image-container{
     position: relative;
+    margin: auto;
 	figure:nth-child(1) img{
 	    position:relative;
 	    z-index:1;
@@ -10,4 +11,7 @@
 	    left: 5%;
 	    filter: blur(5px);
 	}
+}
+div.wp-block-column.CHARMING_PORTFOLIO_primary-text-container{
+	margin: auto;
 }

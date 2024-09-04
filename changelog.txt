@@ -22,3 +22,5 @@
 === v1.0.6 ===
 - Fixed Empty Navigation Icon Appearing Issue in Mobile Devices
 - Improved Homepage and Post Page Design
+== v1.0.7 ==
+- Imroved Design

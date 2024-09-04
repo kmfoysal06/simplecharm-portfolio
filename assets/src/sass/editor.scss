@@ -1,9 +1,8 @@
-@forward "./patterns/intro";
-@forward "./patterns/skill-button";
-@forward "./patterns/experience";
-@forward "./patterns/projects";
-@forward "./patterns/footer";
+@forward "./patterns/index";
 
+.block-editor-page{
+	background: #000;
+}
 hr.wp-block-separator{
 	margin: 5px 0;
 }
