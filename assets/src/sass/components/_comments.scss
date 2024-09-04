@@ -38,4 +38,13 @@
     color: currentColor;
     padding: 5px;
     border: 1px solid #000;
+    display: block;
+    width: 55px;
+    margin: 5px 0;
+}
+.comments-area{
+    margin:10px 5px;
+    p,span,h1,h2{
+        color: #000;
+    }
 }

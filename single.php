@@ -47,7 +47,7 @@ get_header();
 				<?php esc_html__(the_tags()); ?>
 			</div>
 		<?php endif; ?>
-        <div class="link-wrapper">
+        <div class="simplecharm-portfolio-single-post-cats link-wrapper">
         	category : <?php echo wp_kses_post(get_the_category_list(', ')); ?>
         </div>
 	</div>

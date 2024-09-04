@@ -37,7 +37,9 @@ if (have_posts()) :
 </div>
 <?php
     endwhile;
-?> </div> <?php
+?> 
+</div> 
+<?php
     the_posts_navigation();
     echo '</div>';
 else:

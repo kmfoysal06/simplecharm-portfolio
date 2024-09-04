@@ -20,6 +20,7 @@ class Simplecharm_Portfolio{
         Menus::get_instance();
         Block_Patterns::get_instance();
         Block_Styles::get_instance();
+        Meta_Boxes::get_instance();
 	}
 	public function setup_hook(){
 		//all action and hook registration here
