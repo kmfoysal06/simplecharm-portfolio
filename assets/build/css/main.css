@@ -44,8 +44,24 @@
 
 .sticky {
   border: 1px solid #dd0101;
-  border-left-width: 5px;
   padding: 10px;
+  position: relative;
+}
+
+.sticky::before {
+  content: "\f109";
+  font-family: "Dashicons";
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.sticky:hover::before {
+  content: "pinned";
+  position: absolute;
+  background-color: red;
+  color: white;
+  padding: 5px;
 }
 
 .sticky img {
@@ -212,6 +228,7 @@ a img.aligncenter {
 .simplecharm-portfolio-single-post-tags, .simplecharm-portfolio-single-post-cats {
   border: 2px solid;
   padding: 10px;
+  margin: 5px 0;
 }
 
 .nav-links .page-numbers {
@@ -231,6 +248,9 @@ a img.aligncenter {
 
 .simplecharm-portfolio-single-post-content p, .simplecharm-portfolio-single-post-content span, .simplecharm-portfolio-single-post-content cite, .simplecharm-portfolio-single-post-content h1, .simplecharm-portfolio-single-post-content h2, .simplecharm-portfolio-single-post-content h3, .simplecharm-portfolio-single-post-content h4, .simplecharm-portfolio-single-post-content h5, .simplecharm-portfolio-single-post-content h6 {
   color: #000;
+}
+.simplecharm-portfolio-single-post-content .post-meta {
+  margin: 10px 0;
 }
 
 .site-footer {
@@ -467,6 +487,293 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
 }
 .comments-area p, .comments-area span, .comments-area h1, .comments-area h2 {
   color: #000;
+}
+
+div.wp-block-column.CHARMING_PORTFOLIO_primary-image-container {
+  position: relative;
+  margin: auto;
+}
+div.wp-block-column.CHARMING_PORTFOLIO_primary-image-container figure:nth-child(1) img {
+  position: relative;
+  z-index: 1;
+}
+div.wp-block-column.CHARMING_PORTFOLIO_primary-image-container figure:nth-child(2) img {
+  position: absolute;
+  top: -10%;
+  left: 5%;
+  filter: blur(5px);
+}
+
+div.wp-block-column.CHARMING_PORTFOLIO_primary-text-container {
+  margin: auto;
+}
+
+.wp-block-column.is-style-simplecharm_portfolio-skill-button {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .wp-block-column.is-style-simplecharm_portfolio-skill-button {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .wp-block-column.is-style-simplecharm_portfolio-skill-button {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.wp-block-column.is-style-simplecharm_portfolio-skill-button h2 {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  border: 1px solid rgb(216, 78, 39);
+  text-shadow: 2px 2px 2px #a0e;
+  height: 100%;
+}
+.wp-block-column.is-style-simplecharm_portfolio-skill-button h2:hover, .wp-block-column.is-style-simplecharm_portfolio-skill-button h2:focus {
+  border-color: rgb(29, 78, 216);
+  text-shadow: 2px 2px 2px #e0a;
+}
+
+.simplecharm-portfolio-skills {
+  justify-content: center;
+  gap: 0.25rem;
+}
+.simplecharm-portfolio-skills h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: grid;
+  padding: 0.5rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+@media (min-width: 640px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+@media (min-width: 640px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card h2 {
+    text-align: center;
+  }
+}
+@media (min-width: 768px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card h2 {
+    text-align: left;
+  }
+}
+@media (min-width: 1024px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card h2 {
+    text-align: left;
+  }
+}
+.wp-block-columns.is-style-simplecharm_portfolio-experience-card .wp-block-column:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card .wp-block-column:nth-child(3) {
+    grid-column: span 2 / span 2;
+  }
+}
+@media (min-width: 1024px) {
+  .wp-block-columns.is-style-simplecharm_portfolio-experience-card .wp-block-column:nth-child(3) {
+    grid-column: auto;
+  }
+}
+
+.wp-block-column.is-style-simplecharm_portfolio-project-card {
+  @grid lg:grid-cols-2 md:grid-cols-2 gap-x-4 my-3;
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-column {
+  margin: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.75rem;
+  padding: 1.5rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-column h2 {
+  font-size: 3rem;
+  line-height: 1;
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-column .wp-block-button a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 200ms;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 0.563rem;
+  padding-right: 0.563rem;
+  border-radius: var(--rounded-badge, 1.9rem);
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+}
+:where(.menu li) .wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-column .wp-block-button a {
+  justify-self: end;
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-column .wp-block-button a {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-n,oklch(var(--n)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
+}
+.badge-outline.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-column .wp-block-button a {
+  --tw-text-opacity: 1;
+  color: var(--fallback-n,oklch(var(--n)/var(--tw-text-opacity)));
+}
+.wp-block-column.is-style-simplecharm_portfolio-project-card .wp-block-column .wp-block-button a {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  padding: 1rem;
+}
+
+.wp-block-column.is-style-simplecharm_portfolio-footer {
+  margin-top: 0.5rem;
+  width: 100%;
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: -moz-max-content;
+  min-height: max-content;
+  gap: 1rem;
+}
+.wp-block-column.is-style-simplecharm_portfolio-footer h2 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+@media (min-width: 768px) {
+  .wp-block-column.is-style-simplecharm_portfolio-footer h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .wp-block-column.is-style-simplecharm_portfolio-footer h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.wp-block-columns.simplecharm_portfolio-footer-container {
+  flex-direction: column;
+}
+
+.simplecharm-portfolio-aboutme {
+  display: flex;
+  flex-direction: column;
+}
+.simplecharm-portfolio-aboutme h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.simplecharm-portfolio-aboutme .simplecharm-portfolio-aboutme-inner {
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80rem;
+  gap: 1rem;
+  padding: 1rem;
+}
+@media (min-width: 640px) {
+  .simplecharm-portfolio-aboutme .simplecharm-portfolio-aboutme-inner {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 768px) {
+  .simplecharm-portfolio-aboutme .simplecharm-portfolio-aboutme-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1024px) {
+  .simplecharm-portfolio-aboutme .simplecharm-portfolio-aboutme-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 /*# sourceMappingURL=main.css.map*/

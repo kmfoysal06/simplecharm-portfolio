@@ -5,16 +5,15 @@
  */
 ?>
 
-
 <!-- wp:columns -->
 <div class="wp-block-columns simplecharm-portfolio-basic-intro-column-pattern grid grid-cols-1 text-center lg:text-justify lg:grid-cols-2 lg:grid-flow-col-reverse p-4 bg-base-400 min-h-screen"><!-- wp:column {"className":"CHARMING_PORTFOLIO_primary-image-container"} -->
-<div class="wp-block-column CHARMING_PORTFOLIO_primary-image-container"><!-- wp:image {"id":2400,"sizeSlug":"medium","linkDestination":"none","align":"center","className":"is-style-default"} -->
-<figure class="wp-block-image aligncenter size-medium is-style-default"><img src="http://localhost/wp-content/themes/simplecharm-portfolio/assets/build/img/simplecharm-default-avater.jpg" alt="" class="wp-image-2400"/></figure>
+<div class="wp-block-column CHARMING_PORTFOLIO_primary-image-container"><!-- wp:image {"id":2510,"width":"320px","sizeSlug":"large","linkDestination":"none","className":"is-style-default"} -->
+<figure class="wp-block-image size-large is-resized is-style-default"><img src="http://localhost/wp-content/themes/simplecharm-portfolio/assets/build/img/simplecharm-default-avater.jpg" alt="" class="wp-image-2510" style="width:320px"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
-<!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading {"className":"text-3xl font-bold mt-4","style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"textColor":"black"} -->
+<!-- wp:column {"className":"CHARMING_PORTFOLIO_primary-text-container"} -->
+<div class="wp-block-column CHARMING_PORTFOLIO_primary-text-container"><!-- wp:heading {"className":"text-3xl font-bold mt-4","style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"textColor":"black"} -->
 <h2 class="wp-block-heading text-3xl font-bold mt-4 has-black-color has-text-color has-link-color">Hi, I'm Mr. ABC</h2>
 <!-- /wp:heading -->
 

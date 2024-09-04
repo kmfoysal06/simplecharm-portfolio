@@ -1275,8 +1275,15 @@ html {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
 .font-bold {
   font-weight: 700;
+}
+.uppercase {
+  text-transform: uppercase;
 }
 .text-black {
   --tw-text-opacity: 1;
@@ -1288,9 +1295,6 @@ html {
 }
 .underline {
   text-decoration-line: underline;
-}
-.decoration-black {
-  text-decoration-color: #000;
 }
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);

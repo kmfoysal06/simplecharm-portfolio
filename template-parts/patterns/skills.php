@@ -4,10 +4,10 @@
  * @package SimpleCharm Portfolio
  */
 ?>
-<!-- wp:columns {"verticalAlignment":null} -->
-<div class="wp-block-columns"><!-- wp:column {"width":"100%"} -->
+<!-- wp:columns {"verticalAlignment":null,"className":"simplecharm-portfolio-skills"} -->
+<div class="wp-block-columns simplecharm-portfolio-skills"><!-- wp:column {"width":"100%"} -->
 <div class="wp-block-column" style="flex-basis:100%"><!-- wp:heading {"textAlign":"center","level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"textColor":"black"} -->
-<h3 class="wp-block-heading has-text-align-center has-black-color has-text-color has-link-color">Curious about me? Here you have it:</h3>
+<h3 class="wp-block-heading has-text-align-center has-black-color has-text-color has-link-color">The skills, tools and technologies I am really good at:</h3>
 <!-- /wp:heading -->
 
 <!-- wp:column {"className":"is-style-simplecharm_portfolio-skill-button"} -->

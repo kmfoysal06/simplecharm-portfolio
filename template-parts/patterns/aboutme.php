@@ -5,16 +5,16 @@
  */
 ?>
 
-<!-- wp:columns {"verticalAlignment":null} -->
-<div class="wp-block-columns"><!-- wp:column {"width":"100%"} -->
+<!-- wp:columns {"className":"simplecharm-portfolio-aboutme"} -->
+<div class="wp-block-columns simplecharm-portfolio-aboutme"><!-- wp:column {"width":"100%"} -->
 <div class="wp-block-column" style="flex-basis:100%"><!-- wp:heading {"textAlign":"center","level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"textColor":"black"} -->
 <h3 class="wp-block-heading has-text-align-center has-black-color has-text-color has-link-color">Curious about me? Here you have it:</h3>
 <!-- /wp:heading -->
 
-<!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column -->
+<!-- wp:columns {"className":"simplecharm-portfolio-aboutme-inner"} -->
+<div class="wp-block-columns simplecharm-portfolio-aboutme-inner"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:image {"id":2094,"width":"412px","height":"auto","sizeSlug":"large","linkDestination":"none","align":"center","className":"is-style-default"} -->
-<figure class="wp-block-image aligncenter size-large is-resized is-style-default"><img src="http://localhost/wp-content/themes/simplecharm-portfolio/assets/build/img/simplecharm-default-avater.jpg" alt="" class="wp-image-2094" style="width:412px;height:auto"/></figure>
+<figure class="wp-block-image aligncenter size-large is-resized is-style-default"><img src="<?php echo SIMPLECHARM_PORTFOLIO_DIR_URI . "/assets/build/img/simplecharm-default-avater.jpg";?>" alt="" class="wp-image-2094" style="width:412px;height:auto"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 

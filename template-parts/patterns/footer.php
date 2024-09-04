@@ -4,8 +4,8 @@
  * @package SimpleCharm Portfolio
  */
 ?>
-<!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":"100%","className":"is-style-simplecharm_portfolio-footer"} -->
+<!-- wp:columns {"className":"simplecharm_portfolio-footer-container"} -->
+<div class="wp-block-columns simplecharm_portfolio-footer-container"><!-- wp:column {"width":"100%","className":"is-style-simplecharm_portfolio-footer"} -->
 <div class="wp-block-column is-style-simplecharm_portfolio-footer" style="flex-basis:100%"><!-- wp:paragraph {"className":"is-style-simplecharm_portfolio-badge","style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"textColor":"black"} -->
 <p class="is-style-simplecharm_portfolio-badge has-black-color has-text-color has-link-color">Get in Touch</p>
 <!-- /wp:paragraph -->

@@ -39,7 +39,7 @@ class Assets
     public function enqueue_styles()
     {
         // register styles
-        wp_register_style('SIMPLECHARM_PORTFOLIO_main', get_stylesheet_uri(), ['SIMPLECHARM_PORTFOLIO_compiled'], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/style.css'), 'all');
+        wp_register_style('SIMPLECHARM_PORTFOLIO_main', get_stylesheet_uri(), ['SIMPLECHARM_PORTFOLIO_compiled','dashicons'], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/style.css'), 'all');
         wp_register_style('SIMPLECHARM_PORTFOLIO_compiled', SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/css/main.css', [], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/css/main.css'), 'all');
         wp_register_style('SIMPLECHARM_PORTFOLIO_tailwindcss', SIMPLECHARM_PORTFOLIO_DIR_URI . '/assets/build/css/tailwindcss.css', [], filemtime(SIMPLECHARM_PORTFOLIO_DIR_PATH . '/assets/build/css/tailwindcss.css'), 'all');
 

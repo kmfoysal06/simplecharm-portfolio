@@ -5,8 +5,8 @@
  */
 ?>
 <!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":"100%"} -->
-<div class="wp-block-column" style="flex-basis:100%"><!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column {"width":"100%","className":"is-style-simplecharm_portfolio-project-card"} -->
+<div class="wp-block-column is-style-simplecharm_portfolio-project-card" style="flex-basis:100%"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:heading {"style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"textColor":"black"} -->
 <h2 class="wp-block-heading has-black-color has-text-color has-link-color">Project ABC</h2>
@@ -29,8 +29,8 @@
 <!-- /wp:columns --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"100%"} -->
-<div class="wp-block-column" style="flex-basis:100%"><!-- wp:columns -->
+<!-- wp:column {"width":"100%","className":"is-style-simplecharm_portfolio-project-card"} -->
+<div class="wp-block-column is-style-simplecharm_portfolio-project-card" style="flex-basis:100%"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:heading {"style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"textColor":"black"} -->
 <h2 class="wp-block-heading has-black-color has-text-color has-link-color">Project ABC</h2>

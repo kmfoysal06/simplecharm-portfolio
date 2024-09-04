@@ -40,7 +40,7 @@ class Meta_Boxes{
         $show_heading = get_post_meta($post->ID,'_simplecharm_portfolio_show_heading',true);
         ?>
         <input type="hidden" name="simplecharm_portfolio_show_heading_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
-        <label for="simplecharm_portfolio_show_heading">Show Heading</label>
+        <label title="<?php _e("if yes then the title will be shown as usual in this page.",'simplecharm-portfolio')?>" for="simplecharm_portfolio_show_heading"><?php _e("Show Heading Information",'simplecharm-portfolio')?></label>
         <select name="simplecharm_portfolio_show_heading" id="simplecharm_portfolio_show_heading">
             <option value="yes" <?php echo esc_attr($show_heading) === 'yes' ? 'selected' : ''; ?>>Yes</option>
             <option value="no" <?php echo esc_attr($show_heading) === 'no' ? 'selected' : ''; ?>>No</option>

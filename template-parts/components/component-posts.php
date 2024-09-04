@@ -21,9 +21,10 @@ if( ! defined( 'ABSPATH' ) ) {
 		<?php
 			endif;
 		?>
-	<?php if(have_posts()): ?>
+	<?php if(have_posts()):?>
 		<section class="simplecharm-portfolio-blogs grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-3"><?php
 		    while (have_posts()) : the_post();
+		    	if(!is_page()):
 		        ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		    <h3 class="text-2xl"><a
@@ -44,7 +45,7 @@ if( ! defined( 'ABSPATH' ) ) {
 		    <div class="post-content"><?php echo esc_html(get_the_excerpt()); ?></div>
 		</article>
 
-		<?php endwhile; ?>
+		<?php endif;endwhile; ?>
 </section>
 	<?php else: ?>
 		<div class="grid min-h-screen justify-center items-center">
