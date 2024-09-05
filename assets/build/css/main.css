@@ -272,12 +272,15 @@ a img.aligncenter {
   position: relative;
 }
 
+.menu {
+  flex-direction: row !important;
+  padding: 0 !important;
+}
+
 nav.simplecharm-portfolio-main-navigation ul {
   list-style: none;
   position: relative;
   margin: 0 0 5px 0;
-  transition: all 0.4s;
-  transition-delay: 0.2s;
   background: #fafafa;
 }
 
@@ -330,8 +333,8 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
 }
 
 @media screen and (max-width: 760px) {
-  .simplecharm-portfolio-navigation-toggler {
-    display: block;
+  .simplecharm-portfolio-navigation-toggler.hidden {
+    display: unset;
   }
   nav.simplecharm-portfolio-main-navigation ul li {
     display: block;
@@ -342,7 +345,7 @@ nav.simplecharm-portfolio-main-navigation ul li a:focus {
     display: none;
   }
   #simplecharm-portfolio-navigation .menu:first-child {
-    flex-direction: column;
+    flex-direction: column !important;
   }
   nav.simplecharm-portfolio-main-navigation ul .sub-menu {
     top: 100%;
