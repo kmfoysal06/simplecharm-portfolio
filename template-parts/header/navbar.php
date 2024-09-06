@@ -31,7 +31,7 @@ $menu = wp_nav_menu( [
                 <?php
                     if ( ! empty ( $menu ) ):
                 ?>
-                <a class="simplecharm-portfolio-navigation-toggler menu-toggler z-20 relative block hidden" href="#simplecharm-portfolio-navigation">
+                <a class="simplecharm-portfolio-navigation-toggler menu-toggler z-20 relative hidden" href="#simplecharm-portfolio-navigation">
                     <span class="dashicons dashicons-menu-alt3 z-20 text-black"></span>
                 </a>
             <?php endif; ?>
