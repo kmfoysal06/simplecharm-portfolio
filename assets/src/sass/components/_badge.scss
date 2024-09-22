@@ -1,0 +1,8 @@
+div.badge.badge-neutral{
+	color: #000;
+	background: #fff;
+	cursor: pointer;
+}
+div.badge.badge-neutral:hover{
+	filter: invert(100%);
+}

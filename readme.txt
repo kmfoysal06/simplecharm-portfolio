@@ -3,7 +3,7 @@ Contributors: kmfoysal06
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 Text Domain: simplecharm-portfolio
 Author URI: http://profiles.wordpress.org/kmfoysal06
 License: GPLv2 or later
@@ -30,8 +30,8 @@ Name: Inter
 License: SIL Open Font License, 1.1
 
 == Library and Frameworks ==
-Licnse:
 TailwindCss
+Licnse: Tailwindcss License ( https://tailwindui.com/license )
 
 == Installation ==
 1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.

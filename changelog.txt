@@ -24,3 +24,5 @@
 - Improved Homepage and Post Page Design
 == v1.0.7 ==
 - Imroved Design
+== v1.0.8 ==
+-Improved Design and Accessibility
